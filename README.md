@@ -1,31 +1,12 @@
-# VBScript Extension for Visual Studio Code
-This extension implements basic language features of Visual Basic Script/VBScript/VBS for [Visual Studio Code](https://code.visualstudio.com/).
-
-[![Version](https://vsmarketplacebadge.apphb.com/version/serpen.vbsvscode.svg)](https://marketplace.visualstudio.com/items?itemName=serpen.vbsvscode)
-[![Build status](https://ci.appveyor.com/api/projects/status/0i0hrbt657y8geef?svg=true)](https://ci.appveyor.com/project/Serpen/vbs-vscode)
+# Color Computer 3 Extended Color Basic 2.0 Extension for Visual Studio Code
+This extension implements basic language features of Color Computer 3 Super Extended Color Basic for [Visual Studio Code](https://code.visualstudio.com/).
 
 <p align="center">
   <span>English</span> | 
-  <a href="./README.de.md">Deutsch</a>
 </p>
 
 ## Features
-- Outline
-- Completion
 
-![Outline](assets/docs/Completion-And-Outline.png)
-- Goto Definition
-- Run (no debugging)
-- Hover 
-
-![Hover](assets/docs/Hover.png)
-
-- Signatures
-![Hover](assets/docs/Signature.png)
-
-- Color Information
-
-![Hover](assets/docs/ColorProvider.png)
 
 - Add extra VBS Source (libraries) files for extra completion
 ```
@@ -36,12 +17,17 @@ This extension implements basic language features of Visual Basic Script/VBScrip
 
 ## Contribute
 You can support this project through PR with your changes or simply add an issue with your idea/bug.
-- Complete Language Source Documentation #21
-- Translate
 - ...
 
-## References / Thanks
-This extension is based on the Visual Basic extension shipped with VS Code and the design from AutoIt Extension from loganch.
+## References
+
+https://github.com/Serpen/VBS-VSCode
+https://github.com/pedgarcia/language-cocobasic
+https://github.com/andymule/qb64-vscode
+https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide
+https://www.vintageisthenewold.com/trs-80-color-basic-using-atom-editor-giving-the-color-word-a-new-meaning
+https://colorcomputerarchive.com/repo/Documents/Manuals/Hardware/Color%20Computer%203%20BASIC%20Quick%20Reference%20Manual%20(Tandy).pdf
+https://colorcomputerarchive.com/repo/Documents/Manuals/Hardware/Color%20Computer%203%20Extended%20Basic%20(Tandy).pdf
 
 ## Purpose
-This extension was founded to help developing with VBS in an buisness application (medico Klinische Dokumentation)
+This extension was founded to help develop for the Color Computer 3 with a modern toolset.
