@@ -10,7 +10,7 @@
     "theme": "light"
   },
   "engines": {
-    "vscode": "^1.58.2"
+    "vscode": "^1.47.0"
   },
   "categories": [
     "Programming Languages",
@@ -120,7 +120,8 @@
             "type": "string"
           },
           "default": [
-            ".", "${workspaceFolder}"
+            ".",
+            "${workspaceFolder}"
           ],
           "description": "%ecb2.config.customIncludeDirs.description%"
         }
@@ -131,7 +132,7 @@
     "@types/chai": "^4.2.17",
     "@types/mocha": "^8.2.2",
     "@types/node": "^14.14.43",
-    "@types/vscode": "~1.58.0",
+    "@types/vscode": "~1.43.0",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.25.0",
@@ -150,6 +151,6 @@
     "publish": "vsce publish"
   },
   "dependencies": {
-    "vscode-debugadapter": "^1.47.0"
+    "vscode-debugadapter": "^1.48.0"
   }
 }
