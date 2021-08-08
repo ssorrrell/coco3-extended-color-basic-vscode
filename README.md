@@ -20,6 +20,7 @@ You can support this project through PR with your changes or simply add an issue
 - ...
 
 ## References
+This extension is forked and heavily modified from the extension by Serpen for VBScript.
 
 https://github.com/Serpen/VBS-VSCode
 https://github.com/pedgarcia/language-cocobasic
