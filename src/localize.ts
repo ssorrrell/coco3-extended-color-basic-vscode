@@ -39,7 +39,7 @@ export class Localize {
     const languageFormat = "package.nls{0}.json";
     const defaultLanguage = languageFormat.replace("{0}", "");
 
-    const rootPath = extensions.getExtension("serpen.vbsvscode")
+    const rootPath = extensions.getExtension("ssorrrell.coco3-extended-color-basic-vscode")
       .extensionPath;
 
     const resolvedLanguage = this.recurseCandidates(

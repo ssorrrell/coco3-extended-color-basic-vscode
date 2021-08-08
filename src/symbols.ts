@@ -3,8 +3,8 @@
 import { languages, SymbolKind, DocumentSymbol, Range, workspace, TextDocument } from "vscode";
 import * as PATTERNS from "./patterns";
 
-const showVariableSymbols: boolean = workspace.getConfiguration("vbs").get<boolean>("showVariableSymbols");
-const showParameterSymbols: boolean = workspace.getConfiguration("vbs").get<boolean>("showParamSymbols");
+const showVariableSymbols: boolean = workspace.getConfiguration("ecb2").get<boolean>("showVariableSymbols");
+const showParameterSymbols: boolean = workspace.getConfiguration("ecb2").get<boolean>("showParamSymbols");
 
 const FUNCTION = RegExp(PATTERNS.FUNCTION.source, "i");
 const CLASS = RegExp(PATTERNS.CLASS.source, "i");
@@ -110,7 +110,7 @@ function provideDocumentSymbols(doc: TextDocument): DocumentSymbol[] {
 }
 
 export default languages.registerDocumentSymbolProvider(
-  { scheme: "file", language: "vbs" },
+  { scheme: "file", language: "ecb2" },
   { provideDocumentSymbols }
 );
 

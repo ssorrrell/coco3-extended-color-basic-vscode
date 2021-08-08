@@ -25,17 +25,17 @@ export let customIncludeDirs : string[];
 export let customIncludePattern : RegExp;
 
 export function reloadImportDocuments() : void {
-  const custumIncludePatternStr = workspace.getConfiguration("vbs").get<string>("custumIncludePattern");
-  const customIncludePatternStr = workspace.getConfiguration("vbs").get<string>("customIncludePattern");
+  const custumIncludePatternStr = workspace.getConfiguration("ecb2").get<string>("custumIncludePattern");
+  const customIncludePatternStr = workspace.getConfiguration("ecb2").get<string>("customIncludePattern");
 
-  customIncludeDirs = workspace.getConfiguration("vbs").get<string[]>("customIncludeDirs");
+  customIncludeDirs = workspace.getConfiguration("ecb2").get<string[]>("customIncludeDirs");
 
   if (custumIncludePatternStr !== customIncludePatternStr && custumIncludePatternStr !== "")
     customIncludePattern = new RegExp(custumIncludePatternStr, "ig");
   else
     customIncludePattern = new RegExp(customIncludePatternStr, "ig");
 
-  const SourceImportFiles = workspace.getConfiguration("vbs").get<string[]>("includes");
+  const SourceImportFiles = workspace.getConfiguration("ecb2").get<string[]>("includes");
   for (const key of Includes.keys()) {
     if (key.startsWith("Include"))
       Includes.delete(key);

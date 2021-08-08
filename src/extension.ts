@@ -10,8 +10,8 @@ import * as cmds from "./commands";
 import { IncludeFile, Includes, reloadImportDocuments } from "./Includes";
 
 export function activate(context: ExtensionContext): void {
-  Includes.set("Global", new IncludeFile(context.asAbsolutePath("./GlobalDefs.vbs")));
-  Includes.set("ObjectDefs", new IncludeFile(context.asAbsolutePath("./ObjectDefs.vbs")));
+  Includes.set("Global", new IncludeFile(context.asAbsolutePath("./GlobalDefs.ecb2")));
+  Includes.set("ObjectDefs", new IncludeFile(context.asAbsolutePath("./ObjectDefs.ecb2")));
 
   workspace.onDidChangeConfiguration(reloadImportDocuments);
   reloadImportDocuments();

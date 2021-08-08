@@ -11,7 +11,7 @@ This extension implements basic language features of Color Computer 3 Super Exte
 - Add extra VBS Source (libraries) files for extra completion
 ```
 { // settings.json
-    "vbs.includes": ["c:\\mylibrary.vbs"]
+    "ecb2.includes": ["c:\\mylibrary.vbs"]
 }
 ```
 

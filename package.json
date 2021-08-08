@@ -1,87 +1,53 @@
 {
-  "name": "vbsvscode",
-  "displayName": "VBS",
-  "description": "VBScript Language Support",
-  "version": "1.2.1",
-  "publisher": "Serpen",
+  "name": "ecb2vscode",
+  "displayName": "coco3-extended-color-basic",
+  "description": "Extended Color Basic 2 Language Support",
+  "version": "1.0.0",
+  "publisher": "ssorrrell",
   "icon": "assets/logo.png",
   "galleryBanner": {
     "color": "#6EE5E5",
     "theme": "light"
   },
   "engines": {
-    "vscode": "^1.47.0"
+    "vscode": "^1.58.2"
   },
   "categories": [
     "Programming Languages",
     "Snippets"
   ],
   "keywords": [
-    "VBS",
-    "VBScript"
+    "coco3",
+    "color-computer-3",
+    "super-extended-color-basic",
+    "extended-color-basic",
+    "basic"
   ],
   "bugs": {
-    "url": "https://github.com/Serpen/VBS-VSCode/issues"
+    "url": "https://github.com/ssorrrell/coco3-extended-color-basic-vscode/issues"
   },
   "license": "MIT",
   "main": "./dist/extension",
   "activationEvents": [
-    "onLanguage:vbs"
+    "onLanguage:ecb2"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Serpen/VBS-VSCode.git"
+    "url": "https://github.com/ssorrrell/coco3-extended-color-basic-vscode.git"
   },
-  "homepage": "https://github.com/Serpen/VBS-VSCode",
+  "homepage": "https://github.com/ssorrrell/coco3-extended-color-basic-vscode",
   "contributes": {
-    "debuggers": [
-      {
-        "type": "vbs",
-        "label": "CScript",
-        "program": "./dist/debugger/debugAdapter.js",
-        "runtime": "node",
-        "languages": [
-          "vbs"
-        ],
-        "configurationAttributes": {
-          "launch": {
-            "properties": {
-              "program": {
-                "type": "string",
-                "default": "${file}"
-              }
-            }
-          }
-        },
-        "initialConfigurations": [
-          {
-            "type": "vbs",
-            "request": "launch",
-            "name": "CScript",
-            "program": "${file}"
-          }
-        ],
-        "configurationSnippets": [
-          {
-            "label": "CScript",
-            "body": {
-              "type": "vbs",
-              "request": "launch",
-              "program": "${file}"
-            }
-          }
-        ]
-      }
-    ],
     "languages": [
       {
-        "id": "vbs",
+        "id": "ecb2",
         "aliases": [
-          "VBScript",
-          "vbs"
+          "bas",
+          "ecb2"
         ],
         "extensions": [
-          ".vbs"
+          ".bas",
+          ".ecb",
+          ".ecb2"
         ],
         "configuration": "./syntaxes/language-configuration.json"
       }
@@ -98,56 +64,56 @@
     ],
     "grammars": [
       {
-        "language": "vbs",
-        "scopeName": "source.vbs",
-        "path": "./syntaxes/vbs.tmLanguage.json"
+        "language": "ecb2",
+        "scopeName": "source.bas",
+        "path": "./syntaxes/ecb2.tmLanguage.json"
       }
     ],
     "snippets": [
       {
-        "language": "vbs",
-        "path": "./snippets/vbs.json"
+        "language": "ecb2",
+        "path": "./snippets/ecb2.json"
       }
     ],
     "configuration": {
       "type": "object",
       "title": "VBScript",
       "properties": {
-        "vbs.interpreter": {
+        "ecb2.interpreter": {
           "type": "string",
           "default": "C:\\WINDOWS\\system32\\cscript.exe",
-          "description": "%vbs.config.interpreter.description%"
+          "description": "%ecb2.config.interpreter.description%"
         },
-        "vbs.includes": {
+        "ecb2.includes": {
           "type": "array",
           "uniqueItems": true,
           "items": {
             "type": "string"
           },
           "default": [],
-          "description": "%vbs.config.includes.description%"
+          "description": "%ecb2.config.includes.description%"
         },
-        "vbs.showVariableSymbols": {
+        "ecb2.showVariableSymbols": {
           "type": "boolean",
           "default": true,
-          "description": "%vbs.config.showVariableSymbols.description%"
+          "description": "%ecb2.config.showVariableSymbols.description%"
         },
-        "vbs.showParamSymbols": {
+        "ecb2.showParamSymbols": {
           "type": "boolean",
           "default": false,
-          "description": "%vbs.config.showParamSymbols.description%"
+          "description": "%ecb2.config.showParamSymbols.description%"
         },
-        "vbs.custumIncludePattern": {
+        "ecb2.custumIncludePattern": {
           "type": "string",
-          "description": "%vbs.config.customIncludePattern.description%",
+          "description": "%ecb2.config.customIncludePattern.description%",
           "deprecationMessage": "use customIncludePattern"
         },
-        "vbs.customIncludePattern": {
+        "ecb2.customIncludePattern": {
           "type": "string",
           "default": "\\binclude\\b[\\t ]*\\(?[\\t ]*\"([^\"]+)\"[\\t ]*\\)?",
-          "description": "%vbs.config.customIncludePattern.description%"
+          "description": "%ecb2.config.customIncludePattern.description%"
         },
-        "vbs.customIncludeDirs": {
+        "ecb2.customIncludeDirs": {
           "type": "array",
           "uniqueItems": true,
           "items": {
@@ -156,7 +122,7 @@
           "default": [
             ".", "${workspaceFolder}"
           ],
-          "description": "%vbs.config.customIncludeDirs.description%"
+          "description": "%ecb2.config.customIncludeDirs.description%"
         }
       }
     }
@@ -165,7 +131,7 @@
     "@types/chai": "^4.2.17",
     "@types/mocha": "^8.2.2",
     "@types/node": "^14.14.43",
-    "@types/vscode": "~1.43.0",
+    "@types/vscode": "~1.58.0",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.25.0",

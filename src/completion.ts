@@ -214,6 +214,6 @@ function provideCompletionItems(doc: TextDocument, position: Position): Completi
 }
 
 export default languages.registerCompletionItemProvider(
-  { scheme: "file", language: "vbs" },
+  { scheme: "file", language: "ecb2" },
   { provideCompletionItems }, "."
 );

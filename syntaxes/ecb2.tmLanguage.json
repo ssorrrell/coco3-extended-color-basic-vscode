@@ -5,8 +5,8 @@
 		"Once accepted there, we are happy to receive an update request."
 	],
 	"version": "https://github.com/textmate/asp.vb.net.tmbundle/commit/72d44550b3286d0382d7be0624140cf97857ff69",
-	"name": "VBScript",
-	"scopeName": "source.vbs",
+	"name": "coco3-extended-color-basic",
+	"scopeName": "source.bas",
 	"comment": "Modified from the original ASP bundle. Originally modified by Thomas Aylott subtleGradient.com",
 	"patterns": [
 		{
@@ -15,7 +15,7 @@
 		},
 		{
 			"match": ":",
-			"name": "punctuation.terminator.statement.vbs"
+			"name": "punctuation.terminator.statement.ecb2"
 		},
 		{
 			"begin": "^(?=\\t)",
@@ -54,125 +54,125 @@
 			]
 		},
 		{
-			"name": "comment.line.vbs",
+			"name": "comment.line.ecb2",
 			"match": "(?i:'|Rem\\b).*$"
 		},
 		{
 			"comment": "function definition",
 			"captures": {
 				"1": {
-					"name": "storage.modifier.vbs"
+					"name": "storage.modifier.ecb2"
 				},
 				"2": {
-					"name": "storage.type.function.vbs"
+					"name": "storage.type.function.ecb2"
 				},
 				"3": {
-					"name": "entity.name.function.vbs"
+					"name": "entity.name.function.ecb2"
 				},
 				"4": {
-					"name": "punctuation.definition.parameters.begin.vbs"
+					"name": "punctuation.definition.parameters.begin.ecb2"
 				},
 				"5": {
-					"name": "variable.parameter.function.vbs"
+					"name": "variable.parameter.function.ecb2"
 				},
 				"6": {
-					"name": "punctuation.definition.parameters.end.vbs"
+					"name": "punctuation.definition.parameters.end.ecb2"
 				}
 			},
 			"match": "(?i:(Private|Public)[\\t ]+)?(?i:(Class|Function|Sub|(?:Default\\s+)?Property [GLS]et))[\\t ]+(\\[?[a-zA-Z]\\w*\\]?)[\\t ]*(?:(\\()([^)]*)(\\)))?"
 		},
 		{
 			"match": "(?i:End[\\t ]+(Sub|Function|Class|Property))",
-			"name": "storage.type.end.vbs"
+			"name": "storage.type.end.ecb2"
 		},
 		{
 			"match": "(?i:\\s*\\b(Redim|Redim Preserve|With|End With|New|Randomize|Option Explicit|On Error Resume Next|On Error GoTo|Stop)\\b\\s*)",
-			"name": "keyword.control.vbs"
+			"name": "keyword.control.ecb2"
 		},
 		{
-			"comment": "not working (in only valid place), overwirtten by variable.parameter.function.vbs",
+			"comment": "not working (in only valid place), overwirtten by variable.parameter.function.ecb2",
 			"match": "(?i:\\b(ByRef|ByVal)\\b)",
-			"name": "storage.modifier.vbs"
+			"name": "storage.modifier.ecb2"
 		},
 		{
 			"match": "(?i:\\b(Call|If|Then|Else|ElseIf|End If|Set|While|Wend|For|Step|To|Each|In|Case|Select|End Select|Continue|Do|Until|Loop|Next|Exit (Do|For|Function|Property|Sub))\\b)",
-			"name": "keyword.control.vbs"
+			"name": "keyword.control.ecb2"
 		},
 		{
 			"match": "(?i:\\b(Mod|And|Not|Or|Xor|as|Is|Eqv)\\b)",
-			"name": "keyword.operator.expression.vbs"
+			"name": "keyword.operator.expression.ecb2"
 		},
 		{
 			"captures": {
 				"1": {
-					"name": "storage.type.vbs"
+					"name": "storage.type.ecb2"
 				},
 				"2": {
-					"name": "variable.other.dim.vbs"
+					"name": "variable.other.dim.ecb2"
 				}
 			},
 			"match": "\\b(?i:((?:public|private)\\s+const|public|private|dim|const)\\s+\\b(\\[?[a-zA-Z]\\w*\\]?\\b(?:\\s*,\\s*\\b\\[?[a-zA-Z]\\w*\\]?\\b)*))"
 		},
 		{
 			"match": "(?i:\\s*\\b(Empty|False|Nothing|Null|True)\\b)",
-			"name": "constant.language.vbs"
+			"name": "constant.language.ecb2"
 		},
 		{
 			"begin": "\"",
 			"beginCaptures": {
 				"0": {
-					"name": "punctuation.definition.string.begin.vbs"
+					"name": "punctuation.definition.string.begin.ecb2"
 				}
 			},
 			"end": "\"",
 			"endCaptures": {
 				"0": {
-					"name": "punctuation.definition.string.end.vbs"
+					"name": "punctuation.definition.string.end.ecb2"
 				}
 			},
-			"name": "string.quoted.double.vbs",
+			"name": "string.quoted.double.ecb2",
 			"patterns": [
 				{
 					"match": "\"\"",
-					"name": "constant.character.escape.apostrophe.vbs"
+					"name": "constant.character.escape.apostrophe.ecb2"
 				}
 			]
 		},
 		{
 			"match": "(?i:\\b(Array|Add|Asc|Atn|CBool|CByte|CCur|CDate|CDbl|Chr|CInt|CLng|Cos|CreateObject|CSng|CStr|Date|DateAdd|DateDiff|DatePart|DateSerial|DateValue|Day|Derived|Escape|Eval|Exists|Exp|Filter|FormatCurrency|FormatDateTime|FormatNumber|FormatPercent|GetLocale|GetObject|GetRef|Hex|Hour|InputBox|InStr|InStrRev|Int|Fix|IsArray|IsDate|IsEmpty|IsNull|IsNumeric|IsObject|Join|LBound|LCase|Left|Len|LoadPicture|Log|LTrim|RTrim|Trim|Mid|Minute|Month|MonthName|MsgBox|Now|Oct|Replace|RGB|Right|Rnd|Round|ScriptEngine|ScriptEngineBuildVersion|ScriptEngineMajorVersion|ScriptEngineMinorVersion|Second|SetLocale|Sgn|Sin|Space|Split|Sqr|StrComp|String|StrReverse|Tan|Time|Timer|TimeSerial|TimeValue|TypeName|UBound|UCase|Unescape|VarType|Weekday|WeekdayName|Year)\\b)",
-			"name": "support.function.vbs"
+			"name": "support.function.ecb2"
 		},
 		{
 			"match": "(?i:\\b(Err|Debug|WScript|vbtrue|vbfalse|vbcr|vbcrlf|vbformfeed|vblf|vbnewline|vbnullchar|vbnullstring|vbtab|vbverticaltab|vbbinarycompare|vbtextcomparevbsunday|vbmonday|vbtuesday|vbwednesday|vbthursday|vbfriday|vbsaturday|vbusesystemdayofweek|vbfirstjan1|vbfirstfourdays|vbfirstfullweek|vbgeneraldate|vblongdate|vbshortdate|vblongtime|vbshorttime|vbobjecterror|vbEmpty|vbNull|vbInteger|vbLong|vbSingle|vbDouble|vbCurrency|vbDate|vbString|vbObject|vbError|vbBoolean|vbVariant|vbDataObject|vbDecimal|vbByte|vbArray)\\b)",
-			"name": "support.type.vbs"
+			"name": "support.type.ecb2"
 		},
 		{
 			"match": "\\b\\[?[a-zA-Z]\\w*\\]?\\s*\\(",
-			"name": "entity.name.function.vbs"
+			"name": "entity.name.function.ecb2"
 		},
 		{
 			"match": "#\\d+\/\\d+\/\\d+#",
-			"name": "constant.numeric.date.vbs"
+			"name": "constant.numeric.date.ecb2"
 		},
 		{
 			"match": "\\b((([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)\\b",
-			"name": "constant.numeric.vbs"
+			"name": "constant.numeric.ecb2"
 		},
 		{
 			"match": "&(h|H)[0-9a-fA-F]+\\b",
-			"name": "constant.numeric.hex.vbs"
+			"name": "constant.numeric.hex.ecb2"
 		},
 		{
 			"match": "&(o|O)[0-7]+\\b",
-			"name": "constant.numeric.oct.vbs"
+			"name": "constant.numeric.oct.ecb2"
 		},
 		{
 			"match": "\\b\\[?[a-zA-Z]\\w*\\]?(?=\\.)",
-			"name": "variable.other.object.vbs"
+			"name": "variable.other.object.ecb2"
 		},
 		{
 			"match": "(?<=\\.)\\[?[a-zA-Z]\\w*\\]?\\b",
-			"name": "variable.other.member.vbs"
+			"name": "variable.other.member.ecb2"
 		}
 	]
 }

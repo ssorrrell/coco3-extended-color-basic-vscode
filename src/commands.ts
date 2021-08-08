@@ -4,7 +4,7 @@ import path from "path";
 import localize from "./localize";
 import * as fs from "fs";
 
-const configuration = workspace.getConfiguration("vbs");
+const configuration = workspace.getConfiguration("ecb2");
 
 const vbsOut = window.createOutputChannel("VBScript");
 
@@ -21,7 +21,7 @@ export function runScript(): void {
   try {
     fs.accessSync(scriptInterpreter, fs.constants.X_OK);
   } catch {
-    window.showErrorMessage(`${localize("vbs.msg.interpreterRunError")} ${ scriptInterpreter}`);
+    window.showErrorMessage(`${localize("ecb2.msg.interpreterRunError")} ${ scriptInterpreter}`);
   }
 
   const doc = window.activeTextEditor.document;
@@ -34,7 +34,7 @@ export function runScript(): void {
     if (statbar)
       statbar.dispose();
 
-    statbar = window.setStatusBarMessage(localize("vbs.msg.runningscript"));
+    statbar = window.setStatusBarMessage(localize("ecb2.msg.runningscript"));
 
     runner = childProcess.spawn(scriptInterpreter, [doc.fileName], {
       cwd: workDir
