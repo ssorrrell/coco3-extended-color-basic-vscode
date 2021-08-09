@@ -55,51 +55,18 @@
 		},
 		{
 			"name": "comment.line.ecb2",
-			"match": "(?i:'|Rem\\b).*$"
+			"match": "(?:'|REM\\b).*$"
 		},
 		{
-			"comment": "function definition",
-			"captures": {
-				"1": {
-					"name": "storage.modifier.ecb2"
-				},
-				"2": {
-					"name": "storage.type.function.ecb2"
-				},
-				"3": {
-					"name": "entity.name.function.ecb2"
-				},
-				"4": {
-					"name": "punctuation.definition.parameters.begin.ecb2"
-				},
-				"5": {
-					"name": "variable.parameter.function.ecb2"
-				},
-				"6": {
-					"name": "punctuation.definition.parameters.end.ecb2"
-				}
-			},
-			"match": "(?i:(Private|Public)[\\t ]+)?(?i:(Class|Function|Sub|(?:Default\\s+)?Property [GLS]et))[\\t ]+(\\[?[a-zA-Z]\\w*\\]?)[\\t ]*(?:(\\()([^)]*)(\\)))?"
-		},
-		{
-			"match": "(?i:End[\\t ]+(Sub|Function|Class|Property))",
-			"name": "storage.type.end.ecb2"
-		},
-		{
-			"match": "(?i:\\s*\\b(Redim|Redim Preserve|With|End With|New|Randomize|Option Explicit|On Error Resume Next|On Error GoTo|Stop)\\b\\s*)",
+			"match": "(?:\\s*\\b(ON BRK GOTO|ON ERR GOTO)\\b\\s*)",
 			"name": "keyword.control.ecb2"
 		},
 		{
-			"comment": "not working (in only valid place), overwirtten by variable.parameter.function.ecb2",
-			"match": "(?i:\\b(ByRef|ByVal)\\b)",
-			"name": "storage.modifier.ecb2"
-		},
-		{
-			"match": "(?i:\\b(Call|If|Then|Else|ElseIf|End If|Set|While|Wend|For|Step|To|Each|In|Case|Select|End Select|Continue|Do|Until|Loop|Next|Exit (Do|For|Function|Property|Sub))\\b)",
+			"match": "(?:\\b(IF|THEN|ELSE|FOR|STEP|TO|NEXT|GOSUB|GOTO|EXEC|END|DEFUSR|NEW|STOP|TRON|TROFF|LIST|LLIST)\\b)",
 			"name": "keyword.control.ecb2"
 		},
 		{
-			"match": "(?i:\\b(Mod|And|Not|Or|Xor|as|Is|Eqv)\\b)",
+			"match": "(?:\\b(AND|NOT|OR)\\b)",
 			"name": "keyword.operator.expression.ecb2"
 		},
 		{
@@ -111,11 +78,7 @@
 					"name": "variable.other.dim.ecb2"
 				}
 			},
-			"match": "\\b(?i:((?:public|private)\\s+const|public|private|dim|const)\\s+\\b(\\[?[a-zA-Z]\\w*\\]?\\b(?:\\s*,\\s*\\b\\[?[a-zA-Z]\\w*\\]?\\b)*))"
-		},
-		{
-			"match": "(?i:\\s*\\b(Empty|False|Nothing|Null|True)\\b)",
-			"name": "constant.language.ecb2"
+			"match": "\\b(?:(DIM)\\s+\\b(\\(?[A-Z]\\w*\\)?\b(?:\\s*,\\s*\b\\(?[A-Z]\\w*\\)?\\b)*))"
 		},
 		{
 			"begin": "\"",
@@ -139,39 +102,31 @@
 			]
 		},
 		{
-			"match": "(?i:\\b(Array|Add|Asc|Atn|CBool|CByte|CCur|CDate|CDbl|Chr|CInt|CLng|Cos|CreateObject|CSng|CStr|Date|DateAdd|DateDiff|DatePart|DateSerial|DateValue|Day|Derived|Escape|Eval|Exists|Exp|Filter|FormatCurrency|FormatDateTime|FormatNumber|FormatPercent|GetLocale|GetObject|GetRef|Hex|Hour|InputBox|InStr|InStrRev|Int|Fix|IsArray|IsDate|IsEmpty|IsNull|IsNumeric|IsObject|Join|LBound|LCase|Left|Len|LoadPicture|Log|LTrim|RTrim|Trim|Mid|Minute|Month|MonthName|MsgBox|Now|Oct|Replace|RGB|Right|Rnd|Round|ScriptEngine|ScriptEngineBuildVersion|ScriptEngineMajorVersion|ScriptEngineMinorVersion|Second|SetLocale|Sgn|Sin|Space|Split|Sqr|StrComp|String|StrReverse|Tan|Time|Timer|TimeSerial|TimeValue|TypeName|UBound|UCase|Unescape|VarType|Weekday|WeekdayName|Year)\\b)",
+			"match": "(?:\\b(ABS|ASC|ATN|BUTTON|CHR\\$|COS|EOF|ERLIN|ERNO|EXP|FIX|HEX\\$|HPOINT|INKEY\\$|INSTR|INT|JOYSTK|LEFT\\$|LEN|LOG|LPEEK|MEM|MID\\$|PEEK|POINT|POS|PPOINT|RIGHT\\$|RND|SGN|SIN|STRING\\$|STR\\$|SQR|TAN|TIMER|USR|VAL|VARPTR)\\b)",
 			"name": "support.function.ecb2"
 		},
 		{
-			"match": "(?i:\\b(Err|Debug|WScript|vbtrue|vbfalse|vbcr|vbcrlf|vbformfeed|vblf|vbnewline|vbnullchar|vbnullstring|vbtab|vbverticaltab|vbbinarycompare|vbtextcomparevbsunday|vbmonday|vbtuesday|vbwednesday|vbthursday|vbfriday|vbsaturday|vbusesystemdayofweek|vbfirstjan1|vbfirstfourdays|vbfirstfullweek|vbgeneraldate|vblongdate|vbshortdate|vblongtime|vbshorttime|vbobjecterror|vbEmpty|vbNull|vbInteger|vbLong|vbSingle|vbDouble|vbCurrency|vbDate|vbString|vbObject|vbError|vbBoolean|vbVariant|vbDataObject|vbDecimal|vbByte|vbArray)\\b)",
-			"name": "support.type.ecb2"
-		},
-		{
-			"match": "\\b\\[?[a-zA-Z]\\w*\\]?\\s*\\(",
+			"match": "\\b\\[?[A-Z][A-Z0-9\\$]*\\]?\\s*\\(",
 			"name": "entity.name.function.ecb2"
 		},
 		{
-			"match": "#\\d+\/\\d+\/\\d+#",
-			"name": "constant.numeric.date.ecb2"
-		},
-		{
-			"match": "\\b((([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)\\b",
+			"match": "\\b((([0-9]+\\.?[0-9]*)|(\\.[0-9]+)))\\b",
 			"name": "constant.numeric.ecb2"
 		},
 		{
-			"match": "&(h|H)[0-9a-fA-F]+\\b",
+			"match": "&(H)[0-9A-F]+\\b",
 			"name": "constant.numeric.hex.ecb2"
 		},
 		{
-			"match": "&(o|O)[0-7]+\\b",
+			"match": "&(O)[0-7]+\\b",
 			"name": "constant.numeric.oct.ecb2"
 		},
 		{
-			"match": "\\b\\[?[a-zA-Z]\\w*\\]?(?=\\.)",
+			"match": "\\b\\(?[A-Z][A-Z\\$]*\\)?(?=\\.)",
 			"name": "variable.other.object.ecb2"
 		},
 		{
-			"match": "(?<=\\.)\\[?[a-zA-Z]\\w*\\]?\\b",
+			"match": "(?<=\\.)\\[?[A-Z][A-Z\\$]*\\]?\\b",
 			"name": "variable.other.member.ecb2"
 		}
 	]
