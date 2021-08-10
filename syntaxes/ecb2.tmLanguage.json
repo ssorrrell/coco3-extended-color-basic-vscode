@@ -62,9 +62,39 @@
 			"name": "keyword.control.ecb2"
 		},
 		{
-			"match": "(?:\\b(IF|THEN|ELSE|FOR|STEP|TO|NEXT|GOSUB|GOTO|EXEC|END|DEFUSR|NEW|STOP|TRON|TROFF|LIST|LLIST)\\b)",
+			"match": "(?:\\b(IF|THEN|ELSE|FOR|STEP|TO|NEXT|ON|GOSUB|GOTO|EXEC|CONT|END|DEFUSR|NEW|STOP|TRON|TROFF)\\b)",
 			"name": "keyword.control.ecb2"
 		},
+		{
+			"match": "(?:\\b(ATTR|CIRCLE|CLS|COLOR|DRAW|GET|HBUFF|HCIRCLE|HCLS|HCOLOR|HDRAW|HGET|HLINE|HPAINT|HPRINT|HPOINT|HPUT|HRESET|HSCREEN|HSET|HSTAT|LINE|LOCATE|PAINT|PALETTE\\s*(CMP|RGB)|PALETTE|PCLEAR|PCLS|PCOPY|PMODE|POINT|POS|PPOINT|PRESET|PRINT|PRINT *TAB|PRINT *USING|PRINT *\\@|PSET|PUT|RESET|SCREEN|SET|WIDTH)\\b)",
+			"name": "keyword.display.ecb2"
+		},
+		{
+			"match": "(?:\\b(AUDIO|PLAY|SOUND)\\b)",
+			"name": "keyword.audio.ecb2"
+		},
+		{
+			"match": "(?:\\b(PCOPY *[0-9] *TO *[0-9])\\b)",
+			"name": "keyword.display.ecb2"
+		},
+		{
+			"match": "(?:\\b(CLEAR|DATA|DEF\\sFN|DEFUSR|DEL|EDIT|LET|LIST|LLIST|LPOKE|LPEEK|NEW|PEEK|POKE|READ|RENUM|RESTORE|USR)\\b)",
+			"name": "keyword.memory.ecb2"
+		},
+		{
+			"match": "(?:\\b(CLOAD|CLOADM|CLOSE *\\#|CSAVE|CSAVEM|INPUT|INPUT\\s*\\#|LINE *INPUT|MOTOR|OPEN|SKIPF|VARPTR)\\b)",
+			"name": "keyword.io.ecb2"
+		},
+		{
+			"comment": "print to cassette",
+			"match": "(?:\\b(PRINT *\\#-1,)\\b)",
+			"name": "keyword.io.ecb2"
+		},
+		{
+			"comment": "print to printer",
+			"match": "(?:\\b(PRINT *\\#-2,)\\b)",
+			"name": "keyword.io.ecb2"
+		},	
 		{
 			"match": "(?:\\b(AND|NOT|OR)\\b)",
 			"name": "keyword.operator.expression.ecb2"
@@ -102,8 +132,12 @@
 			]
 		},
 		{
-			"match": "(?:\\b(ABS|ASC|ATN|BUTTON|CHR\\$|COS|EOF|ERLIN|ERNO|EXP|FIX|HEX\\$|HPOINT|INKEY\\$|INSTR|INT|JOYSTK|LEFT\\$|LEN|LOG|LPEEK|MEM|MID\\$|PEEK|POINT|POS|PPOINT|RIGHT\\$|RND|SGN|SIN|STRING\\$|STR\\$|SQR|TAN|TIMER|USR|VAL|VARPTR)\\b)",
+			"match": "(?:\\b(ABS|ASC|ATN|BUTTON|CHR\\$|COS|EOF|EXP|FIX|HEX\\$|INKEY\\$|INSTR|INT|JOYSTK|LEFT\\$|LEN|LOG|MID\\$|RIGHT\\$|RND|SGN|SIN|STRING\\$|STR\\$|SQR|TAN|VAL)\\b)",
 			"name": "support.function.ecb2"
+		},
+		{
+			"match": "(?:\\s*\\b(TIMER|ERLIN|ERNO|MEM)\\b)",
+			"name": "constant.language.ecb2"
 		},
 		{
 			"match": "\\b\\[?[A-Z][A-Z0-9\\$]*\\]?\\s*\\(",
