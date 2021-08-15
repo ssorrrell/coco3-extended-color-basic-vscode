@@ -1,134 +1,248 @@
 {
-  "ByRef": {
+  "ATTR": {
+    "documentation": "Sets display attributes of a high resolution text screen"
+  },
+  "AUDIO": {
+    "documentation": "Connects or disconnects cassette output to the display speaker"
+  },
+  "CIRCLE": {
+    "documentation": "Draws a circle on the current low resolution graphics screen."
+  },
+  "CLEAR": {
+    "documentation": "Erases variables, reserves string workspace and reserves high memory for machine language programs."
+  },
+  "CLOAD": {
+    "documentation": "Loads program filename from cassette. If filename is not specified. BASIC loads the first program file found."
+  },
+  "CLOADM": {
+    "documentation": "Loads machine-language program filename from cassetter.  If filename is not specified, BASIC loads the first machin language program found."
+  },
+  "CLOSE#": {
+    "documentation": "Closes access to specified device or file.  If d is not specified, BASIC closes all open devices and files."
+  },
+  "CLS": {
+    "documentation": "Clears the text screen to a specified color.  When in high-resolution text mode, BASIC also sets the background color.  If c is not specied, BASIC uses the current background color."
+  },
+  "COLOR": {
+    "documentation": "Sets foreground and background colors of the current low-resolution graphics screen."
+  },
+  "CONT": {
+    "documentation": "Continues program execution after a program halt from the BREAK key or a STOP instruction"
+  },
+  "CSAVE": {
+    "documentation": "Saves program filename on cassette"
+  },
+  "CSAVEM": {
+    "documentation": "Saves machine-language program filename on cassette."
+  },
+  "DATA": {
+    "documentation": "Stores numeric and string constants for use with READ statement."
+  },
+  "DEF FN": {
+    "documentation": "Defines a numeric function"
+  },
+  "DEFUSR": {
+    "documentation": "Defines the starting address of a machine language subroutine."
+  },
+  "DEL": {
+    "documentation": "Deletes program lines"
+  },
+  "DIM": {
+    "documentation": "Dimensions one or more arrays."
+  },
+  "DRAW": {
+    "documentation": "Draws a line on the current low-resolution graphics screen as specified by string."
+  },
+  "EDIT": {
+    "documentation": "Edits a program line.  After fetching specified line number, EDIT recognizes several commands"
+  },
+  "END": {
+    "documentation": "Marks the end of a BASIC program."
+  },
+  "EXEC": {
+    "documentation": "Transfers control to a machine-language program at address.  If address is omitted, congtrol is transferred to address set in the last CLOADM."
+  },
+  "FOR": {
+    "documentation": "Defines the beginning of a loop.  The end is specified by NEXT."
+  },
+  "GET": {
+    "documentation": "Stores a rectangle that is on the low-resolution graphics screen in an array for future use by the PUT command."
+  },
+  "GOSUB": {
+    "documentation": "Calls a subroutine beginning at the specified line number."
+  },
+  "GOTO": {
+    "documentation": "Jumps to the specified line number."
+  },
+  "HBUFF": {
+    "documentation": "Reserves an area in memory for high-resolution graphics."
+  },
+  "HCIRCLE": {
+    "documentation": "Draws a circle on the high-resolution graphics screen."
+  },
+  "HCLS": {
+    "documentation": "Clears the high-resolution graphics screen to a specifed color."
+  },
+  "HCOLOR": {
+    "documentation": "Sets foreground and background color on the high-resolution graphics screen."
+  },
+  "HDRAW": {
+    "documentation": "Draws a line on the high resolution graphics screen as specified by string."
+  },
+  "HGET": {
+    "documentation": "Stores a rectangle that is on the high resolution graphics screen into a buffer previously set up by the HBUFF command for future use by the HPUT command."
+  },
+  "HLINE": {
+    "documentation": "Draws a line on the high resolution graphics screen."
+  },
+  "HPAINT": {
+    "documentation": "Paints an area on the high-resolution graphics screen."
+  },
+  "HPRINT": {
+    "documentation": "Prints message on high-resolution graphics screen."
+  },
+  "HPUT": {
+    "documentation": "Copies graphics from a buffer to a rectangle on the high-resolution graphics screen"
+  },
+  "HRESET": {
+    "documentation": "Resets a poihnt on the high-resolution graphics screen to the background color."
+  },
+  "HSCREEN": {
+    "documentation": "Selects a high-resolution graphics screen mode.  Mofes 1-4 also clear the high-resolution graphics screen."
+  },
+  "HSET": {
+    "documentation": "Sets point x,y on the high-resolution graphics screen to COlor c.  If you omit c, BASIC uses the foregraound color."
+  },
+  "HSTAT": {
+    "documentation": "Returns information regarding the high-resolution text screen cursor to variables v1, v2, v3, and v4."
+  },
+  "IF": {
+    "documentation": "Performs a test.  If the results are true, the computer executes the first instruction (#1).  If the results are false, the coputer executes the second instruction (#2)."
+  },
+  "INPUT": {
+    "documentation": "Read data from the keyboard, and saves it in one or more variables."
+  },
+  "INPUT#": {
+    "documentation": "Reads data from a cassette, and saves it in one or more variables."
+  },
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
+  },
+  "LINE": {
+    "documentation": "Draws a line on the current low-resolution graphics screen."
+  },
+  "LINE INPUT": {
+    "documentation": "Reads data from the keyboard, and saves it in a variable.  Commas are characters, and not delimters."
+  },
+  "LIST": {
+    "documentation": "Lists specified program lines(s) or the entire program on the screen."
+  },
+  "LLIST": {
+    "documentation": "Lists specified program line(s) or the entire program on the printer."
+  },
+  "LOCATE": {
+    "documentation": "Moves the high-resolution text screen cursor to position x,y."
+  },
+  "LPOKE": {
+    "documentation": "Stores a value (0-255) in a virtual memory location (0-524287 decimal or 0-$7FFFF hexadecimal)."
+  },
+  "MID$": {
+    "documentation": "Replaces a portion of the contents of a string variable s with another string."
+  },
+  "MOTOR": {
+    "documentation": "Turns the cassetter ON or OFF."
+  },
+  "NEW": {
+    "documentation": "Erases everything in memory."
+  },
+  "NEXT": {
+    "documentation": "Defines the end fo a FOR loop."
+  },
+  "ON BRK GOTO": {
+    "documentation": "Jumps to line number when the BREAK key is pressed."
+  },
+  "ON ERR GOTO": {
+    "documentation": "Jumps to line number when an error occurs."
+  },
+  "ON": {
     "documentation": ""
   },
-  "ByVal": {
-    "documentation": ""
+  "OPEN": {
+    "documentation": "Opens a specified file for data transmission."
   },
-  "Call": {
-    "documentation": "Transfers control to a Sub procedure or Function procedure"
+  "PAINT": {
+    "documentation": "Paints an area on the current low-resolution graphics screen."
   },
-  "Class": {
-    "documentation": ""
+  "PALETTE CMP": {
+    "documentation": "Resets the palette registers to the standard color for a composite monitor or television set"
   },
-  "Const": {
-    "documentation": ""
+  "PALETTE RGB": {
+    "documentation": "Resets the palette registers to the standard color for an RGB monitor."
   },
-  "Dim": {
-    "documentation": ""
+  "PALETTE": {
+    "documentation": "Stores Color Code cc (0-63) into Palette Register pr (0-15)."
   },
-  "Do": {
-    "documentation": ""
+  "PCLEAR": {
+    "documentation": "Reserves n number of 1.5k graphics memory pages."
   },
-  "Each": {
-    "documentation": ""
+  "PCLS": {
+    "documentation": "Clears current low-resolution graphics screen with Color c.  If you omit c, BASIC uses the background color."
   },
-  "Else": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "End": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "Erase": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "Execute": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "ExecuteGlobal": {
-    "documentation": ""
+  "LINE": {
+    "documentation": "Draws a line on the current low-resolution graphics screen."
   },
-  "Exit": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "For": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "Function": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "If": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "In": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "Loop": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "New": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "Next": {
-    "documentation": ""
+  "LINE": {
+    "documentation": "Draws a line on the current low-resolution graphics screen."
   },
-  "Option Explicit": {
-    "documentation": "Used at script level to force explicit declaration of all variables in that script."
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "On Error Resume Next": {
-    "documentation": "Specifies that when a run-time error occurs, control goes to the statement immediately following the statement where the error occurred and execution continues"
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "On Error Goto 0": {
-    "documentation": "Disables any enabled error handler in the current procedure."
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "Redim Preserve": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "Property": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   },
-  "Property Get": {
-    "documentation": "Property procedure, which gets the value of a property."
-  },
-  "Property Let": {
-    "documentation": "Property procedure, which assigns a value to a property."
-  },
-  "Property Set": {
-    "documentation": "Property procedure, which sets a reference to an object."
-  },
-  "Private": {
-    "documentation": ""
-  },
-  "Public": {
-    "documentation": ""
-  },
-  "Randomize": {
-    "documentation": "Initializes the random-number generator."
-  },
-  "ReDim": {
-    "documentation": "Used at the procedure level to reallocate storage space for dynamic array variables."
-  },
-  "Rem": {
-    "documentation": ""
-  },
-  "Select Case": {
-    "documentation": ""
-  },
-  "Stop": {
-    "documentation": ""
-  },
-  "Step": {
-    "documentation": "Amount counter is changed each time through the loop. If not specified, step defaults to one."
-  },
-  "Sub": {
-    "documentation": ""
-  },
-  "Then": {
-    "documentation": ""
-  },
-  "To": {
-    "documentation": ""
-  },
-  "Until": {
-    "documentation": ""
-  },
-  "Wend": {
-    "documentation": ""
-  },
-  "While": {
-    "documentation": ""
-  },
-  "With": {
-    "documentation": ""
+  "LET": {
+    "documentation": "Assigns a value to a variable (optional)."
   }
 }
