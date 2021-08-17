@@ -6,9 +6,9 @@ import * as PATTERNS from "./patterns";
 const showVariableSymbols: boolean = workspace.getConfiguration("ecb2").get<boolean>("showVariableSymbols");
 const showParameterSymbols: boolean = workspace.getConfiguration("ecb2").get<boolean>("showParamSymbols");
 
-const FUNCTION = RegExp(PATTERNS.FUNCTION.source, "i");
-const CLASS = RegExp(PATTERNS.CLASS.source, "i");
-const PROP = RegExp(PATTERNS.PROP.source, "i");
+const FUNCTION = RegExp(PATTERNS.FUNCTION.source, "");
+const CLASS = RegExp(PATTERNS.CLASS.source, "");
+const PROP = RegExp(PATTERNS.PROP.source, "");
 
 function provideDocumentSymbols(doc: TextDocument): DocumentSymbol[] {
   const result: DocumentSymbol[] = [];

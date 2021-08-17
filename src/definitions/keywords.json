@@ -1,9 +1,24 @@
 {
+  "ABS": {
+    "documentation": "Returns the absolute value of n"
+  },
+  "ASC": {
+    "documentation": "Returns the code of the first character in string."
+  },
+  "ATN": {
+    "documentation": "Returns the actangent of n in radians."
+  },
   "ATTR": {
     "documentation": "Sets display attributes of a high resolution text screen"
   },
   "AUDIO": {
     "documentation": "Connects or disconnects cassette output to the display speaker"
+  },
+  "BUTTON": {
+    "documentation": "Returns 1 if Joystick Button n is being pressed; 0 if Joystick Button n is not being pressed."
+  },
+  "CHR$": {
+    "documentation": "Returns the character corresponding to character code n."
   },
   "CIRCLE": {
     "documentation": "Draws a circle on the current low resolution graphics screen."
@@ -28,6 +43,9 @@
   },
   "CONT": {
     "documentation": "Continues program execution after a program halt from the BREAK key or a STOP instruction"
+  },
+  "COS": {
+    "documentation": "Returns the cosine of an angle using radians."
   },
   "CSAVE": {
     "documentation": "Saves program filename on cassette"
@@ -56,11 +74,29 @@
   "EDIT": {
     "documentation": "Edits a program line.  After fetching specified line number, EDIT recognizes several commands"
   },
+  "ELSE": {
+    "documentation": ""
+  },
   "END": {
     "documentation": "Marks the end of a BASIC program."
   },
+  "EOF": {
+    "documentation": "Returns FALSE(0) if there is more data; TRUE(-1) if end of file has been read."
+  },
+  "ERLIN": {
+    "documentation": "Returns the BASIC line nubmer where an error has occurred."
+  },
+  "ERNO": {
+    "documentation": "Returns the BASIC error number for the error that has occurred."
+  },
   "EXEC": {
     "documentation": "Transfers control to a machine-language program at address.  If address is omitted, congtrol is transferred to address set in the last CLOADM."
+  },
+  "EXP": {
+    "documentation": "Returns a natural exponential number (e^n)."
+  },
+  "FIX": {
+    "documentation": "Returns the truncated integer of n.  Unline INT, FIC does not return the next lower number for a negative n."
   },
   "FOR": {
     "documentation": "Defines the beginning of a loop.  The end is specified by NEXT."
@@ -89,6 +125,9 @@
   "HDRAW": {
     "documentation": "Draws a line on the high resolution graphics screen as specified by string."
   },
+  "HEX$": {
+    "documentation": "Returns a string with the hexadecimal value of n."
+  },
   "HGET": {
     "documentation": "Stores a rectangle that is on the high resolution graphics screen into a buffer previously set up by the HBUFF command for future use by the HPUT command."
   },
@@ -97,6 +136,9 @@
   },
   "HPAINT": {
     "documentation": "Paints an area on the high-resolution graphics screen."
+  },
+  "HPOINT": {
+    "documentation": "Returns the information on point x, y from the high-resolution graphics screen."
   },
   "HPRINT": {
     "documentation": "Prints message on high-resolution graphics screen."
@@ -119,11 +161,29 @@
   "IF": {
     "documentation": "Performs a test.  If the results are true, the computer executes the first instruction (#1).  If the results are false, the coputer executes the second instruction (#2)."
   },
+  "INKEY$": {
+    "documentation": "Checks the keyboard and returns the key being pressed or, if no key is being pressed, returns a null string (\" \")"
+  },
   "INPUT": {
     "documentation": "Read data from the keyboard, and saves it in one or more variables."
   },
   "INPUT#": {
     "documentation": "Reads data from a cassette, and saves it in one or more variables."
+  },
+  "INSTR": {
+    "documentation": "Searches a string.  Returns location of a target string in a search string."
+  },
+  "INT": {
+    "documentation": "Converts n to the largest integer that is less than or equal to n."
+  },
+  "JOYSTK": {
+    "documentation": "Returns the horizontal or vertical coordinate (j) of the left or right joystick:"
+  },
+  "LEFT$": {
+    "documentation": "Returns the left portion of a string."
+  },
+  "LEN": {
+    "documentation": "Returns the length of string."
   },
   "LET": {
     "documentation": "Assigns a value to a variable (optional)."
@@ -143,8 +203,17 @@
   "LOCATE": {
     "documentation": "Moves the high-resolution text screen cursor to position x,y."
   },
+  "LOG": {
+    "documentation": "Returns the natural logarithm of n."
+  },
+  "LPEEK": {
+    "documentation": "Returns the contents of virtual memory location (0-524287 decimal or 0-$7FFFF hexadecimal."
+  },
   "LPOKE": {
     "documentation": "Stores a value (0-255) in a virtual memory location (0-524287 decimal or 0-$7FFFF hexadecimal)."
+  },
+  "MEM": {
+    "documentation": "Returns the amount of free memory."
   },
   "MID$": {
     "documentation": "Replaces a portion of the contents of a string variable s with another string."
@@ -188,61 +257,136 @@
   "PCLS": {
     "documentation": "Clears current low-resolution graphics screen with Color c.  If you omit c, BASIC uses the background color."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "PCOPY": {
+    "documentation": "Copies low resolution graphics from source page to destination page."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "PEEK": {
+    "documentation": "Returns the contents of memory location (0-65535 decimal or 0-&HFFFF hexadecimal)."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "PLAY": {
+    "documentation": "Plays music as specified by string."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "PMODE": {
+    "documentation": "Selects resolution and first memory page of a low-resolution graphics screen."
   },
-  "LINE": {
-    "documentation": "Draws a line on the current low-resolution graphics screen."
+  "POINT": {
+    "documentation": "Returns information on point x,y from the low-resolution text screen."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "POKE": {
+    "documentation": "Stores a value (0-255) in a memory location (0-65535 decimal or 0-$FFFF hexadecimal)"
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "POS": {
+    "documentation": "Returns the currenr print position."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "PPOINT": {
+    "documentation": "Returns information on point x,y from the low-resolution graphics screen."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "PRINT": {
+    "documentation": "Prints on the text screens."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "PRINT #-1": {
+    "documentation": "Writes data to cassette."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "PRINT #-2": {
+    "documentation": "Prints on the printer."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "PRINT TAB": {
+    "documentation": "Moves the cursor to column n on the low and high resolution text screens."
   },
-  "LINE": {
-    "documentation": "Draws a line on the current low-resolution graphics screen."
+  "PRINT USING": {
+    "documentation": "Prints numbers in the specified format on the text screen."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "PRINT @": {
+    "documentation": "Prints message on low-resolution text screen at position n."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "PSET": {
+    "documentation": "Sets point x, y on the current low-resoltution graphics screen to Color c.  If c is ommitted, BASIC uses the foreground color."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "PUT": {
+    "documentation": "Copies graphics from an array to a rectangle on the low-resolution graphics screen."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "READ": {
+    "documentation": "Reads the next item(s) in a DATA line.  SAves data in specified variable(s)."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "REM": {
+    "documentation": "Lets you insert comments in a program line.  The computer ignores everything in the line after the REM."
   },
-  "LET": {
-    "documentation": "Assigns a value to a variable (optional)."
+  "RENUM": {
+    "documentation": "Renumbers program lines."
+  },
+  "RESET": {
+    "documentation": "Resets a point on the low-resolution text screen to the background color."
+  },
+  "RESTORE": {
+    "documentation": "Sets the computer's data pointer back to the first item on the first DATA line."
+  },
+  "RETURN": {
+    "documentation": "Returns the computer from a subroutine to the BASIC word following GOSUB."
+  },
+  "RIGHT$": {
+    "documentation": "Returns the right portion of a string."
+  },
+  "RND": {
+    "documentation": "Generates a \"random\" number between 1 and n if n>1 and between 0 and 1 if n=0."
+  },
+  "RUN": {
+    "documentation": "Executes the program."
+  },
+  "SCREEN": {
+    "documentation": "Selects low-resolution screen modes and color sets."
+  },
+  "SET": {
+    "documentation": "Sets point x, y on the low-resolution text screen to Color c.  If you omit c, BASIC uses the foreground color."
+  },
+  "SGN": {
+    "documentation": "Returns the sign of n."
+  },
+  "SIN": {
+    "documentation": "Returns the sine of angle using radians."
+  },
+  "SKIPF": {
+    "documentation": "Skips the next program on cassette tape or to the end of a specified program."
+  },
+  "SOUND": {
+    "documentation": "Sounds a specified tone for a specified duration."
+  },
+  "SQR": {
+    "documentation": "Returns the square root of n."
+  },
+  "STOP": {
+    "documentation": "Stops execution of a program."
+  },
+  "STRING$": {
+    "documentation": "Returns a string of a repeated character."
+  },
+  "STR$": {
+    "documentation": "Converts n to a string."
+  },
+  "TAN": {
+    "documentation": "Returns the tangent of angle using radians."
+  },
+  "THEN": {
+    "documentation": ""
+  },
+  "TIMER": {
+    "documentation": "Sets timer to n."
+  },
+  "TROFF": {
+    "documentation": "Turns off program tracer."
+  },
+  "TRON": {
+    "documentation": "Turns on program tracer."
+  },
+  "USR": {
+    "documentation": "Calls machine-language subroutine n, passes it an argument, and returns a value from the subroutine to the BASIC program."
+  },
+  "VAL": {
+    "documentation": "Converts a string to a number."
+  },
+  "VARPTR": {
+    "documentation": "Returns a pointer to where a veriable is located in memory."
+  },
+  "WIDTH": {
+    "documentation": "Sets the text screen to resolution n."
   }
 }
