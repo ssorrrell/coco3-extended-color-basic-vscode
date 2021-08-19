@@ -6,7 +6,7 @@ import * as fs from "fs";
 
 const configuration = workspace.getConfiguration("ecb2");
 
-const vbsOut = window.createOutputChannel("VBScript");
+const vbsOut = window.createOutputChannel("ecb2vscode");
 
 let runner: childProcess.ChildProcessWithoutNullStreams;
 

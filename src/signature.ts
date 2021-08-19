@@ -57,38 +57,38 @@ function getCallInfo(doc: TextDocument, pos: Position) {
 function getSignatures(text: string, docComment: string): Map<string, SignatureInformation[]> {
   const map = new Map<string, SignatureInformation[]>();
   let matches: RegExpExecArray | null;
-  while ((matches = PATTERNS.FUNCTION.exec(text)) !== null) {
-    const name = matches[5].toLowerCase();
-    let documentation = "";
+  // while ((matches = PATTERNS.FUNCTION.exec(text)) !== null) {
+  //   const name = matches[5].toLowerCase();
+  //   let documentation = "";
 
-    if (matches[1]) {
-      const summary = PATTERNS.COMMENT_SUMMARY.exec(matches[1]);
-      if (summary)
-        documentation = summary[1];
-      else
-        documentation = docComment;
-    }
-    const si = new SignatureInformation(matches[4], documentation);
-    matches[6]?.split(",").forEach(param => {
-      const pi = new ParameterInformation(param.trim());
-      if (matches[1]) {
-        const paramComment = PATTERNS.PARAM_SUMMARY(matches[1], param.trim());
-        if (paramComment)
-          pi.documentation = paramComment[1];
-      }
-      si.parameters.push(pi);
-    });
+  //   if (matches[1]) {
+  //     const summary = PATTERNS.COMMENT_SUMMARY.exec(matches[1]);
+  //     if (summary)
+  //       documentation = summary[1];
+  //     else
+  //       documentation = docComment;
+  //   }
+  //   const si = new SignatureInformation(matches[4], documentation);
+  //   matches[6]?.split(",").forEach(param => {
+  //     const pi = new ParameterInformation(param.trim());
+  //     if (matches[1]) {
+  //       const paramComment = PATTERNS.PARAM_SUMMARY(matches[1], param.trim());
+  //       if (paramComment)
+  //         pi.documentation = paramComment[1];
+  //     }
+  //     si.parameters.push(pi);
+  //   });
 
 
-    let prevMatches: SignatureInformation[];
-    if ((prevMatches = map.get(name)) !== undefined)
-      map.set(name, [
-        ...prevMatches,
-        si
-      ]);
-    else
-      map.set(name, [si]);
-  }
+  //   let prevMatches: SignatureInformation[];
+  //   if ((prevMatches = map.get(name)) !== undefined)
+  //     map.set(name, [
+  //       ...prevMatches,
+  //       si
+  //     ]);
+  //   else
+  //     map.set(name, [si]);
+  // }
 
   return map;
 }

@@ -77,7 +77,7 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "VBScript",
+      "title": "ecb2vscode",
       "properties": {
         "ecb2.interpreter": {
           "type": "string",

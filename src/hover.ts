@@ -35,10 +35,10 @@ function GetParamHover(text: string, lookup: string): Hover[] {
   const hovers: Hover[] = [];
 
   let matches: RegExpExecArray;
-  while (matches = PATTERNS.FUNCTION.exec(text))
-    matches[6]?.split(",").filter(p => p.trim() === lookup).forEach(() => {
-      hovers.push(new Hover({ language: "ecb2", value: `${lookup} ' [Parameter]` }));
-    });
+  // while (matches = PATTERNS.FUNCTION.exec(text))
+  //   matches[6]?.split(",").filter(p => p.trim() === lookup).forEach(() => {
+  //     hovers.push(new Hover({ language: "ecb2", value: `${lookup} ' [Parameter]` }));
+  //   });
 
   // last result should be nearest hit
   if (hovers.length > 0)

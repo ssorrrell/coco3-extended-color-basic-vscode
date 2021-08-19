@@ -24,11 +24,11 @@ function GetParamDef(docText: string, lookup: string, thisUri: Uri): Location[] 
   const locs: Location[] = [];
 
   let matches: RegExpExecArray;
-  while (matches = PATTERNS.FUNCTION.exec(docText))
-    matches[6]?.split(",").filter(p => p.trim() === lookup).forEach(() => {
-      const line = docText.slice(0, matches.index).match(/\n/g).length;
-      locs.push(new Location(thisUri, new Position(line, 0)));
-    });
+  // while (matches = PATTERNS.FUNCTION.exec(docText))
+  //   matches[6]?.split(",").filter(p => p.trim() === lookup).forEach(() => {
+  //     const line = docText.slice(0, matches.index).match(/\n/g).length;
+  //     locs.push(new Location(thisUri, new Position(line, 0)));
+  //   });
 
   // last result should be nearest hit
   if (locs.length > 0)
