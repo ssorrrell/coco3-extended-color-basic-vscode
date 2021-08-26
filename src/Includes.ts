@@ -31,9 +31,9 @@ export function reloadImportDocuments() : void {
   customIncludeDirs = workspace.getConfiguration("ecb2").get<string[]>("customIncludeDirs");
 
   if (custumIncludePatternStr !== customIncludePatternStr && custumIncludePatternStr !== "")
-    customIncludePattern = new RegExp(custumIncludePatternStr, "ig");
+    customIncludePattern = new RegExp(custumIncludePatternStr, "g");
   else
-    customIncludePattern = new RegExp(customIncludePatternStr, "ig");
+    customIncludePattern = new RegExp(customIncludePatternStr, "g");
 
   const SourceImportFiles = workspace.getConfiguration("ecb2").get<string[]>("includes");
   for (const key of Includes.keys()) {

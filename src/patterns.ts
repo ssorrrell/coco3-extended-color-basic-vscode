@@ -2,7 +2,7 @@
 /**
  * Matches a Function, 1st = Comment, 2nd = Definition, 3rd = Function/Sub, 4th = Signature def, 5th = Name, 6th = params
  */
-export const FUNCTION = ""; /*/((?:^[\t ]*'+.*$(?:\r\n|\n))*)^[\t ]*((?:(?:Public|Private)[\t ]+)?(Function|Sub)[\t ]+((\[?[a-z]\w*\]?)[\t ]*(?:\((.*)\))?))/img;*/
+export const FUNCTION = /((?:^[\t ]*'+.*$(?:\r\n|\n))*)^[\t ]*((?:(?:Public|Private)[\t ]+)?(Function|Sub)[\t ]+((\[?[a-z]\w*\]?)[\t ]*(?:\((.*)\))?))/mg;
 
 /**
  * Matches a Class, 1st = Comment, 2nd = definition, 3rd = Name
@@ -33,7 +33,17 @@ export function DEF(input: string, word: string): RegExpExecArray {
 
 export function DEFVAR(input: string, word: string): RegExpExecArray {
   return new RegExp(
-    `((?:^[ ]*'.*$)*)^[^'\\n\\r]*^[ ]*((?:(?:DIM)[ ]+)[ ,]*(\\b${word}\\b).*)$`
+    `((DIM)[ ]+)(\\b${word}\\b)`
+    , "m"
+  ).exec(input);
+}
+
+/**
+ * Matches a Definition, 1st = Comment, 2nd = Definition, 3rd = Name
+ */
+export function LINENO(input: string, word: string): RegExpExecArray {
+  return new RegExp(
+    `^(${word}\\b)`
     , "m"
   ).exec(input);
 }

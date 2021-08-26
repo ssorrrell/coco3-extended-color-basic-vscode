@@ -45,37 +45,37 @@ function getFunctionCompletions(text: string, scope: string, parseParams = false
   const foundVals = new Array<string>();
 
   let matches: RegExpExecArray;
-  while (matches = PATTERNS.FUNCTION.exec(text)) {
-    const name = matches[5];
+  // while (matches = PATTERNS.FUNCTION.exec(text)) {
+  //   const name = matches[5];
 
-    if (foundVals.indexOf(name.toLowerCase()) === -1) {
-      foundVals.push(name.toLowerCase());
+  //   if (foundVals.indexOf(name.toLowerCase()) === -1) {
+  //     foundVals.push(name.toLowerCase());
 
-      const ci = new CompletionItem(name, CompletionItemKind.Function);
+  //     const ci = new CompletionItem(name, CompletionItemKind.Function);
 
-      if (matches[1]) {
-        const summary = PATTERNS.COMMENT_SUMMARY.exec(matches[1]);
-        ci.documentation = summary?.[1];
-      }
+  //     if (matches[1]) {
+  //       const summary = PATTERNS.COMMENT_SUMMARY.exec(matches[1]);
+  //       ci.documentation = summary?.[1];
+  //     }
 
-      // currently only parse in local document, but for all functions, since there is no context
-      if (parseParams && matches[6])
-        for (const param of matches[6].split(",")) {
-          const paramCI = new CompletionItem(param.trim(), CompletionItemKind.Variable);
-          if (matches[1]) {
-            const paramComment = PATTERNS.PARAM_SUMMARY(matches[1], param.trim());
-            if (paramComment)
-              paramCI.documentation = paramComment[1];
-          }
+  //     // currently only parse in local document, but for all functions, since there is no context
+  //     if (parseParams && matches[6])
+  //       for (const param of matches[6].split(",")) {
+  //         const paramCI = new CompletionItem(param.trim(), CompletionItemKind.Variable);
+  //         if (matches[1]) {
+  //           const paramComment = PATTERNS.PARAM_SUMMARY(matches[1], param.trim());
+  //           if (paramComment)
+  //             paramCI.documentation = paramComment[1];
+  //         }
 
-          CIs.push(paramCI);
-        }
+  //         CIs.push(paramCI);
+  //       }
 
-      ci.detail = `${matches[2]} [${scope}]`;
+  //     ci.detail = `${matches[2]} [${scope}]`;
 
-      CIs.push(ci);
-    }
-  }
+  //     CIs.push(ci);
+  //   }
+  // }
 
   return CIs;
 }
@@ -85,24 +85,24 @@ function getPropertyCompletions(text: string, scope: string): CompletionItem[] {
   const foundVals = new Array<string>();
 
   let matches: RegExpExecArray;
-  while (matches = PATTERNS.PROP.exec(text)) {
-    const name = matches[4];
+  // while (matches = PATTERNS.PROP.exec(text)) {
+  //   const name = matches[4];
 
-    if (foundVals.indexOf(name.toLowerCase()) === -1) {
-      foundVals.push(name.toLowerCase());
+  //   if (foundVals.indexOf(name.toLowerCase()) === -1) {
+  //     foundVals.push(name.toLowerCase());
 
-      const ci = new CompletionItem(name, CompletionItemKind.Property);
+  //     const ci = new CompletionItem(name, CompletionItemKind.Property);
 
-      if (matches[1]) {
-        const summary = PATTERNS.COMMENT_SUMMARY.exec(matches[1]);
-        ci.documentation = summary?.[1];
-      }
+  //     if (matches[1]) {
+  //       const summary = PATTERNS.COMMENT_SUMMARY.exec(matches[1]);
+  //       ci.documentation = summary?.[1];
+  //     }
 
-      ci.detail = `${matches[2]} [${scope}]`;
+  //     ci.detail = `${matches[2]} [${scope}]`;
 
-      CIs.push(ci);
-    }
-  }
+  //     CIs.push(ci);
+  //   }
+  // }
 
   return CIs;
 }
@@ -112,21 +112,21 @@ function getClassCompletions(text: string, scope: string): CompletionItem[] {
   const foundVals = new Array<string>();
 
   let matches: RegExpExecArray;
-  while (matches = PATTERNS.CLASS.exec(text)) {
-    const name = matches[3];
-    if (foundVals.indexOf(name.toLowerCase()) === -1) {
-      foundVals.push(name.toLowerCase());
-      const ci = new CompletionItem(name, CompletionItemKind.Class);
+  // while (matches = PATTERNS.CLASS.exec(text)) {
+  //   const name = matches[3];
+  //   if (foundVals.indexOf(name.toLowerCase()) === -1) {
+  //     foundVals.push(name.toLowerCase());
+  //     const ci = new CompletionItem(name, CompletionItemKind.Class);
 
-      if (matches[1]) {
-        const summary = PATTERNS.COMMENT_SUMMARY.exec(matches[1]);
-        ci.documentation = summary?.[1];
-      }
+  //     if (matches[1]) {
+  //       const summary = PATTERNS.COMMENT_SUMMARY.exec(matches[1]);
+  //       ci.documentation = summary?.[1];
+  //     }
 
-      ci.detail = `${name} [${scope}]`;
-      CIs.push(ci);
-    }
-  }
+  //     ci.detail = `${name} [${scope}]`;
+  //     CIs.push(ci);
+  //   }
+  // }
 
   return CIs;
 }
@@ -166,8 +166,8 @@ function provideCompletionItems(doc: TextDocument, position: Position): Completi
     return [];
 
   // no Completion during writing a definition, still buggy
-  if (PATTERNS.VAR_COMPLS.test(codeAtPosition))
-    return [];
+  // if (PATTERNS.VAR_COMPLS.test(codeAtPosition))
+  //   return [];
 
   // no completion within open string
   let quoteCount = 0;

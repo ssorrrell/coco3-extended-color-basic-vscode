@@ -54,12 +54,8 @@
     ],
     "commands": [
       {
-        "command": "vbs.runScript",
-        "title": "%vbs.command.vbs.runScript%"
-      },
-      {
-        "command": "vbs.killScript",
-        "title": "%vbs.command.vbs.killScript%"
+        "command": "ecb2.crunch",
+        "title": "%vbs.command.ecb2.crunch%"
       }
     ],
     "grammars": [

@@ -1,55 +1,84 @@
-Option Explicit
-dim retValue
-
-dim fso : set fso = CreateObject("Scripting.FileSystemObject")
-
-dim file : file = "C:\temp\wscript.txt"
-
-On Error Resume Next
-if UBound(Wscript.Arguments) > 0 Then
-    file = Wscript.Arguments(0)
-Else
-    file = ".\TestFile.vbs"
-end if
-On Error Goto 0
-
-dim stream : set stream = fso.OpenTextFile(file)
-
-Do Until stream.AtEndOfStream
-    dim line : line = stream.ReadLine()
-    dim done : done = false
-    retValue = ""
-    On Error Resume Next
-    ExecuteGlobal "Option Explicit: retValue = " & line
-    Select Case Err.Number
-        Case 438
-            done = true
-        case 500
-            done = true
-        Case 0
-            Wscript.echo  line & " : " & Err.Description & " " & Err.Number & " " & retValue
-            done = true
-        Case Else
-            Wscript.echo  line & " : " & Err.Description & " " & Err.Number & " " & retValue
-            done = true
-    End Select
-
-    If not Done Then
-        On Error Resume Next
-        ExecuteGlobal "retValue = " & line & ".SurelyNotThere"
-        Select Case Err.Number
-            ' Case 438
-                ' done = true
-            case 500
-                done = true
-            Case 0
-                Wscript.echo  line & " : " & Err.Description & " " & Err.Number & " " & retValue
-                done = true
-            Case Else
-                Wscript.echo  line & " : " & Err.Description & " " & Err.Number & " " & retValue
-                done = true
-        End Select
-    End If
-Loop
-
-stream.close
+10 DIM A
+15 DIM AB
+18 DIM A,B,C
+20 A = 5 : A = 10
+30 FOR A = 1 TO 100
+40 PRINT "TEST" + A
+50 NEXT
+60 GOTO 30
+70 IF ABS(A)=5 AND ATN(A)=10 THEN A = 1
+80 REM TEST COMMENT
+90 ' TEST COMMENT 2
+100 ATTR 3,2,B,U
+110 AUDIO ON: AUDIO OFF
+120 CIRCLE (65,43),20,1,,.5,.8
+130 CLEAR 200, 20000
+140 CLOAD "PUPPIES"
+150 CLOADM "GRAPHICS",2730
+160 CLOSE#-1: CLOSE #-1
+170 CLS 2
+180 COLOR 2,3
+190 CONT
+200 CSAVE "NEWFILE",A
+210 CSAVEM "GRAPHICS", 28000,29000,28032
+220 DATA 45,CAT,98,DOG,24.3,1000
+230 DEF FNA(B)=B*(B+(1/8))
+240 DEFUSER0=28032
+250 DEL 40-75
+260 DIM A$(3,10),R4(22)
+270 DRAW"BM128,96;U25;R25;D25;L25"
+280 EDIT 40
+290 END
+300 EXEC 28032
+310 FOR Z=35 TO 125 STEP 5
+320 GET (22, 34)-(47,38),M,G
+330 GOSUB 330
+340 GOTO 125
+350 HBUFF 1,65
+360 HCIRCLE (55,64),20,23,.4,.7
+370 HCLS 2
+380 HCOLOR 2,3
+390 HDRAW"BM128,96;U25;R25;D25;L25"
+400 HGET (21,32)-(28,37),1
+410 HLINE (22,33)-(100,90),3,BF
+420 HPAINT (55,66),2,3
+430 HPRINT (20,12),"HELLO!"
+440 HPUT (22,33)-(28,37),1,PSET
+450 HRESET (22,33)
+460 HSCREEN 4
+470 HSET (22,33,2)
+480 HSTAT C,A,X,Y
+490 IF A<N THEN PRINT "A<N" ELSE PRINT "A>=N"
+500 INPUT K3
+510 INPUT#-1,C$: INPUT #-1,C$
+520 LET A3=27
+530 LIST 20-45
+540 LINE (22,37)-(27,39),PSET,BF
+550 LINEINPUT A$: LINE INPUT A$
+560 LLIST -90
+570 LOCATE 20,12
+580 LPOKE 480126,241
+590 MID$(A$,4,3)="CAT"
+600 MOTOR ON: MOTOR OFF
+610 NEW
+620 NEXT X,Y,Z
+630 ON BRK GOTO 120
+640 ON ERR GOTO 120
+650 ON A GOSUB 100, 230, 500, 1125
+660 ON A GOTO 100, 230, 500, 1125
+670 OPEN "O",#-1,"DATA": OPEN"O",#-1,"DATA"
+680 PAINT (44, 55), 2, 3
+690 PALETTE CMP: PALETTE RGB
+700 PALETTE 1, 13
+710 PCLEAR4: PCLEAR 4
+720 PCLS0: PCLS 0
+730 PCOPY 1 TO 2
+740 PLAY "L1;A;A#;A-"
+750 PMODE4,1: PMODE 4, 1
+760 POKE 28000,241: POKE $FF0, 241: POKE$FF0,241
+770 PRESET(22,33)
+780 PRINT"HELLO!":PRINT "HELLO!"
+790 PRINT#-1, A$
+800 PRINT#-2,"HELLO!"
+810 PRINT TAB(22);"HELLO!"
+820 PRINT USING"

@@ -1,6 +1,6 @@
 ''' <summary>Returns the absolute value of number.</summary>
 ''' <param name="n">Any valid numeric expression.</param>
-Function ABS(n) ' As Integer
+Function ABS(n)
 End Function
 
 ''' <summary>Returns code of the first character in <i>string</i>.</summary>

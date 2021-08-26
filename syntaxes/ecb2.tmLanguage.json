@@ -108,7 +108,7 @@
 					"name": "variable.other.dim.ecb2"
 				}
 			},
-			"match": "\\b(?:(DIM)\\s+\\b(\\(?[A-Z]\\w*\\)?\b(?:\\s*,\\s*\b\\(?[A-Z]\\w*\\)?\\b)*))"
+			"match": "(?<!' )(?:^\\d+|:)[ ]*(DIM)"
 		},
 		{
 			"begin": "\"",

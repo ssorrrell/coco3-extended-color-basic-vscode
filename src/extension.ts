@@ -16,24 +16,23 @@ export function activate(context: ExtensionContext): void {
   workspace.onDidChangeConfiguration(reloadImportDocuments);
   reloadImportDocuments();
 
-  context.subscriptions.push(
-    hoverProvider,
-    completionProvider,
-    symbolsProvider,
-    signatureProvider,
-    definitionProvider,
-    colorProvider,
-    launchProvider.launchConfigProvider,
-    launchProvider.inlineDebugAdapterFactory
+  context.subscriptions.push(hoverProvider
+  //   completionProvider,
+  //   symbolsProvider,
+  //   signatureProvider,
+  //   definitionProvider,
+  //   colorProvider,
+  //   launchProvider.launchConfigProvider,
+  //   launchProvider.inlineDebugAdapterFactory
   );
 
   // Run Script Command
-  commands.registerCommand("vbs.runScript", () => {
-    cmds.runScript();
-  });
+  // commands.registerCommand("ecb2.crunch", () => {
+  //   cmds.crunch();
+  // });
 
   // Kill running script command
-  commands.registerCommand("vbs.killScript", () => {
-    cmds.killScript();
-  });
+  // commands.registerCommand("vbs.killScript", () => {
+  //   cmds.killScript();
+  // });
 }
