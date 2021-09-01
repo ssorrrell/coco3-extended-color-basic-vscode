@@ -10,6 +10,15 @@
 	"comment": "Modified from the original ASP bundle. Originally modified by Thomas Aylott subtleGradient.com",
 	"patterns": [
 		{
+			"match": "^\\D+",
+			"name": "invalid.illegal.ecb2"
+		},
+		{
+			"comment": "line too long",
+			"match": "^(.{201})$",
+			"name": "invalid.illegal.ecb2"
+		},
+		{
 			"match": "\\n",
 			"name": "meta.ending-space"
 		},
@@ -62,42 +71,78 @@
 			"name": "keyword.control.ecb2"
 		},
 		{
-			"match": "(?:\\b(IF|THEN|ELSE|FOR|STEP|TO|NEXT|ON|GOSUB|GOTO|EXEC|CONT|END|DEFUSR|NEW|STOP|TRON|TROFF)\\b)",
+			"match": "\\b(RETURN|RUN)",
 			"name": "keyword.control.ecb2"
 		},
 		{
-			"match": "(?:\\b(ATTR|CIRCLE|CLS|COLOR|DRAW|GET|HBUFF|HCIRCLE|HCLS|HCOLOR|HDRAW|HGET|HLINE|HPAINT|HPRINT|HPOINT|HPUT|HRESET|HSCREEN|HSET|HSTAT|LINE|LOCATE|PAINT|PALETTE\\s*(CMP|RGB)|PALETTE|PCLEAR|PCLS|PCOPY|PMODE|POINT|POS|PPOINT|PRESET|PRINT|PRINT *TAB|PRINT *USING|PRINT *\\@|PSET|PUT|RESET|SCREEN|SET|WIDTH)\\b)",
+			"match": "\\b(IF|THEN|ELSE|FOR|STEP|TO|NEXT|ON|OFF|GOSUB|GOTO|EXEC|CONT|END|DEFUSR|NEW|STOP|TRON|TROFF)",
+			"name": "keyword.control.ecb2"
+		},
+		{
+			"match": "\\b(ATTR|CIRCLE|CLS|COLOR|DRAW|GET|HBUFF|HCIRCLE|HCLS|HCOLOR|HDRAW|HGET|HLINE|HPAINT|HPRINT|HPOINT|HPUT|HRESET|HSCREEN|HSET|HSTAT|LINE|LOCATE|PAINT|PALETTE\\s*(CMP|RGB)|PALETTE|PCOPY|POINT|POS|PPOINT|PRESET|PRINT|PSET|PUT|RESET|SCREEN|SET|WIDTH)\\b",
 			"name": "keyword.display.ecb2"
+		},
+		{
+			"match": "\\b(TAB)\\b",
+			"name": "entity.name.function.ecb2"
+		},
+		{
+			"match": "\\b(USING)\\b",
+			"name": "entity.name.function.ecb2"
 		},
 		{
 			"match": "(?:\\b(AUDIO|PLAY|SOUND)\\b)",
 			"name": "keyword.audio.ecb2"
 		},
 		{
-			"match": "(?:\\b(PCOPY *[0-9] *TO *[0-9])\\b)",
+			"match": "\\b(PCOPY)",
 			"name": "keyword.display.ecb2"
 		},
 		{
-			"match": "(?:\\b(CLEAR|DATA|DEF\\sFN|DEFUSR|DEL|EDIT|LET|LIST|LLIST|LPOKE|LPEEK|NEW|PEEK|POKE|READ|RENUM|RESTORE|USR)\\b)",
+			"match": "\\b(CLEAR|DATA|DEL|EDIT|LET|LIST|LLIST|LPOKE|LPEEK|NEW|PEEK|POKE|READ|RENUM|RESTORE|USR)",
 			"name": "keyword.memory.ecb2"
 		},
 		{
-			"match": "(?:\\b(CLOAD|CLOADM|CLOSE *\\#|CSAVE|CSAVEM|INPUT|INPUT\\s*\\#|LINE *INPUT|MOTOR|OPEN|SKIPF|VARPTR)\\b)",
+			"match": "\\b(DEF *FN)",
+			"name": "keyword.memory.ecb2"
+		},
+		{
+			"match": "\\b(VARPTR)\\b",
+			"name": "keyword.memory.ecb2"
+		},		
+		{
+			"match": "\\b(DEFUSR[0-9])",
+			"name": "keyword.control.ecb2"
+		},
+		{
+			"match": "\\b(USR[0-9])",
+			"name": "keyword.control.ecb2"
+		},
+		{
+			"match": "\\b(CLOAD|CLOADM|CSAVE|CSAVEM|INPUT|INPUT\\s*\\#|LINE *INPUT|MOTOR|OPEN|SKIPF)\\b",
+			"name": "keyword.io.ecb2"
+		},
+		{
+			"match": "\\b(CLOSE)\\b",
 			"name": "keyword.io.ecb2"
 		},
 		{
 			"comment": "print to cassette",
-			"match": "(?:\\b(PRINT *\\#-1,)\\b)",
+			"match": "\\b(PRINT *\\#-1,)\\b",
 			"name": "keyword.io.ecb2"
 		},
 		{
 			"comment": "print to printer",
-			"match": "(?:\\b(PRINT *\\#-2,)\\b)",
+			"match": "\\b(PRINT *\\#-2,)\\b",
 			"name": "keyword.io.ecb2"
 		},	
 		{
-			"match": "(?:\\b(AND|NOT|OR)\\b)",
+			"match": "\\b(AND|NOT|OR)",
 			"name": "keyword.operator.expression.ecb2"
+		},
+	  {
+			"match": ":|;|=|\\+|-|\\*|/|\\^|\\?|!|\\[|\\]|&|<|>|\\\\|@|_",
+			"name": "keyword.operator.ecb2"
 		},
 		{
 			"captures": {
@@ -108,7 +153,7 @@
 					"name": "variable.other.dim.ecb2"
 				}
 			},
-			"match": "(?<!' )(?:^\\d+|:)[ ]*(DIM)"
+			"match": "\\b(DIM)"
 		},
 		{
 			"begin": "\"",
@@ -132,8 +177,64 @@
 			]
 		},
 		{
-			"match": "(?:\\b(ABS|ASC|ATN|BUTTON|CHR\\$|COS|EOF|EXP|FIX|HEX\\$|INKEY\\$|INSTR|INT|JOYSTK|LEFT\\$|LEN|LOG|MID\\$|RIGHT\\$|RND|SGN|SIN|STRING\\$|STR\\$|SQR|TAN|VAL)\\b)",
-			"name": "support.function.ecb2"
+			"match": "\\b(EOF)\\b",
+			"name": "keyword.io.ecb2"
+		},
+		{
+			"match": "\\b(CHR(\\$|\\b))",
+			"name": "keyword.string.ecb2"
+		},
+		{
+			"match": "\\b(LEFT(\\$|\\b))",
+			"name": "keyword.string.ecb2"
+		},
+		{
+			"match": "\\b(RIGHT(\\$|\\b))",
+			"name": "keyword.string.ecb2"
+		},
+		{
+			"match": "\\b(STR(\\$|\\b))",
+			"name": "keyword.string.ecb2"
+		},
+		{
+			"match": "\\b(STRING(\\$|\\b))",
+			"name": "keyword.string.ecb2"
+		},
+		{
+			"match": "\\b(LEN|VAL)\\b",
+			"name": "keyword.string.ecb2"
+		},
+		{
+			"match": "\\b(HEX(\\$|\\b))",
+			"name": "keyword.math.ecb2"
+		},
+		{
+			"match": "\\b(ABS|ASC|ATN|COS|INT|EXP|FIX|LOG|RND|SGN|SIN|SQR|TAN)\\b",
+			"name": "keyword.math.ecb2"
+		},
+		{
+			"match": "\\b(INKEY(\\$|\\b))",
+			"name": "keyword.io.ecb2"
+		},
+		{
+			"match": "\\b(BUTTON)\\b",
+			"name": "keyword.io.ecb2"
+		},
+		{
+			"match": "\\b(JOYSTK)\\b",
+			"name": "keyword.io.ecb2"
+		},		
+		{
+			"match": "\\b(MID(\\$|\\b))",
+			"name": "keyword.string.ecb2"
+		},
+		{
+			"match": "\\b(INSTR)\\b",
+			"name": "keyword.string.ecb2"
+		},
+	  {
+			"match": "\\b(PCLEAR|PCLS|PMODE)",
+			"name": "keyword.display.ecb2"
 		},
 		{
 			"match": "(?:\\s*\\b(TIMER|ERLIN|ERNO|MEM)\\b)",
