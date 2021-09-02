@@ -10,12 +10,13 @@
 	"comment": "Modified from the original ASP bundle. Originally modified by Thomas Aylott subtleGradient.com",
 	"patterns": [
 		{
-			"match": "^\\D+",
+			"comment": "no starting line number",
+			"match": "^\\D*",
 			"name": "invalid.illegal.ecb2"
 		},
 		{
 			"comment": "line too long",
-			"match": "^(.{201})$",
+			"match": "^(.{200,})$",
 			"name": "invalid.illegal.ecb2"
 		},
 		{
