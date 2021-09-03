@@ -11,13 +11,18 @@
 	"patterns": [
 		{
 			"comment": "no starting line number",
-			"match": "^\\D*",
+			"match": "^\\D+",
 			"name": "invalid.illegal.ecb2"
 		},
 		{
 			"comment": "line too long",
 			"match": "^(.{200,})$",
 			"name": "invalid.illegal.ecb2"
+		},
+		{
+			"comment": "line numbers are controls features",
+			"match": "^\\d+",
+			"name": "keyword.control.ecb2"
 		},
 		{
 			"match": "\\n",
