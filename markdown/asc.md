@@ -1,0 +1,1 @@
+Returns code of the first character in <i>string</i>.

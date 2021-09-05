@@ -1,0 +1,1 @@
+Returns the arctangent of a <i>n</i> in radians.

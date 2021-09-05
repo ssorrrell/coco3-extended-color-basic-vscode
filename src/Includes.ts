@@ -4,14 +4,18 @@ import * as fs from "fs";
 
 export class IncludeFile {
   constructor(path: string) {
+    console.log("path", path);
     let path2 = path;
     if (!pathns.isAbsolute(path2))
       path2 = pathns.join(workspace.workspaceFolders[0].uri.fsPath, path2);
-
+    console.log("path2", path2);
     this.Uri = Uri.file(path2);
 
-    if (fs.existsSync(path2) && fs.statSync(path2).isFile())
+    console.log("Uri", this.Uri);
+    if (fs.existsSync(path2) && fs.statSync(path2).isFile()) {
+      console.log("readFileSync", path2);
       this.Content = fs.readFileSync(path2).toString();
+    }
   }
 
   Content = "";
@@ -20,6 +24,7 @@ export class IncludeFile {
 }
 
 export const Includes = new Map<string, IncludeFile>();
+export const Markdowns = new Map<string, IncludeFile>();
 
 export let customIncludeDirs : string[];
 export let customIncludePattern : RegExp;
@@ -46,6 +51,38 @@ export function reloadImportDocuments() : void {
 }
 
 export function getImportsWithLocal(doc : TextDocument) : [string, IncludeFile][] {
+  const localIncludes = [...Includes];
+  const processedMatches = Array<string>();
+
+  let match : RegExpExecArray;
+  while ((match = customIncludePattern.exec(doc.getText())) !== null) {
+    if (processedMatches.indexOf(match[1].toLowerCase()) === -1) {
+      for (const incDir of customIncludeDirs) {
+        let incDirResolved = incDir;
+        if (incDirResolved === ".")
+          incDirResolved = pathns.dirname(doc.uri.fsPath);
+        else if (incDirResolved === "..")
+          incDirResolved = pathns.dirname(pathns.dirname(doc.uri.fsPath));
+        // eslint-disable-next-line no-template-curly-in-string
+        else if (incDirResolved === "${workspaceFolder}")
+          if (workspace.workspaceFolders)
+            incDirResolved = workspace.workspaceFolders[0].uri.fsPath;
+
+        const path = pathns.resolve(incDirResolved, match[1]);
+        if (fs.existsSync(path) && fs.statSync(path)?.isFile())
+          localIncludes.push([
+            `Include Statement ${match[1]}`,
+            new IncludeFile(path)
+          ]);
+      }
+      processedMatches.push(match[1].toLowerCase());
+    }
+  }
+
+  return localIncludes;
+}
+
+export function getImportsWithLocal2(doc : TextDocument) : [string, IncludeFile][] {
   const localIncludes = [...Includes];
   const processedMatches = Array<string>();
 

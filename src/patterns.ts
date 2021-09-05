@@ -26,8 +26,8 @@ export const VAR_COMPLS = ""; /*/^[\t ]*(Dim|Const|((Private|Public)[\t ]+)?(Fun
  */
 export function DEF(input: string, word: string): RegExpExecArray {
   return new RegExp(
-    `((?:^[\\t ]*'.*$(?:\\r\\n|\\n))*)^[^'\\n\\r]*^[\\t ]*((?:(?:(?:(?:Private[\\t ]+|Public[\\t ]+)?(?:Class|Function|Sub|Property[\\t ][GLS]et)))[\\t ]+)(\\b${word}\\b).*)$`
-    , "im"
+    `^(?:Function[ ]+)(\b${word}\b).*`
+    , "m"
   ).exec(input);
 }
 
