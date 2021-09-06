@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
-import { languages, Hover, TextDocument, Position } from "vscode";
+import { languages, Hover, TextDocument, Position, Range } from "vscode";
 import * as PATTERNS from "./patterns";
 import { getImportsWithLocal, IncludeFile, Markdowns } from "./Includes";
 import * as pathns from "path";
@@ -119,16 +119,12 @@ function provideHover(doc: TextDocument, position: Position): Hover {
   const word: string = wordRange ? doc.getText(wordRange) : "";
   const line = doc.lineAt(position).text;
 
-
-
   const hoverresults: Hover[] = [];
 
   if (word.trim() === "")
     return null;
-
-  if (!new RegExp(`^[^'|REM]*${word}`).test(line))
+  if (!new RegExp("^[^'|REM]*").test(line))
     return null; //kickout lines that start with REM
-
   //count double quotes and exit if they are not in matching pairs
   let count = 0;
   for (let i = 0; i < position.character; i++) {
@@ -150,6 +146,7 @@ function provideHover(doc: TextDocument, position: Position): Hover {
 
   return hoverresults.length > 0 ? hoverresults[0] : null;
 }
+
 
 export default languages.registerHoverProvider(
   { scheme: "file", language: LANGUAGE },

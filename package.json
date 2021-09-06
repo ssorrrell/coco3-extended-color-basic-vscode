@@ -148,5 +148,10 @@
   },
   "dependencies": {
     "vscode-debugadapter": "^1.48.0"
+  },
+  "configurationDefaults": {
+    "[ecb2]": {
+      "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?"
+    }
   }
 }

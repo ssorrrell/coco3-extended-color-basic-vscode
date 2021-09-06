@@ -1,0 +1,1 @@
+Returns the left portion of a string.

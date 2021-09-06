@@ -1,0 +1,1 @@
+Returns a natural exponential number (e^<i>n</i>).

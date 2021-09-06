@@ -1,0 +1,1 @@
+Converts <i>n</i> to a string.

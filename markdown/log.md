@@ -1,0 +1,1 @@
+Returns the natural logarithm of <i>n</i>.

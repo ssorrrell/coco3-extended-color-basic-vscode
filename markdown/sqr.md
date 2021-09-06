@@ -1,0 +1,1 @@
+Returns the square root of <i>n</i>.

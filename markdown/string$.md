@@ -1,0 +1,1 @@
+Returns a string of a repeated character.

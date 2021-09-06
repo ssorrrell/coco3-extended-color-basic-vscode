@@ -1,0 +1,1 @@
+Returns a substring of string <i>s</i>.

@@ -1,0 +1,1 @@
+Returns the right portion of a string

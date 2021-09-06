@@ -1,0 +1,1 @@
+Returns the tangent of <i>angle</i> using radians.
