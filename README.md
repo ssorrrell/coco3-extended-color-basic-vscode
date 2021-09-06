@@ -1,4 +1,5 @@
 # Color Computer 3 Extended Color Basic 2.0 Extension for Visual Studio Code
+
 This extension implements basic language features of Color Computer 3 Super Extended Color Basic for [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Languages
@@ -14,11 +15,6 @@ Super Extended Color Basic 2 | Color Computer 3 | .ecb2
 Disk Extended Color Basic 1 | Color Computer 2 with Disk Drive | .decb or .decb1
 Extended Color Basic 1 | Color Computer 2 | .ecb or .ecb1
 
-
-<p align="center">
-  <span>English</span> | 
-</p>
-
 ## Features
 
 
@@ -30,6 +26,7 @@ Extended Color Basic 1 | Color Computer 2 | .ecb or .ecb1
 ```
 
 ## Issues Related to Coloring Tokens
+
 VS Code and the TextMate grammars are built for a modern language set, which Color BASIC is not.  Modern languages involve imports, multiple libraries, types, no line numbers, unlimited line length, multiple line statements, multiple line code blocks, functions, anonymous functions, etc.  This makes the keyword coloring far more complex than Color BASIC.
 
 Color BASIC Differences from a modern language:
@@ -59,10 +56,11 @@ keyword.math.xxx | Math functions like ATN, COS, and ABS
 
 
 ## Contribute
-You can support this project through PR with your changes or simply add an issue with your idea/bug.
-- ...
+
+You can support this project through PR with your changes, add an issue with your idea/bug, or provide a language translation.
 
 ## References
+
 This extension is forked and heavily modified from the extension by Serpen for VBScript.
 
 The xxx.tmLanguage.json uses a different parser than the standard MS engine.  This reg ex engine can help.
@@ -90,7 +88,9 @@ https://colorcomputerarchive.com/repo/Documents/Manuals/Hardware/Color%20Compute
 https://colorcomputerarchive.com/repo/Documents/Manuals/Hardware/Color%20Computer%203%20Extended%20Basic%20(Tandy).pdf
 
 ## Purpose
+
 This extension was founded to help develop for the Color Computer 3 with a modern toolset.
 
 ## Future
+
 Further steps would be to crunch the basic, rename to .bas, and open an emulator with the program in it.
