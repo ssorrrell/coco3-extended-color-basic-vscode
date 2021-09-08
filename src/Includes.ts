@@ -25,6 +25,20 @@ export class IncludeFile {
 
 export const Includes = new Map<string, IncludeFile>();
 export const Markdowns = new Map<string, IncludeFile>();
+// eslint-disable-next-line @typescript-eslint/no-inferrable-types
+const LANGUAGE: string = "ecb2";
+
+export function getLocale(): string {
+  const localeObject = JSON.parse(process.env.VSCODE_NLS_CONFIG);
+
+  return localeObject.locale;
+}
+
+export function getMarkdownPath(): string {
+  const locale = getLocale();
+
+  return `../markdown/${LANGUAGE}/${locale}`;
+}
 
 export let customIncludeDirs : string[];
 export let customIncludePattern : RegExp;

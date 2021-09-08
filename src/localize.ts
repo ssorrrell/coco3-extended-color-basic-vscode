@@ -22,6 +22,7 @@ export class Localize {
       ...this.options,
       ...JSON.parse(process.env.VSCODE_NLS_CONFIG || "{}")
     };
+    console.log("init", process.env);
   }
 
   private format(message: string, args: string[] = []): string {
