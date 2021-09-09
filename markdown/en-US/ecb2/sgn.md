@@ -1,5 +1,9 @@
+SGN(n)
+
 Returns the sign of <i>n</i>:
-Returns:
--1 - Negative
-0 - 0
-1 - Positive
+  -1  - Negative
+  0   - 0
+  1   - Positive
+
+Example
+A=SGN(A+.1)

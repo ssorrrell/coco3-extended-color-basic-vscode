@@ -1,5 +1,9 @@
+INSTR (p,s,f)
+
 Searches a string. Returns location of a target string in a search string:
-p - Start position of search
-s - String being searched
-t - Target string
-Returns - 0 point is reset; Code point is set
+  p - Start position of search
+  s - String being searched
+  t - Target string
+
+Example
+A=INSTR(1,M5$,"BEETS")

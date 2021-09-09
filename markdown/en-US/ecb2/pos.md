@@ -1,2 +1,9 @@
+POS(dev)
+
 Returns the current print position.
-Print device number: 0 - Screen, -2 - Printer
+  dev - Print device number:
+        0 - Screen
+        -2 - Printer
+
+Example
+A=POS(0)

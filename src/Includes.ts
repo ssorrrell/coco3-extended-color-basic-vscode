@@ -37,7 +37,7 @@ export function getLocale(): string {
 export function getMarkdownPath(): string {
   const locale = getLocale();
 
-  return `../markdown/${LANGUAGE}/${locale}`;
+  return `../markdown/${locale}/${LANGUAGE}`;
 }
 
 export let customIncludeDirs : string[];
