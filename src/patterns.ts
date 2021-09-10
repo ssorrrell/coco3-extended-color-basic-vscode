@@ -60,3 +60,32 @@ export const ARRAYBRACKETS = /\( *\d* *\)/;
 
 export const COLOR = ""; /*/\b(vbBlack|vbBlue|vbCyan|vbGreen|vbMagenta|vbRed|vbWhite|vbYellow)\b|\b(RGB[\t ]*\([\t ]*(&h[0-9a-f]+|\d+)[\t ]*,[\t ]*(&h[0-9a-f]+|\d+)[\t ]*,[\t ]*(&h[0-9a-f]+|\d+)[\t ]*\))|(&h[0-9a-f]{6}\b)/ig;*/
 
+export const ON_GOSUB = /ON \w\w?\$? GOSUB/mg;
+
+export const ON_GOTO = /ON \w\w?\$? GOTO/mg;
+
+export const PALETTE_CMP = /PALETTE CMP/mg;
+
+export const PALETTE_RGB = /PALETTE RGB/mg;
+
+export const LINE_INPUT = /LINE *INPUT/mg;
+
+export const IF_THEN_ELSE = /(IF|THEN|ELSE)/mg;
+
+export const PRINT_AT = /PRINT *\\@/mg;
+
+export const PRINT_HASH = /PRINT *\\#/mg;
+
+export const CLOSE_HASH = /CLOSE *\\#/mg;
+
+export const INPUT_HASH = /INPUT *\\#/mg;
+
+export const PRINT_TAB = /PRINT *TAB/mg;
+
+export const PRINT_USING = /PRINT *USING/mg;
+
+export const DEF_FN = /DEF *FN/mg;
+
+export const PCOPY = /PCOPY *\\d *TO *\\d/mg;
+
+export const USR = /USR/mg;

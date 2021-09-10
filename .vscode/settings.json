@@ -16,6 +16,6 @@
         "source.fixAll.eslint": true
     },
     //"[ecb2]": {
-        "editor.wordSeparators": "`~!%^&@#*()-=+[]\\|;:'\",.<>/?",
+        "editor.wordSeparators": "`~!%^@#*()-=+[]\\|;:'\",.<>/?",
     //}    
 }

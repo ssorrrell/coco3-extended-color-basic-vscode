@@ -1,8 +1,10 @@
+/* eslint-disable max-statements */
 /* eslint-disable @typescript-eslint/no-inferrable-types */
 import { languages, Hover, TextDocument, Position, Range } from "vscode";
 import * as PATTERNS from "./patterns";
 import { getImportsWithLocal, IncludeFile, Markdowns, getMarkdownPath } from "./Includes";
 import * as pathns from "path";
+import * as Tokens from "./tokens";
 
 const LANGUAGE: string = "ecb2";
 
@@ -58,16 +60,18 @@ function GetHoverLineNoText(matches: RegExpExecArray): Hover[] {
 }
 
 function GetHover(docText: string, lookup: string): Hover[] {
-  const jsonObject = JSON.parse(process.env.VSCODE_NLS_CONFIG);
-  console.log("GetHover", lookup, jsonObject);
+  console.log("GetHover", lookup);
   const results: Hover[] = [];
 
-  const filename: string = `${ getMarkdownPath() }/${ lookup.toLocaleLowerCase() }.md`;
+  const token: string = Tokens.getToken(lookup);
+  console.log("GetHover", token);
 
-  if (!Markdowns.has(lookup))
-    Markdowns.set(lookup, new IncludeFile(filename));
-  console.log(lookup, Markdowns.get(lookup).Content);
-  results.push(new Hover({ language: LANGUAGE, value: Markdowns.get(lookup).Content }));
+  const filename: string = `${ getMarkdownPath() }/${ token.toLocaleLowerCase() }.md`;
+
+  if (!Markdowns.has(token))
+    Markdowns.set(token, new IncludeFile(filename));
+  console.log(token, Markdowns.get(token).Content);
+  results.push(new Hover({ language: LANGUAGE, value: Markdowns.get(token).Content }));
 
 
   // const matches: RegExpExecArray = PATTERNS.DEF(docText, lookup);
