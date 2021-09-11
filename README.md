@@ -30,13 +30,17 @@ Extended Color Basic 1 | Color Computer 2 | .ecb or .ecb1
 VS Code and the TextMate grammars are built for a modern language set, which Color BASIC is not.  Modern languages involve imports, multiple libraries, types, no line numbers, unlimited line length, multiple line statements, multiple line code blocks, functions, anonymous functions, etc.  This makes the keyword coloring far more complex than Color BASIC.
 
 Color BASIC Differences from a modern language:
-2 data types; number and string
-GOTO/GOSUB instead of functions
-Everything is a global variable
-POKE/PEEK/DEFUSR/DEFFN/etc. direct machine access
+2 data types; number and string.
+GOTO/GOSUB instead of functions.
+Everything is a global variable.
+POKE/PEEK/DEFUSR/DEFFN/etc. direct machine access.
 All keywords are built into the language.
 DATA/READ sequential data storage/access
-Line Numbers required on each line
+Line Numbers required on each line.
+
+Modern Language Differences from Color BASIC
+A hex number is basically a color code.
+RGB colors are a lot more knowable at design time.
 
 ### What's this mean?
 
@@ -64,28 +68,28 @@ You can support this project through PR with your changes, add an issue with you
 This extension is forked and heavily modified from the extension by Serpen for VBScript.
 
 The xxx.tmLanguage.json uses a different parser than the standard MS engine.  This reg ex engine can help.
-https://rubular.com/
-https://macromates.com/manual/en/regular_expressions
+<https://rubular.com/>
+<https://macromates.com/manual/en/regular_expressions>
 
 Syntax Highlighting
-Syntax Highlight Guide - https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide
+Syntax Highlight Guide - <https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide>
 
-Syntax Naming Guide - https://macromates.com/manual/en/language_grammars#naming_conventions
+Syntax Naming Guide - <https://macromates.com/manual/en/language_grammars#naming_conventions>
 
 Other Basic Extensions
-https://github.com/Serpen/VBS-VSCode
-https://github.com/pedgarcia/language-cocobasic
-https://github.com/andymule/qb64-vscode
+<https://github.com/Serpen/VBS-VSCode>
+<https://github.com/pedgarcia/language-cocobasic>
+<https://github.com/andymule/qb64-vscode>
 
 VS Code Language Extension Docs
-https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide
+<https://code.visualstudio.com/api/language-extensions/syntax-highlight-guide>
 
 Atom Editor as a BASIC Edittor
-https://www.vintageisthenewold.com/trs-80-color-basic-using-atom-editor-giving-the-color-word-a-new-meaning
+<https://www.vintageisthenewold.com/trs-80-color-basic-using-atom-editor-giving-the-color-word-a-new-meaning>
 
 Color Computer Language References
-https://colorcomputerarchive.com/repo/Documents/Manuals/Hardware/Color%20Computer%203%20BASIC%20Quick%20Reference%20Manual%20(Tandy).pdf
-https://colorcomputerarchive.com/repo/Documents/Manuals/Hardware/Color%20Computer%203%20Extended%20Basic%20(Tandy).pdf
+<https://colorcomputerarchive.com/repo/Documents/Manuals/Hardware/Color%20Computer%203%20BASIC%20Quick%20Reference%20Manual%20(Tandy).pdf>
+<https://colorcomputerarchive.com/repo/Documents/Manuals/Hardware/Color%20Computer%203%20Extended%20Basic%20(Tandy).pdf>
 
 ## Purpose
 

@@ -24,11 +24,11 @@ function getVariableCompletions(text: string, scope: string): CompletionItem[] {
         const ci = new CompletionItem(name, itmKind);
         ci.documentation = matches[3];
 
-        if (new RegExp(PATTERNS.COLOR, "i").test(name)) {
-          ci.kind = CompletionItemKind.Color;
-          ci.filterText = `ColorConstants.${name}`;
-          ci.insertText = name;
-        }
+        // if (new RegExp(PATTERNS.COLOR, "i").test(name)) {
+        //   ci.kind = CompletionItemKind.Color;
+        //   ci.filterText = `ColorConstants.${name}`;
+        //   ci.insertText = name;
+        // }
 
         ci.detail = `${matches[0]} [${scope}]`;
 

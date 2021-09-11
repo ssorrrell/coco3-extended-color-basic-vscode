@@ -1,6 +1,12 @@
 import * as vscode from "vscode";
-import * as PATTERNS from "./patterns";
+//import * as PATTERNS from "./patterns";
 
+/**
+ * This is really hard to do.  Even though the colors of the Color Computer are known.
+ * The palettes and ability to load certain colors into the limited color modes and the
+ * artifact colors and all the hacks/tricks to produce colors make it really hard to
+ * predict what color is described programmatically.
+ */
 class VBSColorProvider implements vscode.DocumentColorProvider {
 
   // eslint-disable-next-line no-magic-numbers
@@ -9,6 +15,8 @@ class VBSColorProvider implements vscode.DocumentColorProvider {
   public provideDocumentColors(doc: vscode.TextDocument): vscode.ColorInformation[] {
     const array = new Array<vscode.ColorInformation>();
     let matches: RegExpExecArray;
+
+
     // while ((matches = PATTERNS.COLOR.exec(doc.getText())) !== null) {
     //   const pos = doc.positionAt(matches.index);
     //   const posEnd = doc.positionAt(matches.index + matches[0].length);

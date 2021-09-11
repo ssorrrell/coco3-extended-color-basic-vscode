@@ -36,5 +36,5 @@
         "increaseIndentPattern": "",
         "decreaseIndentPattern": ""
     },
-    "wordPattern": "(ON BRK GOTO|ON ERR GOTO|ON \\w\\w?\\$? (GOSUB|GOTO)|PALETTE (RGB|CMP)|LINE *INPUT|(CHR|HEX|INKEY|LEFT|MID|RIGHT|STR|STRING)\\$|PRINT *\\@|(CLOSE|INPUT|PRINT) *\\#|PRINT *TAB|PRINT *USING|DEF *FN|PCOPY *\\d *TO *\\d|USR|[A-Z][A-Z0-9]+)"
+    "wordPattern": "(ON BRK GOTO|ON ERR GOTO|ON \\w\\w?\\$? (GOSUB|GOTO)|PALETTE (RGB|CMP)|LINE *INPUT|(CHR|HEX|INKEY|LEFT|MID|RIGHT|STR|STRING)\\$|PRINT *@|(CLOSE|INPUT|PRINT) *\\#|PRINT *TAB|PRINT *USING|DEF *FN|PCOPY *\\d *TO *\\d|USR|[A-Z][A-Z0-9]+)"
 }

@@ -17,7 +17,7 @@ export const PROP = ""; /*/((?:^[\t ]*'+.*$(?:\r\n|\n))*)^[\t ]*((?:Public[\t ]+
 /**
  * Matches a Variable Declaration, 1st = Type, 2nd = Name (cs)
  */
-export const VAR = /(?<!' *)(?:^|:)[ ]*(DIM)[ ]+([A-Z0-9_]+(?:[ ]*\([ ]*\d*[ ]*\))?(?:[ ]*,[ ]*[A-Z0-9_]+(?:[ ]*\([ ]*\d*[ ]*\))?)*)[ ]*.*(?:$|:)/gm; /*/(?<!'\s*)(?:^|:)[\t ]*(Dim|Set|Const|Private[\t ]+Const|Public[\t ]+Const|Private|Public)[\t ]+(?!Sub|Function|Class|Property)([a-z0-9_]+(?:[\t ]*\([\t ]*\d*[\t ]*\))?(?:[\t ]*,[\t ]*[a-z0-9_]+(?:[\t ]*\([\t ]*\d*[\t ]*\))?)*)[\t ]*.*(?:$|:)/img;*/
+export const VAR = /(?<!')(DIM) +([A-Z0-9\\$]{1,3}(?: *\\( *\\d* *\\))?(?: *, *[A-Z0-9\\$]{1,3}(?: *\\( *\\d* *\\))?)*) *.*(?:$|:)/gm; /*/(?<!'\s*)(?:^|:)[\t ]*(Dim|Set|Const|Private[\t ]+Const|Public[\t ]+Const|Private|Public)[\t ]+(?!Sub|Function|Class|Property)([a-z0-9_]+(?:[\t ]*\([\t ]*\d*[\t ]*\))?(?:[\t ]*,[\t ]*[a-z0-9_]+(?:[\t ]*\([\t ]*\d*[\t ]*\))?)*)[\t ]*.*(?:$|:)/img;*/
 
 export const VAR_COMPLS = ""; /*/^[\t ]*(Dim|Const|((Private|Public)[\t ]+)?(Function|Sub|Class|Property [GLT]et))[\t ]+\w+[^:]*$/i;*/ // fix: should again after var name #22
 
@@ -58,7 +58,7 @@ export const ENDLINE = ""; /*(/(?:^|:)[\t ]*End\s+(Sub|Class|Function|Property)/
 
 export const ARRAYBRACKETS = /\( *\d* *\)/;
 
-export const COLOR = ""; /*/\b(vbBlack|vbBlue|vbCyan|vbGreen|vbMagenta|vbRed|vbWhite|vbYellow)\b|\b(RGB[\t ]*\([\t ]*(&h[0-9a-f]+|\d+)[\t ]*,[\t ]*(&h[0-9a-f]+|\d+)[\t ]*,[\t ]*(&h[0-9a-f]+|\d+)[\t ]*\))|(&h[0-9a-f]{6}\b)/ig;*/
+export const COLOR = /\b(\b(RGB[\t ]*\([\t ]*(&h[0-9a-f]+|\d+)[\t ]*,[\t ]*(&h[0-9a-f]+|\d+)[\t ]*,[\t ]*(&h[0-9a-f]+|\d+)[\t ]*\))|(&h[0-9a-f]{6}\b)/g;
 
 export const ON_GOSUB = /ON \w\w?\$? GOSUB/mg;
 
@@ -72,7 +72,7 @@ export const LINE_INPUT = /LINE *INPUT/mg;
 
 export const IF_THEN_ELSE = /(IF|THEN|ELSE)/mg;
 
-export const PRINT_AT = /PRINT *\\@/mg;
+export const PRINT_AT = /PRINT *@/mg;
 
 export const PRINT_HASH = /PRINT *\\#/mg;
 
