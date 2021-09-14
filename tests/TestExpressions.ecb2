@@ -1,5 +1,6 @@
 10 DIM A
-15 DIM AB
+15 DIM AB, A$
+16 DIM AC, B$, CC, DD
 18 DIM A,B,C
 20 A = 5 : A = 10
 30 FOR A = 1 TO 100

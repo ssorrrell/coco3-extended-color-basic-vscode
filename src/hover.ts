@@ -25,7 +25,7 @@ function GetHoverText(matches: RegExpExecArray): Hover[] {
       value = `${matches[2]}`;
     }
   }
-  console.log("GetHoverText", value);
+  //console.log("GetHoverText", value);
   if (value.length > 0) {
     results.push(new Hover({ language: LANGUAGE, value: value }));
   }
@@ -37,7 +37,7 @@ function GetHoverLineNoText(matches: RegExpExecArray): Hover[] {
   const results: Hover[] = [];
   const value: string = "";
 
-  console.log("GetHoverLineNoText", matches);
+  //console.log("GetHoverLineNoText", matches);
   // if (matches) {
   //   if (matches[1]) {
   //     //could we provide a jump to definition here?
@@ -51,7 +51,7 @@ function GetHoverLineNoText(matches: RegExpExecArray): Hover[] {
   //     value = `${matches[2]}`;
   //   }
   // }
-  console.log("GetHoverLineNoText", value);
+  //console.log("GetHoverLineNoText", value);
   if (value.length > 0) {
     results.push(new Hover({ language: LANGUAGE, value: value }));
   }
@@ -60,17 +60,17 @@ function GetHoverLineNoText(matches: RegExpExecArray): Hover[] {
 }
 
 function GetHover(docText: string, lookup: string): Hover[] {
-  console.log("GetHover", lookup);
+  //console.log("GetHover", lookup);
   const results: Hover[] = [];
 
   const token: string = Tokens.getToken(lookup);
-  console.log("GetHover", token);
+  //console.log("GetHover", token);
 
   const filename: string = `${ getMarkdownPath() }/${ token.toLocaleLowerCase() }.md`;
 
   if (!Markdowns.has(token))
     Markdowns.set(token, new IncludeFile(filename));
-  console.log(token, Markdowns.get(token).Content);
+  //console.log(token, Markdowns.get(token).Content);
   results.push(new Hover({ language: LANGUAGE, value: Markdowns.get(token).Content }));
 
 

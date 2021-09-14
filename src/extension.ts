@@ -16,8 +16,9 @@ export function activate(context: ExtensionContext): void {
   workspace.onDidChangeConfiguration(reloadImportDocuments);
   reloadImportDocuments();
 
-  context.subscriptions.push(hoverProvider
-  //   completionProvider,
+  context.subscriptions.push(
+    hoverProvider,
+    completionProvider
   //   symbolsProvider,
   //   signatureProvider,
   //   definitionProvider,
