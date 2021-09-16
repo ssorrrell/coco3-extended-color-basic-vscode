@@ -66,7 +66,7 @@ function GetHover(docText: string, lookup: string): Hover[] {
   const token: string = Tokens.getToken(lookup);
   //console.log("GetHover", token);
 
-  const filename: string = `${ getMarkdownPath() }/${ token.toLocaleLowerCase() }.md`;
+  const filename: string = `${ getMarkdownPath() }/${ token.toLowerCase() }.md`;
 
   if (!Markdowns.has(token))
     Markdowns.set(token, new IncludeFile(filename));

@@ -4,6 +4,32 @@ import { languages, CompletionItem, CompletionItemKind, TextDocument, Position }
 import definitions from "./definitions";
 import * as PATTERNS from "./patterns";
 
+function getVariablesFromDim(variableList: string):string[] {
+  const wordList: string[] = [];
+  let word: string = "";
+  let isArray: boolean = false;
+  for (let j = 0; j < variableList.length; j++) {
+    if (variableList[j]===" ") continue; //skip spaces
+    if (variableList[j]==="(") {
+      isArray = true; //comma in paren
+    } else if (variableList[j]===")") {
+      isArray = false; //comma in paren
+    } else if (!isArray && variableList[j]===",") {
+      //close out word
+      wordList.push(word);
+      word = "";
+      continue;
+    }
+    //increment word
+    word += variableList[j];
+  }
+  if (word.length > 0) {
+    wordList.push(word);
+  }
+
+  return wordList;
+}
+
 function getVariableCompletions(text: string): CompletionItem[] {
   const CIs: CompletionItem[] = []; // results
   const foundVals = new Array<string>(); // list to prevent doubles
@@ -13,35 +39,29 @@ function getVariableCompletions(text: string): CompletionItem[] {
   let matches: RegExpExecArray;
   while (matches = PATTERNS.VAR.exec(text)) {
     const variableList: string = matches[1];
-    const wordList: string[] = [];
-    let word: string = "";
-    let isArray: boolean = false;
-    for (let j = 0; j < variableList.length; j++) {
-      if (variableList[j]===" ") continue; //skip spaces
-      if (variableList[j]==="(") {
-        isArray = true; //comma in paren
-      } else if (variableList[j]===")") {
-        isArray = false; //comma in paren
-      } else if (!isArray && variableList[j]===",") {
-        //close out word
-        wordList.push(word);
-        word = "";
-        continue;
-      }
-      //increment word
-      word += variableList[j];
-    }
-    if (word.length > 0) {
-      wordList.push(word);
-    }
+    const wordList: string[] = getVariablesFromDim(variableList);
+
     for (const name of wordList) {
       if (foundVals.indexOf(name.toLowerCase()) === -1) {
         foundVals.push(name.toLowerCase());
 
-        const itmKind = CompletionItemKind.Variable;
+        let completionName: string = name;
+        const pos = name.indexOf("(");
+        let arrayDimension: string = "";
+        if (pos > 0) {
+          completionName = name.substring(0, pos);
+          arrayDimension = name.substring(pos);
+        }
 
-        const ci = new CompletionItem(name, itmKind);
-        ci.documentation = matches[3];
+        let details: string = "";
+        if (completionName.length > 0 && completionName.endsWith("$")) {
+          details = "String";
+        } else {
+          details = "Number";
+        }
+        if (arrayDimension.length > 0) {
+          details += ` Array ${arrayDimension}`;
+        }
 
         // if (new RegExp(PATTERNS.COLOR, "i").test(name)) {
         //   ci.kind = CompletionItemKind.Color;
@@ -49,7 +69,8 @@ function getVariableCompletions(text: string): CompletionItem[] {
         //   ci.insertText = name;
         // }
 
-        ci.detail = `${matches[0]}`;
+        const ci = new CompletionItem(completionName, CompletionItemKind.Variable);
+        ci.detail = `${details}`;
 
         CIs.push(ci);
       }

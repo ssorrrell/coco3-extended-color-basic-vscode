@@ -139,9 +139,9 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
+    "compile": "tsc -p ./ && copy-files-from-to",
     "lint": "eslint -c .eslintrc --ext .ts src",
-    "watch": "tsc -watch -p ./",
+    "watch": "tsc -watch -p ./ && copy-files-from-to",
     "test": "mocha dist/test/*.test.js",
     "package": "vsce package",
     "publish": "vsce publish"
@@ -153,5 +153,22 @@
     "[ecb2]": {
       "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?"
     }
+  },
+  "copyFiles": [
+    {
+        "from": "./src/definitions/en-US/**",
+        "to": "./dist/definitions/en-US/"
+    },
+    {
+      "from": "./markdown/**",
+      "to": "./dist/markdown/"
+    }
+  ],
+  "copyFilesSettings": {
+    "whenFileExists": "overwrite",
+    "removeSourceMappingURL": false,
+    "uglifyJs": false,
+    "addReferenceToSourceOfOrigin": false,
+    "ignoreDotFilesAndFolders": true
   }
 }
