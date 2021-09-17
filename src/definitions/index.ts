@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable @typescript-eslint/no-var-requires */
 //import keywords from "./keywords.json";
 //import operators from "./operators.json";
 import { getLocale } from "../Includes";
-
 import { CompletionItem, CompletionItemKind } from "vscode";
 
 const LANGUAGE: string = "ecb2";
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { keywords } = require(`./${getLocale()}/${LANGUAGE}/keywords.json`);
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { operators } = require(`./${getLocale()}/${LANGUAGE}/operators.json`);
+
+const keywords = require(`./${getLocale()}/${LANGUAGE}/keywords.json`);
+const operators = require(`./${getLocale()}/${LANGUAGE}/operators.json`);
 
 const completions = new Array<CompletionItem>();
 

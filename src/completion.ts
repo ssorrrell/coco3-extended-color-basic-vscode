@@ -4,6 +4,8 @@ import { languages, CompletionItem, CompletionItemKind, TextDocument, Position }
 import definitions from "./definitions";
 import * as PATTERNS from "./patterns";
 
+const LANGUAGE: string = "ecb2";
+
 function getVariablesFromDim(variableList: string):string[] {
   const wordList: string[] = [];
   let word: string = "";
@@ -111,14 +113,10 @@ function provideCompletionItems(doc: TextDocument, position: Position): Completi
   retCI.push(...definitions);
   retCI.push(...getCompletions(text));
 
-  // for (const item of localIncludes)
-  //   if (item[0].startsWith("Include") || item[0] === "Global")
-  //     retCI.push(...getCompletions(item[1].Content));
-
   return retCI;
 }
 
 export default languages.registerCompletionItemProvider(
-  { scheme: "file", language: "ecb2" },
+  { scheme: "file", language: LANGUAGE },
   { provideCompletionItems }, " "
 );
