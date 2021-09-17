@@ -1,63 +1,12 @@
 {
-  "ABS": {
-    "documentation": "Returns the absolute value of n"
-  },
-  "ASC": {
-    "documentation": "Returns the code of the first character in string."
-  },
-  "ATN": {
-    "documentation": "Returns the actangent of n in radians."
-  },
-  "ATTR": {
-    "documentation": "Sets display attributes of a high resolution text screen"
-  },
-  "AUDIO": {
-    "documentation": "Connects or disconnects cassette output to the display speaker"
-  },
-  "BUTTON": {
-    "documentation": "Returns 1 if Joystick Button n is being pressed; 0 if Joystick Button n is not being pressed."
-  },
-  "CHR$": {
-    "documentation": "Returns the character corresponding to character code n."
-  },
-  "CIRCLE": {
-    "documentation": "Draws a circle on the current low resolution graphics screen."
-  },
   "CLEAR": {
     "documentation": "Erases variables, reserves string workspace and reserves high memory for machine language programs."
-  },
-  "CLOAD": {
-    "documentation": "Loads program filename from cassette. If filename is not specified. BASIC loads the first program file found."
-  },
-  "CLOADM": {
-    "documentation": "Loads machine-language program filename from cassetter.  If filename is not specified, BASIC loads the first machin language program found."
-  },
-  "CLOSE#": {
-    "documentation": "Closes access to specified device or file.  If d is not specified, BASIC closes all open devices and files."
-  },
-  "CLS": {
-    "documentation": "Clears the text screen to a specified color.  When in high-resolution text mode, BASIC also sets the background color.  If c is not specied, BASIC uses the current background color."
-  },
-  "COLOR": {
-    "documentation": "Sets foreground and background colors of the current low-resolution graphics screen."
   },
   "CONT": {
     "documentation": "Continues program execution after a program halt from the BREAK key or a STOP instruction"
   },
-  "COS": {
-    "documentation": "Returns the cosine of an angle using radians."
-  },
-  "CSAVE": {
-    "documentation": "Saves program filename on cassette"
-  },
-  "CSAVEM": {
-    "documentation": "Saves machine-language program filename on cassette."
-  },
   "DATA": {
     "documentation": "Stores numeric and string constants for use with READ statement."
-  },
-  "DEF FN": {
-    "documentation": "Defines a numeric function"
   },
   "DEFUSR": {
     "documentation": "Defines the starting address of a machine language subroutine."
@@ -68,9 +17,6 @@
   "DIM": {
     "documentation": "Dimensions variables."
   },
-  "DRAW": {
-    "documentation": "Draws a line on the current low-resolution graphics screen as specified by string."
-  },
   "EDIT": {
     "documentation": "Edits a program line.  After fetching specified line number, EDIT recognizes several commands"
   },
@@ -80,83 +26,17 @@
   "END": {
     "documentation": "Marks the end of a BASIC program."
   },
-  "EOF": {
-    "documentation": "Returns FALSE(0) if there is more data; TRUE(-1) if end of file has been read."
-  },
-  "ERLIN": {
-    "documentation": "Returns the BASIC line nubmer where an error has occurred."
-  },
-  "ERNO": {
-    "documentation": "Returns the BASIC error number for the error that has occurred."
-  },
   "EXEC": {
     "documentation": "Transfers control to a machine-language program at address.  If address is omitted, congtrol is transferred to address set in the last CLOADM."
   },
-  "EXP": {
-    "documentation": "Returns a natural exponential number (e^n)."
-  },
-  "FIX": {
-    "documentation": "Returns the truncated integer of n.  Unline INT, FIC does not return the next lower number for a negative n."
-  },
   "FOR": {
     "documentation": "Defines the beginning of a loop.  The end is specified by NEXT."
-  },
-  "GET": {
-    "documentation": "Stores a rectangle that is on the low-resolution graphics screen in an array for future use by the PUT command."
   },
   "GOSUB": {
     "documentation": "Calls a subroutine beginning at the specified line number."
   },
   "GOTO": {
     "documentation": "Jumps to the specified line number."
-  },
-  "HBUFF": {
-    "documentation": "Reserves an area in memory for high-resolution graphics."
-  },
-  "HCIRCLE": {
-    "documentation": "Draws a circle on the high-resolution graphics screen."
-  },
-  "HCLS": {
-    "documentation": "Clears the high-resolution graphics screen to a specifed color."
-  },
-  "HCOLOR": {
-    "documentation": "Sets foreground and background color on the high-resolution graphics screen."
-  },
-  "HDRAW": {
-    "documentation": "Draws a line on the high resolution graphics screen as specified by string."
-  },
-  "HEX$": {
-    "documentation": "Returns a string with the hexadecimal value of n."
-  },
-  "HGET": {
-    "documentation": "Stores a rectangle that is on the high resolution graphics screen into a buffer previously set up by the HBUFF command for future use by the HPUT command."
-  },
-  "HLINE": {
-    "documentation": "Draws a line on the high resolution graphics screen."
-  },
-  "HPAINT": {
-    "documentation": "Paints an area on the high-resolution graphics screen."
-  },
-  "HPOINT": {
-    "documentation": "Returns the information on point x, y from the high-resolution graphics screen."
-  },
-  "HPRINT": {
-    "documentation": "Prints message on high-resolution graphics screen."
-  },
-  "HPUT": {
-    "documentation": "Copies graphics from a buffer to a rectangle on the high-resolution graphics screen"
-  },
-  "HRESET": {
-    "documentation": "Resets a poihnt on the high-resolution graphics screen to the background color."
-  },
-  "HSCREEN": {
-    "documentation": "Selects a high-resolution graphics screen mode.  Mofes 1-4 also clear the high-resolution graphics screen."
-  },
-  "HSET": {
-    "documentation": "Sets point x,y on the high-resolution graphics screen to COlor c.  If you omit c, BASIC uses the foregraound color."
-  },
-  "HSTAT": {
-    "documentation": "Returns information regarding the high-resolution text screen cursor to variables v1, v2, v3, and v4."
   },
   "IF": {
     "documentation": "Performs a test.  If the results are true, the computer executes the first instruction (#1).  If the results are false, the coputer executes the second instruction (#2)."
@@ -167,29 +47,8 @@
   "INPUT": {
     "documentation": "Read data from the keyboard, and saves it in one or more variables."
   },
-  "INPUT#": {
-    "documentation": "Reads data from a cassette, and saves it in one or more variables."
-  },
-  "INSTR": {
-    "documentation": "Searches a string.  Returns location of a target string in a search string."
-  },
-  "INT": {
-    "documentation": "Converts n to the largest integer that is less than or equal to n."
-  },
-  "JOYSTK": {
-    "documentation": "Returns the horizontal or vertical coordinate (j) of the left or right joystick:"
-  },
-  "LEFT$": {
-    "documentation": "Returns the left portion of a string."
-  },
-  "LEN": {
-    "documentation": "Returns the length of string."
-  },
   "LET": {
     "documentation": "Assigns a value to a variable (optional)."
-  },
-  "LINE": {
-    "documentation": "Draws a line on the current low-resolution graphics screen."
   },
   "LINE INPUT": {
     "documentation": "Reads data from the keyboard, and saves it in a variable.  Commas are characters, and not delimters."
@@ -200,12 +59,6 @@
   "LLIST": {
     "documentation": "Lists specified program line(s) or the entire program on the printer."
   },
-  "LOCATE": {
-    "documentation": "Moves the high-resolution text screen cursor to position x,y."
-  },
-  "LOG": {
-    "documentation": "Returns the natural logarithm of n."
-  },
   "LPEEK": {
     "documentation": "Returns the contents of virtual memory location (0-524287 decimal or 0-$7FFFF hexadecimal."
   },
@@ -214,12 +67,6 @@
   },
   "MEM": {
     "documentation": "Returns the amount of free memory."
-  },
-  "MID$": {
-    "documentation": "Replaces a portion of the contents of a string variable s with another string."
-  },
-  "MOTOR": {
-    "documentation": "Turns the cassetter ON or OFF."
   },
   "NEW": {
     "documentation": "Erases everything in memory."
@@ -236,74 +83,11 @@
   "ON": {
     "documentation": ""
   },
-  "OPEN": {
-    "documentation": "Opens a specified file for data transmission."
-  },
-  "PAINT": {
-    "documentation": "Paints an area on the current low-resolution graphics screen."
-  },
-  "PALETTE CMP": {
-    "documentation": "Resets the palette registers to the standard color for a composite monitor or television set"
-  },
-  "PALETTE RGB": {
-    "documentation": "Resets the palette registers to the standard color for an RGB monitor."
-  },
-  "PALETTE": {
-    "documentation": "Stores Color Code cc (0-63) into Palette Register pr (0-15)."
-  },
-  "PCLEAR": {
-    "documentation": "Reserves n number of 1.5k graphics memory pages."
-  },
-  "PCLS": {
-    "documentation": "Clears current low-resolution graphics screen with Color c.  If you omit c, BASIC uses the background color."
-  },
-  "PCOPY": {
-    "documentation": "Copies low resolution graphics from source page to destination page."
-  },
   "PEEK": {
     "documentation": "Returns the contents of memory location (0-65535 decimal or 0-&HFFFF hexadecimal)."
   },
-  "PLAY": {
-    "documentation": "Plays music as specified by string."
-  },
-  "PMODE": {
-    "documentation": "Selects resolution and first memory page of a low-resolution graphics screen."
-  },
-  "POINT": {
-    "documentation": "Returns information on point x,y from the low-resolution text screen."
-  },
   "POKE": {
     "documentation": "Stores a value (0-255) in a memory location (0-65535 decimal or 0-$FFFF hexadecimal)"
-  },
-  "POS": {
-    "documentation": "Returns the currenr print position."
-  },
-  "PPOINT": {
-    "documentation": "Returns information on point x,y from the low-resolution graphics screen."
-  },
-  "PRINT": {
-    "documentation": "Prints on the text screens."
-  },
-  "PRINT #-1": {
-    "documentation": "Writes data to cassette."
-  },
-  "PRINT #-2": {
-    "documentation": "Prints on the printer."
-  },
-  "PRINT TAB": {
-    "documentation": "Moves the cursor to column n on the low and high resolution text screens."
-  },
-  "PRINT USING": {
-    "documentation": "Prints numbers in the specified format on the text screen."
-  },
-  "PRINT @": {
-    "documentation": "Prints message on low-resolution text screen at position n."
-  },
-  "PSET": {
-    "documentation": "Sets point x, y on the current low-resoltution graphics screen to Color c.  If c is ommitted, BASIC uses the foreground color."
-  },
-  "PUT": {
-    "documentation": "Copies graphics from an array to a rectangle on the low-resolution graphics screen."
   },
   "READ": {
     "documentation": "Reads the next item(s) in a DATA line.  SAves data in specified variable(s)."
@@ -323,47 +107,11 @@
   "RETURN": {
     "documentation": "Returns the computer from a subroutine to the BASIC word following GOSUB."
   },
-  "RIGHT$": {
-    "documentation": "Returns the right portion of a string."
-  },
-  "RND": {
-    "documentation": "Generates a \"random\" number between 1 and n if n>1 and between 0 and 1 if n=0."
-  },
   "RUN": {
     "documentation": "Executes the program."
   },
-  "SCREEN": {
-    "documentation": "Selects low-resolution screen modes and color sets."
-  },
-  "SET": {
-    "documentation": "Sets point x, y on the low-resolution text screen to Color c.  If you omit c, BASIC uses the foreground color."
-  },
-  "SGN": {
-    "documentation": "Returns the sign of n."
-  },
-  "SIN": {
-    "documentation": "Returns the sine of angle using radians."
-  },
-  "SKIPF": {
-    "documentation": "Skips the next program on cassette tape or to the end of a specified program."
-  },
-  "SOUND": {
-    "documentation": "Sounds a specified tone for a specified duration."
-  },
-  "SQR": {
-    "documentation": "Returns the square root of n."
-  },
   "STOP": {
     "documentation": "Stops execution of a program."
-  },
-  "STRING$": {
-    "documentation": "Returns a string of a repeated character."
-  },
-  "STR$": {
-    "documentation": "Converts n to a string."
-  },
-  "TAN": {
-    "documentation": "Returns the tangent of angle using radians."
   },
   "THEN": {
     "documentation": ""
@@ -377,16 +125,7 @@
   "TRON": {
     "documentation": "Turns on program tracer."
   },
-  "USR": {
-    "documentation": "Calls machine-language subroutine n, passes it an argument, and returns a value from the subroutine to the BASIC program."
-  },
-  "VAL": {
-    "documentation": "Converts a string to a number."
-  },
   "VARPTR": {
     "documentation": "Returns a pointer to where a veriable is located in memory."
-  },
-  "WIDTH": {
-    "documentation": "Sets the text screen to resolution n."
   }
 }

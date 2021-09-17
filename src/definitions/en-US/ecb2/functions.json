@@ -1,0 +1,95 @@
+{
+  "ABS": {
+    "documentation": "Returns the absolute value of n"
+  },
+  "ASC": {
+    "documentation": "Returns the code of the first character in string."
+  },
+  "ATN": {
+    "documentation": "Returns the actangent of n in radians."
+  },
+  "BUTTON": {
+    "documentation": "Returns 1 if Joystick Button n is being pressed; 0 if Joystick Button n is not being pressed."
+  },
+  "CHR$": {
+    "documentation": "Returns the character corresponding to character code n."
+  },
+  "COS": {
+    "documentation": "Returns the cosine of an angle using radians."
+  },
+  "DEF FN": {
+    "documentation": "Defines a numeric function"
+  },
+  "EOF": {
+    "documentation": "Returns FALSE(0) if there is more data; TRUE(-1) if end of file has been read."
+  },
+  "ERLIN": {
+    "documentation": "Returns the BASIC line nubmer where an error has occurred."
+  },
+  "ERNO": {
+    "documentation": "Returns the BASIC error number for the error that has occurred."
+  },
+  "EXP": {
+    "documentation": "Returns a natural exponential number (e^n)."
+  },
+  "FIX": {
+    "documentation": "Returns the truncated integer of n.  Unline INT, FIC does not return the next lower number for a negative n."
+  },
+  "HEX$": {
+    "documentation": "Returns a string with the hexadecimal value of n."
+  },
+  "INSTR": {
+    "documentation": "Searches a string.  Returns location of a target string in a search string."
+  },
+  "INT": {
+    "documentation": "Converts n to the largest integer that is less than or equal to n."
+  },
+  "JOYSTK": {
+    "documentation": "Returns the horizontal or vertical coordinate (j) of the left or right joystick:"
+  },
+  "LEFT$": {
+    "documentation": "Returns the left portion of a string."
+  },
+  "LEN": {
+    "documentation": "Returns the length of string."
+  },
+  "LOG": {
+    "documentation": "Returns the natural logarithm of n."
+  },
+  "MID$": {
+    "documentation": "Replaces a portion of the contents of a string variable s with another string."
+  },
+  "POS": {
+    "documentation": "Returns the currenr print position."
+  },
+  "RIGHT$": {
+    "documentation": "Returns the right portion of a string."
+  },
+  "RND": {
+    "documentation": "Generates a \"random\" number between 1 and n if n>1 and between 0 and 1 if n=0."
+  },
+  "SGN": {
+    "documentation": "Returns the sign of n."
+  },
+  "SIN": {
+    "documentation": "Returns the sine of angle using radians."
+  },
+  "SQR": {
+    "documentation": "Returns the square root of n."
+  },
+  "STRING$": {
+    "documentation": "Returns a string of a repeated character."
+  },
+  "STR$": {
+    "documentation": "Converts n to a string."
+  },
+  "TAN": {
+    "documentation": "Returns the tangent of angle using radians."
+  },
+  "USR": {
+    "documentation": "Calls machine-language subroutine n, passes it an argument, and returns a value from the subroutine to the BASIC program."
+  },
+  "VAL": {
+    "documentation": "Converts a string to a number."
+  }
+}

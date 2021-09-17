@@ -1,0 +1,140 @@
+{
+  "ATTR": {
+    "documentation": "Sets display attributes of a high resolution text screen"
+  },
+  "CIRCLE": {
+    "documentation": "Draws a circle on the current low resolution graphics screen."
+  },
+  "CLS": {
+    "documentation": "Clears the text screen to a specified color.  When in high-resolution text mode, BASIC also sets the background color.  If c is not specied, BASIC uses the current background color."
+  },
+  "COLOR": {
+    "documentation": "Sets foreground and background colors of the current low-resolution graphics screen."
+  },
+  "DRAW": {
+    "documentation": "Draws a line on the current low-resolution graphics screen as specified by string."
+  },
+  "GET": {
+    "documentation": "Stores a rectangle that is on the low-resolution graphics screen in an array for future use by the PUT command."
+  },
+  "HBUFF": {
+    "documentation": "Reserves an area in memory for high-resolution graphics."
+  },
+  "HCIRCLE": {
+    "documentation": "Draws a circle on the high-resolution graphics screen."
+  },
+  "HCLS": {
+    "documentation": "Clears the high-resolution graphics screen to a specifed color."
+  },
+  "HCOLOR": {
+    "documentation": "Sets foreground and background color on the high-resolution graphics screen."
+  },
+  "HDRAW": {
+    "documentation": "Draws a line on the high resolution graphics screen as specified by string."
+  },
+  "HGET": {
+    "documentation": "Stores a rectangle that is on the high resolution graphics screen into a buffer previously set up by the HBUFF command for future use by the HPUT command."
+  },
+  "HLINE": {
+    "documentation": "Draws a line on the high resolution graphics screen."
+  },
+  "HPAINT": {
+    "documentation": "Paints an area on the high-resolution graphics screen."
+  },
+  "HPOINT": {
+    "documentation": "Returns the information on point x, y from the high-resolution graphics screen."
+  },
+  "HPRINT": {
+    "documentation": "Prints message on high-resolution graphics screen."
+  },
+  "HPUT": {
+    "documentation": "Copies graphics from a buffer to a rectangle on the high-resolution graphics screen"
+  },
+  "HRESET": {
+    "documentation": "Resets a poihnt on the high-resolution graphics screen to the background color."
+  },
+  "HSCREEN": {
+    "documentation": "Selects a high-resolution graphics screen mode.  Mofes 1-4 also clear the high-resolution graphics screen."
+  },
+  "HSET": {
+    "documentation": "Sets point x,y on the high-resolution graphics screen to COlor c.  If you omit c, BASIC uses the foregraound color."
+  },
+  "HSTAT": {
+    "documentation": "Returns information regarding the high-resolution text screen cursor to variables v1, v2, v3, and v4."
+  },
+  "LINE": {
+    "documentation": "Draws a line on the current low-resolution graphics screen."
+  },
+  "LOCATE": {
+    "documentation": "Moves the high-resolution text screen cursor to position x,y."
+  },
+  "PAINT": {
+    "documentation": "Paints an area on the current low-resolution graphics screen."
+  },
+  "PALETTE CMP": {
+    "documentation": "Resets the palette registers to the standard color for a composite monitor or television set"
+  },
+  "PALETTE RGB": {
+    "documentation": "Resets the palette registers to the standard color for an RGB monitor."
+  },
+  "PALETTE": {
+    "documentation": "Stores Color Code cc (0-63) into Palette Register pr (0-15)."
+  },
+  "PCLEAR": {
+    "documentation": "Reserves n number of 1.5k graphics memory pages."
+  },
+  "PCLS": {
+    "documentation": "Clears current low-resolution graphics screen with Color c.  If you omit c, BASIC uses the background color."
+  },
+  "PCOPY": {
+    "documentation": "Copies low resolution graphics from source page to destination page."
+  },
+  "PLAY": {
+    "documentation": "Plays music as specified by string."
+  },
+  "PMODE": {
+    "documentation": "Selects resolution and first memory page of a low-resolution graphics screen."
+  },
+  "POINT": {
+    "documentation": "Returns information on point x,y from the low-resolution text screen."
+  },
+  "PPOINT": {
+    "documentation": "Returns information on point x,y from the low-resolution graphics screen."
+  },
+  "PRINT": {
+    "documentation": "Prints on the text screens."
+  },
+  "PRINT TAB": {
+    "documentation": "Moves the cursor to column n on the low and high resolution text screens."
+  },
+  "PRINT USING": {
+    "documentation": "Prints numbers in the specified format on the text screen."
+  },
+  "PRINT @": {
+    "documentation": "Prints message on low-resolution text screen at position n."
+  },
+  "PSET": {
+    "documentation": "Sets point x, y on the current low-resoltution graphics screen to Color c.  If c is ommitted, BASIC uses the foreground color."
+  },
+  "PUT": {
+    "documentation": "Copies graphics from an array to a rectangle on the low-resolution graphics screen."
+  },
+  "RESET": {
+    "documentation": "Resets a point on the low-resolution text screen to the background color."
+  },
+  "RESTORE": {
+    "documentation": "Sets the computer's data pointer back to the first item on the first DATA line."
+  },
+  "RETURN": {
+    "documentation": "Returns the computer from a subroutine to the BASIC word following GOSUB."
+  },
+  "SCREEN": {
+    "documentation": "Selects low-resolution screen modes and color sets."
+  },
+  "SET": {
+    "documentation": "Sets point x, y on the low-resolution text screen to Color c.  If you omit c, BASIC uses the foreground color."
+  },
+  "WIDTH": {
+    "documentation": "Sets the text screen to resolution n."
+  }
+}

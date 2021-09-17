@@ -1,0 +1,35 @@
+{
+  "CLOAD": {
+    "documentation": "Loads program filename from cassette. If filename is not specified. BASIC loads the first program file found."
+  },
+  "CLOADM": {
+    "documentation": "Loads machine-language program filename from cassetter.  If filename is not specified, BASIC loads the first machin language program found."
+  },
+  "CLOSE#": {
+    "documentation": "Closes access to specified device or file.  If d is not specified, BASIC closes all open devices and files."
+  },
+  "CSAVE": {
+    "documentation": "Saves program filename on cassette"
+  },
+  "CSAVEM": {
+    "documentation": "Saves machine-language program filename on cassette."
+  },
+  "INPUT#": {
+    "documentation": "Reads data from a cassette, and saves it in one or more variables."
+  },
+  "MOTOR": {
+    "documentation": "Turns the cassette ON or OFF."
+  },  
+  "OPEN": {
+    "documentation": "Opens a specified file for data transmission."
+  },
+  "PRINT #-1": {
+    "documentation": "Writes data to cassette."
+  },
+  "PRINT #-2": {
+    "documentation": "Prints on the printer."
+  },
+  "SKIPF": {
+    "documentation": "Skips the next program on cassette tape or to the end of a specified program."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "AUDIO": {
+    "documentation": "Connects or disconnects cassette output to the display speaker"
+  },
+  "PLAY": {
+    "documentation": "Plays music as specified by string."
+  },
+  "SOUND": {
+    "documentation": "Sounds a specified tone for a specified duration."
+  }
+}
