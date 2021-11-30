@@ -1,41 +1,46 @@
 /* eslint-disable max-statements */
 /* eslint-disable @typescript-eslint/no-inferrable-types */
-import { languages, Hover, TextDocument, Position, Range } from "vscode";
-import * as PATTERNS from "./patterns";
-import { getImportsWithLocal, IncludeFile, Markdowns, getMarkdownPath } from "./Includes";
-import * as pathns from "path";
-import * as Tokens from "./tokens";
+import { languages, Hover, TextDocument, Position, Range } from 'vscode'
+import * as PATTERNS from './patterns'
+import {
+  getImportsWithLocal,
+  IncludeFile,
+  Markdowns,
+  getMarkdownPath,
+} from './Includes'
+import * as pathns from 'path'
+import * as Tokens from './tokens'
 
-const LANGUAGE: string = "ecb2";
+const LANGUAGE: string = 'ecb2'
 
 function GetHoverText(matches: RegExpExecArray): Hover[] {
-  const results: Hover[] = [];
-  let value: string = "";
+  const results: Hover[] = []
+  let value: string = ''
 
   if (matches) {
     if (matches[1]) {
       //could we provide a jump to definition here?
-      const summary = PATTERNS.COMMENT_SUMMARY.exec(matches[1]);
+      const summary = PATTERNS.COMMENT_SUMMARY.exec(matches[1])
       if (summary[1]) {
-        value = `${matches[2]} ${summary[1]}`;
+        value = `${matches[2]} ${summary[1]}`
       } else {
-        value = `${matches[2]}`;
+        value = `${matches[2]}`
       }
     } else {
-      value = `${matches[2]}`;
+      value = `${matches[2]}`
     }
   }
   //console.log("GetHoverText", value);
   if (value.length > 0) {
-    results.push(new Hover({ language: LANGUAGE, value: value }));
+    results.push(new Hover({ language: LANGUAGE, value: value }))
   }
 
-  return results;
+  return results
 }
 
 function GetHoverLineNoText(matches: RegExpExecArray): Hover[] {
-  const results: Hover[] = [];
-  const value: string = "";
+  const results: Hover[] = []
+  const value: string = ''
 
   //console.log("GetHoverLineNoText", matches);
   // if (matches) {
@@ -53,26 +58,26 @@ function GetHoverLineNoText(matches: RegExpExecArray): Hover[] {
   // }
   //console.log("GetHoverLineNoText", value);
   if (value.length > 0) {
-    results.push(new Hover({ language: LANGUAGE, value: value }));
+    results.push(new Hover({ language: LANGUAGE, value: value }))
   }
 
-  return results;
+  return results
 }
 
 function GetHover(docText: string, lookup: string): Hover[] {
   //console.log("GetHover", lookup);
-  const results: Hover[] = [];
+  const results: Hover[] = []
 
-  const token: string = Tokens.getToken(lookup);
+  const token: string = Tokens.getToken(lookup)
   //console.log("GetHover", token);
 
-  const filename: string = `${ getMarkdownPath() }/${ token.toLowerCase() }.md`;
+  const filename: string = `${getMarkdownPath()}/${token.toLowerCase()}.md`
 
-  if (!Markdowns.has(token))
-    Markdowns.set(token, new IncludeFile(filename));
+  if (!Markdowns.has(token)) Markdowns.set(token, new IncludeFile(filename))
   //console.log(token, Markdowns.get(token).Content);
-  results.push(new Hover({ language: LANGUAGE, value: Markdowns.get(token).Content }));
-
+  results.push(
+    new Hover({ language: LANGUAGE, value: Markdowns.get(token).Content })
+  )
 
   // const matches: RegExpExecArray = PATTERNS.DEF(docText, lookup);
   // const tempResults = GetHoverText(matches);
@@ -97,12 +102,11 @@ function GetHover(docText: string, lookup: string): Hover[] {
   //   results.push(...tempResults);
   // }
 
-  return results;
+  return results
 }
 
-
 function GetParamHover(text: string, lookup: string): Hover[] {
-  const hovers: Hover[] = [];
+  const hovers: Hover[] = []
 
   // let matches: RegExpExecArray;
   // console.log("GetParamHover", text);
@@ -116,29 +120,27 @@ function GetParamHover(text: string, lookup: string): Hover[] {
   // }
 
   // last result should be nearest hit
-  return hovers.length > 0 ? [hovers[hovers.length - 1]] : [];
+  return hovers.length > 0 ? [hovers[hovers.length - 1]] : []
 }
 
 function provideHover(doc: TextDocument, position: Position): Hover {
-  const wordRange = doc.getWordRangeAtPosition(position);
-  const word: string = wordRange ? doc.getText(wordRange) : "";
-  const line = doc.lineAt(position).text;
+  const wordRange = doc.getWordRangeAtPosition(position)
+  const word: string = wordRange ? doc.getText(wordRange) : ''
+  const line = doc.lineAt(position).text
 
-  const hoverresults: Hover[] = [];
+  const hoverresults: Hover[] = []
 
-  if (word.trim() === "")
-    return null;
-  if (!new RegExp("^[^'|REM]*").test(line))
-    return null; //kickout lines that start with REM
+  if (word.trim() === '') return null
+  if (!new RegExp("^[^'|REM]*").test(line)) return null //kickout lines that start with REM
   //count double quotes and exit if they are not in matching pairs
-  let count = 0;
+  let count = 0
   for (let i = 0; i < position.character; i++) {
-    if (line[i] === '"') count++;
+    if (line[i] === '"') count++
   }
   if (count % 2 === 1) {
-    return null;
+    return null
   }
-  hoverresults.push(...GetHover(doc.getText(), word));
+  hoverresults.push(...GetHover(doc.getText(), word))
 
   //lookup functions from function definition file
   // for (const ExtraDocText of getImportsWithLocal(doc)) {
@@ -149,11 +151,10 @@ function provideHover(doc: TextDocument, position: Position): Hover {
   // hoverresult for param must be above
   //hoverresults.push(...GetParamHover(doc.getText(new Range(new Position(0, 0), new Position(position.line + 1, 0))), word));
 
-  return hoverresults.length > 0 ? hoverresults[0] : null;
+  return hoverresults.length > 0 ? hoverresults[0] : null
 }
 
-
 export default languages.registerHoverProvider(
-  { scheme: "file", language: LANGUAGE },
+  { scheme: 'file', language: LANGUAGE },
   { provideHover }
-);
+)

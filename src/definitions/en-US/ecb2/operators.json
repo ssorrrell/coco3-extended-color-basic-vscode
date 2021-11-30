@@ -1,11 +1,11 @@
 {
-    "AND": {
-        "documentation": "Performs a logical conjunction on two expressions."
-    },
-    "NOT": {
-        "documentation": "Performs logical negation on an expression."
-    },
-    "OR": {
-        "documentation": "Performs a logical disjunction on two expressions."
-    }
+  "AND": {
+    "documentation": "Performs a logical conjunction on two expressions."
+  },
+  "NOT": {
+    "documentation": "Performs logical negation on an expression."
+  },
+  "OR": {
+    "documentation": "Performs a logical disjunction on two expressions."
+  }
 }

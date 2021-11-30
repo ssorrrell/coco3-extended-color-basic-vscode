@@ -1,274 +1,274 @@
 {
-	"information_for_contributors": [
-		"This file has been converted from https://github.com/textmate/asp.vb.net.tmbundle/blob/master/Syntaxes/ASP%20VB.net.plist",
-		"If you want to provide a fix or improvement, please create a pull request against the original repository.",
-		"Once accepted there, we are happy to receive an update request."
-	],
-	"version": "https://github.com/textmate/asp.vb.net.tmbundle/commit/72d44550b3286d0382d7be0624140cf97857ff69",
-	"name": "coco3-extended-color-basic",
-	"scopeName": "source.bas",
-	"comment": "Modified from the original ASP bundle. Originally modified by Thomas Aylott subtleGradient.com",
-	"patterns": [
-		{
-			"comment": "no starting line number",
-			"match": "^\\D+",
-			"name": "invalid.illegal.ecb2"
-		},
-		{
-			"comment": "line too long",
-			"match": "^(.{200,})$",
-			"name": "invalid.illegal.ecb2"
-		},
-		{
-			"comment": "line numbers are controls features",
-			"match": "^\\d+",
-			"name": "keyword.control.ecb2"
-		},
-		{
-			"match": "\\n",
-			"name": "meta.ending-space"
-		},
-		{
-			"match": ":",
-			"name": "punctuation.terminator.statement.ecb2"
-		},
-		{
-			"begin": "^(?=\\t)",
-			"end": "(?=[^\\t])",
-			"name": "meta.leading-space",
-			"patterns": [
-				{
-					"captures": {
-						"1": {
-							"name": "meta.odd-tab.tabs"
-						},
-						"2": {
-							"name": "meta.even-tab.tabs"
-						}
-					},
-					"match": "(\\t)(\\t)?"
-				}
-			]
-		},
-		{
-			"begin": "^(?= )",
-			"end": "(?=[^ ])",
-			"name": "meta.leading-space",
-			"patterns": [
-				{
-					"captures": {
-						"1": {
-							"name": "meta.odd-tab.spaces"
-						},
-						"2": {
-							"name": "meta.even-tab.spaces"
-						}
-					},
-					"match": "(  )(  )?"
-				}
-			]
-		},
-		{
-			"name": "comment.line.ecb2",
-			"match": "(?:'|REM\\b).*$"
-		},
-		{
-			"match": "(?:\\s*\\b(ON BRK GOTO|ON ERR GOTO)\\b\\s*)",
-			"name": "keyword.control.ecb2"
-		},
-		{
-			"match": "\\b(RETURN|RUN)",
-			"name": "keyword.control.ecb2"
-		},
-		{
-			"match": "\\b(IF|THEN|ELSE|FOR|STEP|TO|NEXT|ON|OFF|GOSUB|GOTO|EXEC|CONT|END|DEFUSR|NEW|STOP|TRON|TROFF)",
-			"name": "keyword.control.ecb2"
-		},
-		{
-			"match": "\\b(ATTR|CIRCLE|CLS|COLOR|DRAW|GET|HBUFF|HCIRCLE|HCLS|HCOLOR|HDRAW|HGET|HLINE|HPAINT|HPRINT|HPOINT|HPUT|HRESET|HSCREEN|HSET|HSTAT|LINE|LOCATE|PAINT|PALETTE\\s*(CMP|RGB)|PALETTE|PCOPY|POINT|POS|PPOINT|PRESET|PRINT|PSET|PUT|RESET|SCREEN|SET|WIDTH)\\b",
-			"name": "keyword.display.ecb2"
-		},
-		{
-			"match": "\\b(TAB)\\b",
-			"name": "entity.name.function.ecb2"
-		},
-		{
-			"match": "\\b(USING)\\b",
-			"name": "entity.name.function.ecb2"
-		},
-		{
-			"match": "(?:\\b(AUDIO|PLAY|SOUND)\\b)",
-			"name": "keyword.audio.ecb2"
-		},
-		{
-			"match": "\\b(PCOPY)",
-			"name": "keyword.display.ecb2"
-		},
-		{
-			"match": "\\b(CLEAR|DATA|DEL|EDIT|LET|LIST|LLIST|LPOKE|LPEEK|NEW|PEEK|POKE|READ|RENUM|RESTORE|USR)",
-			"name": "keyword.memory.ecb2"
-		},
-		{
-			"match": "\\b(DEF *FN)",
-			"name": "keyword.memory.ecb2"
-		},
-		{
-			"match": "\\b(VARPTR)\\b",
-			"name": "keyword.memory.ecb2"
-		},		
-		{
-			"match": "\\b(DEFUSR[0-9])",
-			"name": "keyword.control.ecb2"
-		},
-		{
-			"match": "\\b(USR[0-9])",
-			"name": "keyword.control.ecb2"
-		},
-		{
-			"match": "\\b(CLOAD|CLOADM|CSAVE|CSAVEM|INPUT|INPUT\\s*\\#|LINE *INPUT|MOTOR|OPEN|SKIPF)\\b",
-			"name": "keyword.io.ecb2"
-		},
-		{
-			"match": "\\b(CLOSE)\\b",
-			"name": "keyword.io.ecb2"
-		},
-		{
-			"comment": "print to cassette",
-			"match": "\\b(PRINT *\\#-1,)\\b",
-			"name": "keyword.io.ecb2"
-		},
-		{
-			"comment": "print to printer",
-			"match": "\\b(PRINT *\\#-2,)\\b",
-			"name": "keyword.io.ecb2"
-		},	
-		{
-			"match": "\\b(AND|NOT|OR)",
-			"name": "keyword.operator.expression.ecb2"
-		},
-	  {
-			"match": ":|;|=|\\+|-|\\*|/|\\^|\\?|!|\\[|\\]|&|<|>|\\\\|@|_",
-			"name": "keyword.operator.ecb2"
-		},
-		{
-			"captures": {
-				"1": {
-					"name": "storage.type.ecb2"
-				},
-				"2": {
-					"name": "variable.other.dim.ecb2"
-				}
-			},
-			"match": "\\b(DIM)"
-		},
-		{
-			"begin": "\"",
-			"beginCaptures": {
-				"0": {
-					"name": "punctuation.definition.string.begin.ecb2"
-				}
-			},
-			"end": "\"",
-			"endCaptures": {
-				"0": {
-					"name": "punctuation.definition.string.end.ecb2"
-				}
-			},
-			"name": "string.quoted.double.ecb2",
-			"patterns": [
-				{
-					"match": "\"\"",
-					"name": "constant.character.escape.apostrophe.ecb2"
-				}
-			]
-		},
-		{
-			"match": "\\b(EOF)\\b",
-			"name": "keyword.io.ecb2"
-		},
-		{
-			"match": "\\b(CHR(\\$|\\b))",
-			"name": "keyword.string.ecb2"
-		},
-		{
-			"match": "\\b(LEFT(\\$|\\b))",
-			"name": "keyword.string.ecb2"
-		},
-		{
-			"match": "\\b(RIGHT(\\$|\\b))",
-			"name": "keyword.string.ecb2"
-		},
-		{
-			"match": "\\b(STR(\\$|\\b))",
-			"name": "keyword.string.ecb2"
-		},
-		{
-			"match": "\\b(STRING(\\$|\\b))",
-			"name": "keyword.string.ecb2"
-		},
-		{
-			"match": "\\b(LEN|VAL)\\b",
-			"name": "keyword.string.ecb2"
-		},
-		{
-			"match": "\\b(HEX(\\$|\\b))",
-			"name": "keyword.math.ecb2"
-		},
-		{
-			"match": "\\b(ABS|ASC|ATN|COS|INT|EXP|FIX|LOG|RND|SGN|SIN|SQR|TAN)\\b",
-			"name": "keyword.math.ecb2"
-		},
-		{
-			"match": "\\b(INKEY(\\$|\\b))",
-			"name": "keyword.io.ecb2"
-		},
-		{
-			"match": "\\b(BUTTON)\\b",
-			"name": "keyword.io.ecb2"
-		},
-		{
-			"match": "\\b(JOYSTK)\\b",
-			"name": "keyword.io.ecb2"
-		},		
-		{
-			"match": "\\b(MID(\\$|\\b))",
-			"name": "keyword.string.ecb2"
-		},
-		{
-			"match": "\\b(INSTR)\\b",
-			"name": "keyword.string.ecb2"
-		},
-	  {
-			"match": "\\b(PCLEAR|PCLS|PMODE)",
-			"name": "keyword.display.ecb2"
-		},
-		{
-			"match": "(?:\\s*\\b(TIMER|ERLIN|ERNO|MEM)\\b)",
-			"name": "constant.language.ecb2"
-		},
-		{
-			"match": "\\b\\[?[A-Z][A-Z0-9\\$]*\\]?\\s*\\(",
-			"name": "entity.name.function.ecb2"
-		},
-		{
-			"match": "\\b((([0-9]+\\.?[0-9]*)|(\\.[0-9]+)))\\b",
-			"name": "constant.numeric.ecb2"
-		},
-		{
-			"match": "&(H)[0-9A-F]+\\b",
-			"name": "constant.numeric.hex.ecb2"
-		},
-		{
-			"match": "&(O)[0-7]+\\b",
-			"name": "constant.numeric.oct.ecb2"
-		},
-		{
-			"match": "\\b\\(?[A-Z][A-Z\\$]*\\)?(?=\\.)",
-			"name": "variable.other.object.ecb2"
-		},
-		{
-			"match": "(?<=\\.)\\[?[A-Z][A-Z\\$]*\\]?\\b",
-			"name": "variable.other.member.ecb2"
-		}
-	]
+  "information_for_contributors": [
+    "This file has been converted from https://github.com/textmate/asp.vb.net.tmbundle/blob/master/Syntaxes/ASP%20VB.net.plist",
+    "If you want to provide a fix or improvement, please create a pull request against the original repository.",
+    "Once accepted there, we are happy to receive an update request."
+  ],
+  "version": "https://github.com/textmate/asp.vb.net.tmbundle/commit/72d44550b3286d0382d7be0624140cf97857ff69",
+  "name": "coco3-extended-color-basic",
+  "scopeName": "source.bas",
+  "comment": "Modified from the original ASP bundle. Originally modified by Thomas Aylott subtleGradient.com",
+  "patterns": [
+    {
+      "comment": "no starting line number",
+      "match": "^\\D+",
+      "name": "invalid.illegal.ecb2"
+    },
+    {
+      "comment": "line too long",
+      "match": "^(.{200,})$",
+      "name": "invalid.illegal.ecb2"
+    },
+    {
+      "comment": "line numbers are controls features",
+      "match": "^\\d+",
+      "name": "keyword.control.ecb2"
+    },
+    {
+      "match": "\\n",
+      "name": "meta.ending-space"
+    },
+    {
+      "match": ":",
+      "name": "punctuation.terminator.statement.ecb2"
+    },
+    {
+      "begin": "^(?=\\t)",
+      "end": "(?=[^\\t])",
+      "name": "meta.leading-space",
+      "patterns": [
+        {
+          "captures": {
+            "1": {
+              "name": "meta.odd-tab.tabs"
+            },
+            "2": {
+              "name": "meta.even-tab.tabs"
+            }
+          },
+          "match": "(\\t)(\\t)?"
+        }
+      ]
+    },
+    {
+      "begin": "^(?= )",
+      "end": "(?=[^ ])",
+      "name": "meta.leading-space",
+      "patterns": [
+        {
+          "captures": {
+            "1": {
+              "name": "meta.odd-tab.spaces"
+            },
+            "2": {
+              "name": "meta.even-tab.spaces"
+            }
+          },
+          "match": "(  )(  )?"
+        }
+      ]
+    },
+    {
+      "name": "comment.line.ecb2",
+      "match": "(?:'|REM\\b).*$"
+    },
+    {
+      "match": "(?:\\s*\\b(ON BRK GOTO|ON ERR GOTO)\\b\\s*)",
+      "name": "keyword.control.ecb2"
+    },
+    {
+      "match": "\\b(RETURN|RUN)",
+      "name": "keyword.control.ecb2"
+    },
+    {
+      "match": "\\b(IF|THEN|ELSE|FOR|STEP|TO|NEXT|ON|OFF|GOSUB|GOTO|EXEC|CONT|END|DEFUSR|NEW|STOP|TRON|TROFF)",
+      "name": "keyword.control.ecb2"
+    },
+    {
+      "match": "\\b(ATTR|CIRCLE|CLS|COLOR|DRAW|GET|HBUFF|HCIRCLE|HCLS|HCOLOR|HDRAW|HGET|HLINE|HPAINT|HPRINT|HPOINT|HPUT|HRESET|HSCREEN|HSET|HSTAT|LINE|LOCATE|PAINT|PALETTE\\s*(CMP|RGB)|PALETTE|PCOPY|POINT|POS|PPOINT|PRESET|PRINT|PSET|PUT|RESET|SCREEN|SET|WIDTH)\\b",
+      "name": "keyword.display.ecb2"
+    },
+    {
+      "match": "\\b(TAB)\\b",
+      "name": "entity.name.function.ecb2"
+    },
+    {
+      "match": "\\b(USING)\\b",
+      "name": "entity.name.function.ecb2"
+    },
+    {
+      "match": "(?:\\b(AUDIO|PLAY|SOUND)\\b)",
+      "name": "keyword.audio.ecb2"
+    },
+    {
+      "match": "\\b(PCOPY)",
+      "name": "keyword.display.ecb2"
+    },
+    {
+      "match": "\\b(CLEAR|DATA|DEL|EDIT|LET|LIST|LLIST|LPOKE|LPEEK|NEW|PEEK|POKE|READ|RENUM|RESTORE|USR)",
+      "name": "keyword.memory.ecb2"
+    },
+    {
+      "match": "\\b(DEF *FN)",
+      "name": "keyword.memory.ecb2"
+    },
+    {
+      "match": "\\b(VARPTR)\\b",
+      "name": "keyword.memory.ecb2"
+    },
+    {
+      "match": "\\b(DEFUSR[0-9])",
+      "name": "keyword.control.ecb2"
+    },
+    {
+      "match": "\\b(USR[0-9])",
+      "name": "keyword.control.ecb2"
+    },
+    {
+      "match": "\\b(CLOAD|CLOADM|CSAVE|CSAVEM|INPUT|INPUT\\s*\\#|LINE *INPUT|MOTOR|OPEN|SKIPF)\\b",
+      "name": "keyword.io.ecb2"
+    },
+    {
+      "match": "\\b(CLOSE)\\b",
+      "name": "keyword.io.ecb2"
+    },
+    {
+      "comment": "print to cassette",
+      "match": "\\b(PRINT *\\#-1,)\\b",
+      "name": "keyword.io.ecb2"
+    },
+    {
+      "comment": "print to printer",
+      "match": "\\b(PRINT *\\#-2,)\\b",
+      "name": "keyword.io.ecb2"
+    },
+    {
+      "match": "\\b(AND|NOT|OR)",
+      "name": "keyword.operator.expression.ecb2"
+    },
+    {
+      "match": ":|;|=|\\+|-|\\*|/|\\^|\\?|!|\\[|\\]|&|<|>|\\\\|@|_",
+      "name": "keyword.operator.ecb2"
+    },
+    {
+      "captures": {
+        "1": {
+          "name": "storage.type.ecb2"
+        },
+        "2": {
+          "name": "variable.other.dim.ecb2"
+        }
+      },
+      "match": "\\b(DIM)"
+    },
+    {
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.ecb2"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.ecb2"
+        }
+      },
+      "name": "string.quoted.double.ecb2",
+      "patterns": [
+        {
+          "match": "\"\"",
+          "name": "constant.character.escape.apostrophe.ecb2"
+        }
+      ]
+    },
+    {
+      "match": "\\b(EOF)\\b",
+      "name": "keyword.io.ecb2"
+    },
+    {
+      "match": "\\b(CHR(\\$|\\b))",
+      "name": "keyword.string.ecb2"
+    },
+    {
+      "match": "\\b(LEFT(\\$|\\b))",
+      "name": "keyword.string.ecb2"
+    },
+    {
+      "match": "\\b(RIGHT(\\$|\\b))",
+      "name": "keyword.string.ecb2"
+    },
+    {
+      "match": "\\b(STR(\\$|\\b))",
+      "name": "keyword.string.ecb2"
+    },
+    {
+      "match": "\\b(STRING(\\$|\\b))",
+      "name": "keyword.string.ecb2"
+    },
+    {
+      "match": "\\b(LEN|VAL)\\b",
+      "name": "keyword.string.ecb2"
+    },
+    {
+      "match": "\\b(HEX(\\$|\\b))",
+      "name": "keyword.math.ecb2"
+    },
+    {
+      "match": "\\b(ABS|ASC|ATN|COS|INT|EXP|FIX|LOG|RND|SGN|SIN|SQR|TAN)\\b",
+      "name": "keyword.math.ecb2"
+    },
+    {
+      "match": "\\b(INKEY(\\$|\\b))",
+      "name": "keyword.io.ecb2"
+    },
+    {
+      "match": "\\b(BUTTON)\\b",
+      "name": "keyword.io.ecb2"
+    },
+    {
+      "match": "\\b(JOYSTK)\\b",
+      "name": "keyword.io.ecb2"
+    },
+    {
+      "match": "\\b(MID(\\$|\\b))",
+      "name": "keyword.string.ecb2"
+    },
+    {
+      "match": "\\b(INSTR)\\b",
+      "name": "keyword.string.ecb2"
+    },
+    {
+      "match": "\\b(PCLEAR|PCLS|PMODE)",
+      "name": "keyword.display.ecb2"
+    },
+    {
+      "match": "(?:\\s*\\b(TIMER|ERLIN|ERNO|MEM)\\b)",
+      "name": "constant.language.ecb2"
+    },
+    {
+      "match": "\\b\\[?[A-Z][A-Z0-9\\$]*\\]?\\s*\\(",
+      "name": "entity.name.function.ecb2"
+    },
+    {
+      "match": "\\b((([0-9]+\\.?[0-9]*)|(\\.[0-9]+)))\\b",
+      "name": "constant.numeric.ecb2"
+    },
+    {
+      "match": "&(H)[0-9A-F]+\\b",
+      "name": "constant.numeric.hex.ecb2"
+    },
+    {
+      "match": "&(O)[0-7]+\\b",
+      "name": "constant.numeric.oct.ecb2"
+    },
+    {
+      "match": "\\b\\(?[A-Z][A-Z\\$]*\\)?(?=\\.)",
+      "name": "variable.other.object.ecb2"
+    },
+    {
+      "match": "(?<=\\.)\\[?[A-Z][A-Z\\$]*\\]?\\b",
+      "name": "variable.other.member.ecb2"
+    }
+  ]
 }

@@ -1,7 +1,14 @@
 /* eslint-disable complexity */
 /* eslint-disable max-statements */
-import { languages, SymbolKind, DocumentSymbol, Range, workspace, TextDocument } from "vscode";
-import * as PATTERNS from "./patterns";
+import {
+  languages,
+  SymbolKind,
+  DocumentSymbol,
+  Range,
+  workspace,
+  TextDocument,
+} from 'vscode'
+import * as PATTERNS from './patterns'
 
 // const showVariableSymbols: boolean = workspace.getConfiguration("ecb2").get<boolean>("showVariableSymbols");
 // const showParameterSymbols: boolean = workspace.getConfiguration("ecb2").get<boolean>("showParamSymbols");
@@ -11,7 +18,7 @@ import * as PATTERNS from "./patterns";
 // const PROP = RegExp(PATTERNS.PROP.source, "");
 
 function provideDocumentSymbols(doc: TextDocument): DocumentSymbol[] {
-  const result: DocumentSymbol[] = [];
+  const result: DocumentSymbol[] = []
 
   // const varList: string[] = [];
 
@@ -106,11 +113,10 @@ function provideDocumentSymbols(doc: TextDocument): DocumentSymbol[] {
   //   }
   // } // next linenum
 
-  return result;
+  return result
 }
 
 export default languages.registerDocumentSymbolProvider(
-  { scheme: "file", language: "ecb2" },
+  { scheme: 'file', language: 'ecb2' },
   { provideDocumentSymbols }
-);
-
+)

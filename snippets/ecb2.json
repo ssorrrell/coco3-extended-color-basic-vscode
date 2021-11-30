@@ -1,64 +1,45 @@
 {
-	"if statement": {
-		"prefix": "If",
-		"body": [
-			"IF ${1:True} THEN $0"
-		],
-		"description": "If Then..."
-	},
+  "if statement": {
+    "prefix": "If",
+    "body": ["IF ${1:True} THEN $0"],
+    "description": "If Then..."
+  },
 
-	"if Else statement": {
-		"prefix": "IfElse",
-		"body": [
-			"IF ${1:True} THEN $0 ELSE"
-		],
-		"description": "If Else Then..."
-	},
+  "if Else statement": {
+    "prefix": "IfElse",
+    "body": ["IF ${1:True} THEN $0 ELSE"],
+    "description": "If Else Then..."
+  },
 
-	"for... next": {
-		"prefix": "For",
-		"body": [
-			"FOR ${1:i}=0 TO ${2:Value}",
-				"$0",
-			"NEXT ${1:i}"
-		],
-		"description": "For... Next"
-	},
+  "for... next": {
+    "prefix": "For",
+    "body": ["FOR ${1:i}=0 TO ${2:Value}", "$0", "NEXT ${1:i}"],
+    "description": "For... Next"
+  },
 
-	"errorhandler": {
-		"prefix": "ErrorHandler",
-		"body": [
-			"ON ERR GOTO $1"
-		],
-		"description": "Error Handler"
-	},
-	"breakhandler": {
-		"prefix": "ErrorHandler",
-		"body": [
-			"ON BRK GOTO $1"
-		],
-		"description": "Error Handler"
-	},
-	"on.. goto": {
-		"prefix": "OnGoto",
-		"body": [
-			"ON ${1:True} GOTO $0"
-		],
-		"description": "On... Goto"
-	},
-	"on.. gosub": {
-		"prefix": "Ongosub",
-		"body": [
-			"ON ${1:True} GOSUB $0"
-		],
-		"description": "On... Gosub"
-	},
-	"Comment-Based-Help": {
-		"prefix": "'''",
-		"body": [
-			"''' <summary>$1</summary>",
-			"''' <param name=\"$2\">$3</param>"
-		],
-		"description": "Comment-Based-Help"
-	}
+  "errorhandler": {
+    "prefix": "ErrorHandler",
+    "body": ["ON ERR GOTO $1"],
+    "description": "Error Handler"
+  },
+  "breakhandler": {
+    "prefix": "ErrorHandler",
+    "body": ["ON BRK GOTO $1"],
+    "description": "Error Handler"
+  },
+  "on.. goto": {
+    "prefix": "OnGoto",
+    "body": ["ON ${1:True} GOTO $0"],
+    "description": "On... Goto"
+  },
+  "on.. gosub": {
+    "prefix": "Ongosub",
+    "body": ["ON ${1:True} GOSUB $0"],
+    "description": "On... Gosub"
+  },
+  "Comment-Based-Help": {
+    "prefix": "'''",
+    "body": ["''' <summary>$1</summary>", "''' <param name=\"$2\">$3</param>"],
+    "description": "Comment-Based-Help"
+  }
 }

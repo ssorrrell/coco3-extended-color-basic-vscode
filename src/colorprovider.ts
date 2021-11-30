@@ -1,4 +1,4 @@
-import * as vscode from "vscode";
+import * as vscode from 'vscode'
 //import * as PATTERNS from "./patterns";
 
 /**
@@ -8,14 +8,14 @@ import * as vscode from "vscode";
  * predict what color is described programmatically.
  */
 class VBSColorProvider implements vscode.DocumentColorProvider {
-
   // eslint-disable-next-line no-magic-numbers
-  private readonly MAX_COLOR = 0xff;
+  private readonly MAX_COLOR = 0xff
 
-  public provideDocumentColors(doc: vscode.TextDocument): vscode.ColorInformation[] {
-    const array = new Array<vscode.ColorInformation>();
-    let matches: RegExpExecArray;
-
+  public provideDocumentColors(
+    doc: vscode.TextDocument
+  ): vscode.ColorInformation[] {
+    const array = new Array<vscode.ColorInformation>()
+    let matches: RegExpExecArray
 
     // while ((matches = PATTERNS.COLOR.exec(doc.getText())) !== null) {
     //   const pos = doc.positionAt(matches.index);
@@ -80,15 +80,23 @@ class VBSColorProvider implements vscode.DocumentColorProvider {
     //     array.push(new vscode.ColorInformation(range, color));
     // }
 
-    return array;
+    return array
   }
 
-  public provideColorPresentations(color: vscode.Color): vscode.ColorPresentation[] {
-    return [new vscode.ColorPresentation(`RGB(${color.red * this.MAX_COLOR}, ${color.green * this.MAX_COLOR}, ${color.blue * this.MAX_COLOR})`)];
+  public provideColorPresentations(
+    color: vscode.Color
+  ): vscode.ColorPresentation[] {
+    return [
+      new vscode.ColorPresentation(
+        `RGB(${color.red * this.MAX_COLOR}, ${color.green * this.MAX_COLOR}, ${
+          color.blue * this.MAX_COLOR
+        })`
+      ),
+    ]
   }
 }
 
 export default vscode.languages.registerColorProvider(
-  { scheme: "file", language: "ecb2" },
+  { scheme: 'file', language: 'ecb2' },
   new VBSColorProvider()
-);
+)

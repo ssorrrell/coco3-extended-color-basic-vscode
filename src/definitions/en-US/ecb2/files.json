@@ -19,7 +19,7 @@
   },
   "MOTOR": {
     "documentation": "Turns the cassette ON or OFF."
-  },  
+  },
   "OPEN": {
     "documentation": "Opens a specified file for data transmission."
   },
