@@ -1,6 +1,13 @@
 /* eslint-disable max-statements */
 /* eslint-disable @typescript-eslint/no-inferrable-types */
-import { languages, Hover, TextDocument, Position, Range } from 'vscode'
+import {
+  languages,
+  Hover,
+  TextDocument,
+  Position,
+  Range,
+  MarkdownString,
+} from 'vscode'
 import * as PATTERNS from './patterns'
 import {
   getImportsWithLocal,
@@ -10,6 +17,7 @@ import {
 } from './Includes'
 import * as pathns from 'path'
 import * as Tokens from './tokens'
+import { mkdirSync } from 'fs'
 
 const LANGUAGE: string = 'ecb2'
 
@@ -64,7 +72,7 @@ function GetHoverLineNoText(matches: RegExpExecArray): Hover[] {
   return results
 }
 
-function GetHover(docText: string, lookup: string): Hover[] {
+function GetHover(lookup: string, range: Range): Hover[] {
   //console.log("GetHover", lookup);
   const results: Hover[] = []
 
@@ -74,10 +82,11 @@ function GetHover(docText: string, lookup: string): Hover[] {
   const filename: string = `${getMarkdownPath()}/${token.toLowerCase()}.md`
 
   if (!Markdowns.has(token)) Markdowns.set(token, new IncludeFile(filename))
-  //console.log(token, Markdowns.get(token).Content);
-  results.push(
-    new Hover({ language: LANGUAGE, value: Markdowns.get(token).Content })
+  const hoverText: MarkdownString = CreateMarkdownString(
+    Markdowns.get(token).Content
   )
+  //console.log(token, Markdowns.get(token).Content);
+  results.push(new Hover(hoverText, range))
 
   // const matches: RegExpExecArray = PATTERNS.DEF(docText, lookup);
   // const tempResults = GetHoverText(matches);
@@ -103,6 +112,20 @@ function GetHover(docText: string, lookup: string): Hover[] {
   // }
 
   return results
+}
+
+/**
+ * Create MarkdownString for hover text
+ * @param value file contents to display in hover
+ * @returns MarkdownString to display
+ */
+function CreateMarkdownString(value: string): MarkdownString {
+  const ms: MarkdownString = new MarkdownString()
+  ms.isTrusted = true
+  ms.supportHtml = true
+  ms.supportThemeIcons = true
+  ms.value = value
+  return ms
 }
 
 function GetParamHover(text: string, lookup: string): Hover[] {
@@ -140,7 +163,7 @@ function provideHover(doc: TextDocument, position: Position): Hover {
   if (count % 2 === 1) {
     return null
   }
-  hoverresults.push(...GetHover(doc.getText(), word))
+  hoverresults.push(...GetHover(word, wordRange))
 
   //lookup functions from function definition file
   // for (const ExtraDocText of getImportsWithLocal(doc)) {
