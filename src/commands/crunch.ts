@@ -1,18 +1,4 @@
-import { Disposable, window, workspace } from 'vscode'
-import * as childProcess from 'child_process'
-import path from 'path'
-import localize from './localize'
-import * as fs from 'fs'
-
-const configuration = workspace.getConfiguration('ecb2')
-
-const vbsOut = window.createOutputChannel('ecb2vscode')
-
-let runner: childProcess.ChildProcessWithoutNullStreams
-
-const scriptInterpreter: string = configuration.get<string>('interpreter')
-
-let statbar: Disposable
+import * as vscode from 'vscode'
 
 export function crunch(): void {
   // if (!window.activeTextEditor)
@@ -50,11 +36,3 @@ export function crunch(): void {
   //   return;
   // });
 }
-
-export function renumber() {}
-
-// export function killScript(): void {
-//   // runner.stdin.pause();
-//   runner?.kill();
-//   statbar?.dispose();
-// }

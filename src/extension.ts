@@ -34,9 +34,14 @@ export function activate(context: ExtensionContext): void {
   )
 
   // Run Script Command
-  // commands.registerCommand("ecb2.crunch", () => {
-  //   cmds.crunch();
-  // });
+  commands.registerCommand('ecb2.crunch', () => {
+    cmds.crunch()
+  })
+
+  // Renumber Script Command
+  commands.registerCommand('ecb2.renumber', () => {
+    cmds.renumber()
+  })
 
   // Kill running script command
   // commands.registerCommand("vbs.killScript", () => {

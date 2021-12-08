@@ -55,7 +55,11 @@
     "commands": [
       {
         "command": "ecb2.crunch",
-        "title": "%vbs.command.ecb2.crunch%"
+        "title": "%ecb2.command.ecb2.crunch%"
+      },
+      {
+        "command": "ecb2.renumber",
+        "title": "%ecb2.command.ecb2.renumber%"
       }
     ],
     "grammars": [
