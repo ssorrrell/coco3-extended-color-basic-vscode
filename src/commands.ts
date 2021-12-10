@@ -51,7 +51,8 @@ export function crunch(): void {
   // });
 }
 
-export function renumber() {}
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export function renumber(): void {}
 
 // export function killScript(): void {
 //   // runner.stdin.pause();

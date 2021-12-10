@@ -3,6 +3,7 @@ import * as vscode from 'vscode'
 
 const editor = vscode.window.activeTextEditor!
 
+//source: https://github.com/scottmwyant/vscode-gcode/blob/master/src/commands/lineNumbers.ts
 /**
  * Requirements:
  *  - Apply/update line numbers (labels)

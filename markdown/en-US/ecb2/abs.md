@@ -1,6 +1,7 @@
-ABS(n)
+<b>ABS(*n*)</b>
 
-Returns the absolute value of <i>number</i>.
+Returns the absolute value of *number*.
 
-Example
-A=ABS(B)
+```ecb2
+10 A=ABS(B)
+```

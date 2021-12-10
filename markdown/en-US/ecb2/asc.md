@@ -1,6 +1,7 @@
-ASC(string)
+<b>ASC(*string*)</b>
 
-Returns code of the first character in <i>string</i>.
+Returns code of the first character in *string*.
 
-Example
-A=ASC(B$)
+```ecb2
+10 A=ASC(B$)
+```
