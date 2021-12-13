@@ -4,16 +4,16 @@ import * as fs from 'fs'
 
 export class IncludeFile {
   constructor(path: string) {
-    console.log('path', path)
+    //console.log('path', path)
     let path2 = path
     if (!pathns.isAbsolute(path2))
       path2 = pathns.join(workspace.workspaceFolders[0].uri.fsPath, path2)
-    console.log('path2', path2)
+    //console.log('path2', path2)
     this.Uri = Uri.file(path2)
 
-    console.log('Uri', this.Uri)
+    //console.log('Uri', this.Uri)
     if (fs.existsSync(path2) && fs.statSync(path2).isFile()) {
-      console.log('readFileSync', path2)
+      //console.log('readFileSync', path2)
       this.Content = fs.readFileSync(path2).toString()
     }
   }

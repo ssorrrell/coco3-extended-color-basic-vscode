@@ -60,14 +60,13 @@ import * as PATTERNS from '../patterns'
 // });
 
 describe('Variable matching', () => {
-  const match = PATTERNS.VAR.exec("Dim varname ' Comment")
-
-  it('parse Property comment', () => {
-    strictEqual(match[1], 'Dim')
-  })
-  it('parse Property definition', () => {
-    strictEqual(match[2], 'varname')
-  })
+  // const match = PATTERNS.VAR.exec("Dim varname ' Comment")
+  // it('parse Property comment', () => {
+  //   strictEqual(match[1], 'Dim')
+  // })
+  // it('parse Property definition', () => {
+  //   strictEqual(match[2], 'varname')
+  // })
 })
 
 describe('DEF Match', () => {

@@ -18,10 +18,29 @@ export const PROP =
   '' /*/((?:^[\t ]*'+.*$(?:\r\n|\n))*)^[\t ]*((?:Public[\t ]+(?:Default[\t ]+)?|Private[\t ]+)?Property[\t ]+(Get|Let|Set)[\t ]+(\[?[a-z]\w*\]?))(?:\((.*)\))?/img;*/
 
 /**
- * Matches a Variable Declaration, 1st = Type, 2nd = Name (cs)
+ * Matches a Variable Declaration
  */
-export const VAR =
-  /DIM *(.+)+(?:$|:|\n)/gm /*/(?<!'\s*)(?:^|:)[\t ]*(Dim|Set|Const|Private[\t ]+Const|Public[\t ]+Const|Private|Public)[\t ]+(?!Sub|Function|Class|Property)([a-z0-9_]+(?:[\t ]*\([\t ]*\d*[\t ]*\))?(?:[\t ]*,[\t ]*[a-z0-9_]+(?:[\t ]*\([\t ]*\d*[\t ]*\))?)*)[\t ]*.*(?:$|:)/img;*/
+// eslint-disable-next-line no-useless-escape
+export const DIM = /DIM/gm
+
+/**
+ * Matches a Number Variable Declaration A, not A$
+ */
+// prettier-ignore
+// eslint-disable-next-line no-useless-escape
+export const NUMBER_VAR = "DIM([ ]*[w]+[$]*[,])*[ ]*({0}[^\$])+"
+
+/**
+ * Matches a String Variable Declaration A$, not A
+ */
+// eslint-disable-next-line no-useless-escape
+export const STRING_VAR = 'DIM([ ]*[w]+[$]*[,])*[ ]*({0})+'
+
+/**
+ * Matches a Single Letter Variable Declaration
+ */
+// eslint-disable-next-line no-useless-escape
+export const SINGLE_LETTER_VAR = /[A-Z]/gm
 
 export const VAR_COMPLS =
   '' /*/^[\t ]*(Dim|Const|((Private|Public)[\t ]+)?(Function|Sub|Class|Property [GLT]et))[\t ]+\w+[^:]*$/i;*/ // fix: should again after var name #22

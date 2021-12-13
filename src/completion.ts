@@ -45,48 +45,48 @@ function getVariableCompletions(text: string): CompletionItem[] {
   //const matches: RegExpExecArray = PATTERNS.VAR.exec(text);
   //console.log("getVariableCompletions", text, matches);
   let matches: RegExpExecArray
-  while ((matches = PATTERNS.VAR.exec(text))) {
-    const variableList: string = matches[1]
-    const wordList: string[] = getVariablesFromDim(variableList)
+  // while ((matches = PATTERNS.VAR.exec(text))) {
+  //   const variableList: string = matches[1]
+  //   const wordList: string[] = getVariablesFromDim(variableList)
 
-    for (const name of wordList) {
-      if (foundVals.indexOf(name.toLowerCase()) === -1) {
-        foundVals.push(name.toLowerCase())
+  //   for (const name of wordList) {
+  //     if (foundVals.indexOf(name.toLowerCase()) === -1) {
+  //       foundVals.push(name.toLowerCase())
 
-        let completionName: string = name
-        const pos = name.indexOf('(')
-        let arrayDimension: string = ''
-        if (pos > 0) {
-          completionName = name.substring(0, pos)
-          arrayDimension = name.substring(pos)
-        }
+  //       let completionName: string = name
+  //       const pos = name.indexOf('(')
+  //       let arrayDimension: string = ''
+  //       if (pos > 0) {
+  //         completionName = name.substring(0, pos)
+  //         arrayDimension = name.substring(pos)
+  //       }
 
-        let details: string = ''
-        if (completionName.length > 0 && completionName.endsWith('$')) {
-          details = 'String'
-        } else {
-          details = 'Number'
-        }
-        if (arrayDimension.length > 0) {
-          details += ` Array ${arrayDimension}`
-        }
+  //       let details: string = ''
+  //       if (completionName.length > 0 && completionName.endsWith('$')) {
+  //         details = 'String'
+  //       } else {
+  //         details = 'Number'
+  //       }
+  //       if (arrayDimension.length > 0) {
+  //         details += ` Array ${arrayDimension}`
+  //       }
 
-        // if (new RegExp(PATTERNS.COLOR, "i").test(name)) {
-        //   ci.kind = CompletionItemKind.Color;
-        //   ci.filterText = `ColorConstants.${name}`;
-        //   ci.insertText = name;
-        // }
+  //       // if (new RegExp(PATTERNS.COLOR, "i").test(name)) {
+  //       //   ci.kind = CompletionItemKind.Color;
+  //       //   ci.filterText = `ColorConstants.${name}`;
+  //       //   ci.insertText = name;
+  //       // }
 
-        const ci = new CompletionItem(
-          completionName,
-          CompletionItemKind.Variable
-        )
-        ci.detail = `${details}`
+  //       const ci = new CompletionItem(
+  //         completionName,
+  //         CompletionItemKind.Variable
+  //       )
+  //       ci.detail = `${details}`
 
-        CIs.push(ci)
-      }
-    }
-  }
+  //       CIs.push(ci)
+  //     }
+  //   }
+  // }
 
   return CIs
 }
