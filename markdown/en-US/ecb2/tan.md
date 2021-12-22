@@ -1,6 +1,7 @@
-TAN(angle)
+TAN(*angle*)
 
-Returns the tangent of <i>angle</i> using radians.
+Returns the tangent of *angle* using radians.
 
-Example
+```ecb2
 A=TAN(B)
+```

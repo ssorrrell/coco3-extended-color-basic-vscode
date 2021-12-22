@@ -1,10 +1,11 @@
-JOYSTK(j)
+JOYSTK(*j*)
 
-Returns the horizontal or vertical cooridinate (<i>j</i>) of the left or right joystick:
+Returns the horizontal or vertical cooridinate (*j*) of the left or right joystick:
   0 - Horizontal right joystick
   1 - Vertical, right joystick
   2 - Horizontal, left joystick
   3 - Vertical, left joystick
 
-Example
+```ecb2
 A=JOYSTK(0)
+```

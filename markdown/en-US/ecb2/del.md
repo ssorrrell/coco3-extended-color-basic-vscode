@@ -1,4 +1,4 @@
-DEL l1-l2
+**DEL *l1*-*l2***
 
 Deletes the program lines
   l1  - Lowest line number to delete
@@ -8,5 +8,6 @@ Deletes the program lines
         l1    Deletes from and including l1 to the end of the program
         l1-l2 Deletes from and including l1 to and including l2
 
-Example
+```ecb2
 DEL 40-75
+```

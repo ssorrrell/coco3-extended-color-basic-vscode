@@ -1,4 +1,4 @@
-OPEN m,#dev,f
+OPEN *m*,*#dev*,*f*
 
 Opens specified file for data transmission
   m   - Transmission mode
@@ -9,5 +9,6 @@ Opens specified file for data transmission
           #0  - Keyboard or screen
   f     - Filename
 
-Example
+```ecb2
 OPEN "O",#-1,"DATA"
+```

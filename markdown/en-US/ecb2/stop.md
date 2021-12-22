@@ -2,5 +2,6 @@ STOP
 
 Stops execution of a program
 
-Example
+```ecb2
 STOP
+```

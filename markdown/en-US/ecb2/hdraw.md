@@ -1,6 +1,6 @@
-HDRAW string
+HDRAW *string*
 
-Draws a line on the high-resolution graphics screen as specified by <i>string</i>.  The <i>string</i> commands are:
+Draws a line on the high-resolution graphics screen as specified by *string*.  The *string* commands are:
   A   Angle
   BM  Blank move
   C   Color
@@ -17,5 +17,6 @@ Draws a line on the high-resolution graphics screen as specified by <i>string</i
   U   Up
   X   Execute substring  
 
-Example
+```ecb2
 HDRAW "BM128,96;U25;R25;D25;L25"
+```

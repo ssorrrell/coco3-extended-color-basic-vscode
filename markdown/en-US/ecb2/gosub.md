@@ -1,6 +1,7 @@
-GOSUB line number
+**GOSUB *line number***
 
 Calls a subroutine beginning at the specified line number
 
-Example
+```ecb2
 GOSUB 330
+```

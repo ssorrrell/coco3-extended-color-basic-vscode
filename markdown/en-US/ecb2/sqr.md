@@ -1,6 +1,7 @@
-SQR(n)
+SQR(*n*)
 
-Returns the square root of <i>n</i>.
+Returns the square root of *n*.
 
-Example
+```ecb2
 A=SQR(B/2)
+```

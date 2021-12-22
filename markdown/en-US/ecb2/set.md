@@ -1,6 +1,7 @@
-SET (x,y,c)
+SET (*x*,*y*,*c*)
 
-Sets point x,y on the low-resolution tet screen to Color c.  If you omit c, BASIC uses the foreground color
+Sets point *x,y* on the low-resolution tet screen to Color *c*.  If you omit *c*, BASIC uses the foreground color
 
-Example
+```ecb2
 SET (11,11,3)
+```

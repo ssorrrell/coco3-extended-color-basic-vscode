@@ -1,6 +1,7 @@
-EXEC(address)
+**EXEC(*address*)**
 
-Transfers control to a machine-language program at <i>address</i>.  If <i>address</i> is omitted, control is transferred to address set in the last CLOADM.
+Transfers control to a machine-language program at *address*.  If *address* is omitted, control is transferred to address set in the last CLOADM.
 
-Example
+```ecb2
 EXEC 28032
+```

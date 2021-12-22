@@ -1,6 +1,7 @@
-GOTO line number
+GOTO *line number*
 
 Jumps to the specified line number.
 
-Example
+```ecb2
 GOTO 125
+```

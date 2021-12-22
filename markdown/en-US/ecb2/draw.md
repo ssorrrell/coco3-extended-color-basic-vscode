@@ -1,6 +1,6 @@
-DRAW string
+**DRAW *string***
 
-Draws a line on the current low resolution graphics screen as specified by <i>string</i>.  The <i>string</i> commands are:
+Draws a line on the current low resolution graphics screen as specified by *string*.  The *string* commands are:
   A   Angle
   BM  Blank move
   C   Color
@@ -17,5 +17,6 @@ Draws a line on the current low resolution graphics screen as specified by <i>st
   U   Up
   X   Execute substring
 
-Example
+```ecb2
 DRAW "BM128,96;U25;R25;D25;L25"
+```

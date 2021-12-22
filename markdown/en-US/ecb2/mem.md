@@ -2,5 +2,6 @@ MEM
 
 Returns the amount of free memory.
 
-Example
+```ecb2
 A=MEM
+```

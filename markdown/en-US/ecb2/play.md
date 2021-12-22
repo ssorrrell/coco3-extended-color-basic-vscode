@@ -1,6 +1,6 @@
-PLAY string
+PLAY *string*
 
-Plays music as specified by <i>string</i>.  The string commands are:
+Plays music as specified by *string*.  The string commands are:
   A-G   - Notes
   L     - Length
   O     - Octave
@@ -9,5 +9,6 @@ Plays music as specified by <i>string</i>.  The string commands are:
   #or+  - Sharp
   -     - Flat
 
-Example
+```ecb2
 PLAY"L1;A;A#;A-"
+```

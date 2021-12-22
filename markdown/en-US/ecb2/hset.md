@@ -1,6 +1,7 @@
-HSET (x,y,c)
+HSET (*x*,*y*,*c*)
 
-Sets point x,y on the high-resolution graphics screen to Color c.  If you omit c, BASIC uses the foreground color.
+Sets point *x,y* on the high-resolution graphics screen to Color *c*.  If you omit *c*, BASIC uses the foreground color.
 
-Example
+```ecb2
 HSET (22,33,2)
+```

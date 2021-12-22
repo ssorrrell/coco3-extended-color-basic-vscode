@@ -1,6 +1,7 @@
-LOG(n)
+LOG(*n*)
 
-Returns the natural logarithm of <i>n</i>.
+Returns the natural logarithm of *n*.
 
-Example
+```ecb2
 A=LOG(B/2)
+```

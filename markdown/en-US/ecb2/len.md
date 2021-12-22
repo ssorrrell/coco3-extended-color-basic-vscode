@@ -1,6 +1,7 @@
-LEN(string)
+LEN(*string*)
 
-Returns the length of <i>string</i>
+Returns the length of *string*
 
-Example
+```ecb2
 A=LEN(B$)
+```

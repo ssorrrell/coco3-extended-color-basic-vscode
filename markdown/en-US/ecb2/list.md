@@ -1,4 +1,4 @@
-LIST l1-l2
+LIST *l1-l2*
 
 Lists specified program line(s) or the entire program on the screen.
   l1  - Lowest line number to list.
@@ -8,5 +8,6 @@ Lists specified program line(s) or the entire program on the screen.
         l1-   - Lists from and including l1 to the end of the program
         l1-l2 - Lists from and including l1 to and including l2
 
-Example
+```ecb2
 LIST 20-45
+```

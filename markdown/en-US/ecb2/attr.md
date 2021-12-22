@@ -1,4 +1,4 @@
-ATTR c1,c2,B,U
+**ATTR *c1*,*c2*,*B*,*U***
 
 Sets display attributes of a high-resolution text screen.
   c1 - Foreground color
@@ -6,5 +6,6 @@ Sets display attributes of a high-resolution text screen.
   B  - Character blink on
   U  - Underline on
 
-Example:
+```ecb2
 ATTR 3,2,U
+```

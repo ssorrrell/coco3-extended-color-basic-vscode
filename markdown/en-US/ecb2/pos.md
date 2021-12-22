@@ -1,9 +1,10 @@
-POS(dev)
+POS(*dev*)
 
 Returns the current print position.
   dev - Print device number:
         0 - Screen
         -2 - Printer
 
-Example
+```ecb2
 A=POS(0)
+```

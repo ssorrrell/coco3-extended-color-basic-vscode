@@ -1,4 +1,4 @@
-EDIT line number
+**EDIT *line number***
 
 Edits a program line.  After fetching specified line number.  EDIT recognizes several commands:
   C   Changes characters
@@ -11,5 +11,6 @@ Edits a program line.  After fetching specified line number.  EDIT recognizes se
   X   Extends line
   [Shift Up-Arrow]  Returns to line mode
 
-Example
+```ecb2
 EDIT 40
+```

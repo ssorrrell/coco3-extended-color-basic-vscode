@@ -1,4 +1,4 @@
-<b>ABS(*n*)</b>
+**ABS(*n*)**
 
 Returns the absolute value of *number*.
 

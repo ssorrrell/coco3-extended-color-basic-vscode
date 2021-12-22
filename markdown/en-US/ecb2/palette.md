@@ -1,6 +1,7 @@
-PALETTE pr,cc
+PALETTE *pr*,*cc*
 
-Stores Color Code cc (0-63) into Palette Register pr (0-15).
+Stores Color Code *cc* (0-63) into Palette Register *pr* (0-15).
 
-Example
+```ecb2
 PALETTE 1,13
+```

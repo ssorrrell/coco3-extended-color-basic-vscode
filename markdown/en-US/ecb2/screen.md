@@ -1,4 +1,4 @@
-SCREEN type, colors
+SCREEN *type*,*colors*
 
 Selects low-resolution screen modes and color sets.
   type    - 0 - Text
@@ -6,5 +6,6 @@ Selects low-resolution screen modes and color sets.
   colors  - 0 - Color set 0
             1 - Color set 1
 
-Example
+```ecb2
 SCREEN 0,1
+```

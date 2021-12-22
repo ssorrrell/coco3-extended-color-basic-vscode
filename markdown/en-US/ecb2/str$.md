@@ -1,6 +1,7 @@
-STR$(n)
+STR$(*n*)
 
-Converts <i>n</i> to a string.
+Converts *n* to a string.
 
-Example
+```ecb2
 A$=STR$(1.234)
+```

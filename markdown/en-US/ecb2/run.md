@@ -2,5 +2,6 @@ RUN
 
 Executes a program.
 
-Example
+```ecb2
 RUN
+```

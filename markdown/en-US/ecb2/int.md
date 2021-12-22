@@ -1,6 +1,7 @@
-INT(n)
+INT(*n*)
 
-Converts <i>n</i> to the largest integer that is less than or equal to <i>n</i>.
+Converts *n* to the largest integer that is less than or equal to *n*.
 
-Example
+```ecb2
 A=INT(B+.5)
+```

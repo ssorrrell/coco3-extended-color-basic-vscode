@@ -2,5 +2,6 @@ LET
 
 Assigns a value to a variable (optional).
 
-Example
+```ecb2
 LET A3=27
+```

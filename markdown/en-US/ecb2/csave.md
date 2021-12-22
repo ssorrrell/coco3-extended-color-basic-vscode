@@ -1,8 +1,9 @@
-CSAVE "filename",A
+**CSAVE *"filename"*,*A***
 
-Saves program <i>filename</i> on cassette
+Saves program *filename* on cassette
   filename  - Name of program to save.  Name can have as many as 8 characters.
   A         - Selects ASCII format
 
-Example
+```ecb2
 CSAVE "NEWFILE",A
+```

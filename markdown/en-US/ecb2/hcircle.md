@@ -1,4 +1,4 @@
-HCIRCLE (x,y),r,c,h,s,e
+HCIRCLE (*x*,*y*),*r*,*c*,*h*,*s*,*e*
 
 Draws a circle on the high-resolution graphics screen.
   x,y Center point
@@ -8,5 +8,6 @@ Draws a circle on the high-resolution graphics screen.
   s   Starting point
   e   Ending point
 
-Example
+```ecb2
 HCIRCLE (55,64),20,2,3,.4,.7
+```

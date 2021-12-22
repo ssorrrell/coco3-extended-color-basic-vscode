@@ -1,8 +1,9 @@
-PPOINT(x,y)
+PPOINT(*x*,*y*)
 
-Returns the information on point <i>x</i>, <i>y</i> from the low-resolution graphics screen:
+Returns the information on point *x*, *y* from the low-resolution graphics screen:
   0     - Point is reset
   Code  -  Point is set
 
-Example
+```ecb2
 A=PPOINT(22,33)
+```

@@ -1,6 +1,7 @@
-PCLEAR n
+PCLEAR *n*
 
-Reserves <i>n</i> number of 1.5K graphics memory pages.
+Reserves *n* number of 1.5K graphics memory pages.
 
-Example
+```ecb2
 PCLEAR 4
+```

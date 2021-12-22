@@ -1,6 +1,7 @@
-ATN(n)
+**ATN(*n*)**
 
-Returns the arctangent of a <i>n</i> in radians.
+Returns the arctangent of a *n* in radians.
 
-Example
+```ecb2
 A=ATN(B/3)
+```

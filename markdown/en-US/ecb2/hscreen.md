@@ -1,4 +1,4 @@
-HSCREEN mode
+HSCREEN *mode*
 
 Selects a high-resolution graphics screen mode.  Modes 1-4 also clear the high-resolution graphics screen.
   mode    - Mode number.  Mode numbers are:
@@ -8,5 +8,6 @@ Selects a high-resolution graphics screen mode.  Modes 1-4 also clear the high-r
             3 - 640 x 192, 2-color
             4 - 640 x 192, 4-color
 
-Example
+```ecb2
 HSCREEN 4
+```

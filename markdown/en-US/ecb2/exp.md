@@ -1,6 +1,7 @@
-EXP(n)
+**EXP(*n*)**
 
-Returns a natural exponential number (e^<i>n</i>).
+Returns a natural exponential number (e^*n*).
 
-Example
+```ecb2
 A=EXP(B*1.15)
+```

@@ -1,6 +1,7 @@
-RND(n)
+RND(*n*)
 
-Generates a "random" number between 1 and <i>n</i> if <i>n</i>>i, or between 0 and 1 if <i>n</i>=0.
+Generates a "random" number between 1 and *n* if *n*>i, or between 0 and 1 if *n*=0.
 
-Example
+```ecb2
 A=RND(0)
+```

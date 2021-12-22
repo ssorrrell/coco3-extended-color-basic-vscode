@@ -1,4 +1,4 @@
-CIRCLE (x,y),r,c,h,s,e
+**CIRCLE (*x*,*y*),*r*,*c*,*h*,*s*,*e***
 
 Draws a circle on the current low resolution graphics screen.
 
@@ -9,5 +9,6 @@ Draws a circle on the current low resolution graphics screen.
   s   - Starting point
   e   - Ending point
 
-Example:
+```ecb2
 CIRCLE (65,43),20,1,,.5,.8
+```

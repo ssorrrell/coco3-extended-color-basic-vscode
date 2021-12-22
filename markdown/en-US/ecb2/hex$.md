@@ -1,6 +1,7 @@
-HEX$(n)
+HEX$(*n*)
 
-Returns a string with the hexadecimal value of <i>n</i>.
+Returns a string with the hexadecimal value of *n*.
 
-Example
+```ecb2
 PRINT HEX$(A);"=";A
+```

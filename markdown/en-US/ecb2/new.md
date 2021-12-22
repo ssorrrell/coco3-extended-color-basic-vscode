@@ -2,5 +2,6 @@ NEW
 
 Erases everything in memory
 
-Example
+```ecb2
 NEW
+```

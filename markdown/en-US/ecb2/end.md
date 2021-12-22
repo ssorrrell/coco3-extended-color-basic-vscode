@@ -1,6 +1,7 @@
-END
+**END**
 
 Marks the end of a BASIC program.
 
-Example
+```ecb2
 END
+```

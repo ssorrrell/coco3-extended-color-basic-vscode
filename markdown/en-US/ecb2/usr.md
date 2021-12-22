@@ -1,6 +1,7 @@
-USRn(argument)
+USR*n*(*argument*)
 
-Calls machine-language subroutine <i>n</i>, passes it an argument, and returns a value from the subroutine to the BASIC program.
+Calls machine-language subroutine *n*, passes it an argument, and returns a value from the subroutine to the BASIC program.
 
-Example
+```ecb2
 A=USR0(B)
+```

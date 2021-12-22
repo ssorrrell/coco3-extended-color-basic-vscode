@@ -1,4 +1,4 @@
-<b>ASC(*string*)</b>
+**ASC(*string*)**
 
 Returns code of the first character in *string*.
 

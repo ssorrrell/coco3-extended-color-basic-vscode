@@ -1,6 +1,7 @@
-COS(angle)
+**COS(*angle*)**
 
-Returns the cosine of an <i>angle</i> using radians.
+Returns the cosine of an *angle* using radians.
 
-Example
+```ecb2
 A=COS(B)
+```

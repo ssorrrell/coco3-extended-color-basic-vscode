@@ -1,6 +1,7 @@
-ON BRK GOTO line number
+ON BRK GOTO *line number*
 
-Jumps to <i>line number</i> when the BREAK key is pressed.
+Jumps to *line number* when the BREAK key is pressed.
 
-Example
+```ecb2
 ON BRK GOTO 120
+```

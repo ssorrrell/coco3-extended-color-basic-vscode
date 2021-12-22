@@ -2,5 +2,6 @@ TRON
 
 Turns on program tracer
 
-Example
+```ecb2
 TRON
+```

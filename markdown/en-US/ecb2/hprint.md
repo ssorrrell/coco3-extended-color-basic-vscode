@@ -1,8 +1,9 @@
-HPRINT (x,y),message
+HPRINT (*x*,*y*),*message*
 
-Prints <i>message</i> on high-resolution graphics screen.
+Prints *message* on high-resolution graphics screen.
   x,y     - Starting character position
   message - String to print
 
-Example
+```ecb2
 HPRINT (20,12),"HELLO!"
+```

@@ -1,6 +1,7 @@
-CHR$(n)
+**CHR$(*n*)**
 
-Returns the character corresponding to character code <i>n</i>.
+Returns the character corresponding to character code *n</i>.
 
-Example
+```ecb2
 A$=CHR$(65)
+```

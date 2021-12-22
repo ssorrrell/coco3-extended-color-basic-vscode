@@ -1,6 +1,7 @@
-PRINT message
+PRINT *message*
 
 Prints on the text screens.
 
-Example
+```ecb2
 PRINT"HELLO!"
+```

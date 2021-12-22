@@ -2,5 +2,6 @@ TROFF
 
 Turns off program tracer
 
-Example
+```ecb2
 TROFF
+```

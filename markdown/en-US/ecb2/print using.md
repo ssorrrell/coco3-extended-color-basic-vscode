@@ -1,6 +1,6 @@
-PRINT USING"format";data
+PRINT USING*"format"*;*data*
 
-Prints numbers in the specified format on the text screen.  The <i>format</i> commands are:
+Prints numbers in the specified format on the text screen.  The *format* commands are:
   #         - Formats numbers
   .         - Decimal point
   ,         - Prints comma to the left of every third character
@@ -13,5 +13,6 @@ Prints numbers in the specified format on the text screen.  The <i>format</i> co
   !         - Prints first string character
   %spaces%  - String field.  Length of field is number of spaces plus 2.
 
-Example
+```ecb2
 PRINT USING"##.###";1/3
+```

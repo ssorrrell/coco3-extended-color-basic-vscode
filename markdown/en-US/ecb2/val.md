@@ -1,6 +1,7 @@
-VAL(string)
+VAL(*string*)
 
 Converts a string to a number
 
-Example
+```ecb2
 A=VAL("1.23")
+```

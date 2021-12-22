@@ -1,6 +1,7 @@
-LOCATE x,y
+LOCATE *x*,*y*
 
-Moves the high-resolution text screen cursor to position, x,y.
+Moves the high-resolution text screen cursor to position, *x,y*.
 
-Example
+```ecb2
 LOCATE 20,12
+```

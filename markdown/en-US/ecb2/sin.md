@@ -1,6 +1,7 @@
-SIN(angle)
+SIN(*angle*)
 
-Returns the sine of <i>angle</i> using radians.
+Returns the sine of *angle* using radians.
 
-Example
+```ecb2
 A=SIN(B/3.14159)
+```

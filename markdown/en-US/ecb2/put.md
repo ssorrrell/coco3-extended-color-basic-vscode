@@ -1,4 +1,4 @@
-PUT (sx,sy)-(ex,ey),v,a
+PUT (*sx*,*sy*)-(*ex*,*ey*),*v*,*a*
 
 Copies graphics from an array to a rectangle on the low-resolution graphics screen.
   sx,sy - First corner of rectangle
@@ -6,6 +6,6 @@ Copies graphics from an array to a rectangle on the low-resolution graphics scre
   v     - Two dimensional array
   a     - Action used.  Actions include PSET, PRESET, AND, OR, NOT
 
-Example
+```ecb2
 PUT (22,33)-(27,39),A,PSET
-
+```

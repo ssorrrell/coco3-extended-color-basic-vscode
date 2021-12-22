@@ -1,6 +1,7 @@
-FIX(n)
+**FIX(*n*)**
 
-Returns the truncated integer of <i>n</i>.  Unlike INT, FIX does not return the next lower number for a negative <i>n</i>.
+Returns the truncated integer of *n*.  Unlike INT, FIX does not return the next lower number for a negative *n*.
 
-Example
+```ecb2
 A=FIX(B-.2)
+```

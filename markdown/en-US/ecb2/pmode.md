@@ -1,4 +1,4 @@
-PMODE mode,page
+PMODE *mode*,*page*
 
 Selects resolution and first memory page of a low-resolution graphics screen.
   mode  0 - 128 x 96, 2-color
@@ -10,5 +10,6 @@ Selects resolution and first memory page of a low-resolution graphics screen.
   page  Start page.  If omitted, BASIC uses the previously set page.  At
         power on, BASIC uses 1.
 
-Example
+```ecb2
 PMODE 4,1
+```

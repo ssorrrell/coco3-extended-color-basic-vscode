@@ -1,6 +1,7 @@
-DIM array(size),array(size),...
+**DIM *array(size)*,*array(size)*,...**
 
 Dimensions one or more arrays
 
-Example
+```ecb2
 DIM A$(3,10),R4(22)
+```
