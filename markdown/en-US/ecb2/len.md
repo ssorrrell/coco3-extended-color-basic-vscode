@@ -1,7 +1,7 @@
-LEN(*string*)
+**LEN(*string*)**
 
 Returns the length of *string*
 
 ```ecb2
-A=LEN(B$)
+10 A=LEN(B$)
 ```

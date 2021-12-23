@@ -1,7 +1,7 @@
-TAN(*angle*)
+**TAN(*angle*)**
 
 Returns the tangent of *angle* using radians.
 
 ```ecb2
-A=TAN(B)
+10 A=TAN(B)
 ```

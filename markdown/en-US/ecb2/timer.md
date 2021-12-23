@@ -1,5 +1,5 @@
-TIMER = *n*
-A = TIMER/18
+**TIMER = *n***
+**A = TIMER/18**
 
 Sets or returns timer
 
@@ -8,5 +8,5 @@ TIMER=120
 ```
 
 ```ecb2
-A=TIMER/18
+10 A=TIMER/18
 ```

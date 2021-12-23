@@ -1,9 +1,10 @@
 **EOF(*d*)**
 
 Returns FALSE(0) if there is more data; TRUE(-1) if end of file has been read.
-  d - Device number:
-      -1 Cassette
+
+- d - Device number:
+  - -1 Cassette
 
 ```ecb2
-IF EOF(-1)=-1 THEN 220
+10 IF EOF(-1)=-1 THEN 220
 ```

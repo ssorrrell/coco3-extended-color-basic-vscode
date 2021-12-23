@@ -2,13 +2,13 @@
 
 Draws a circle on the current low resolution graphics screen.
 
-  x,y - Center point
-  r   - Radius
-  c   - Color
-  h   - Height/width ratio
-  s   - Starting point
-  e   - Ending point
+- x,y - Center point
+- r   - Radius
+- c   - Color
+- h   - Height/width ratio
+- s   - Starting point
+- e   - Ending point
 
 ```ecb2
-CIRCLE (65,43),20,1,,.5,.8
+10 CIRCLE (65,43),20,1,,.5,.8
 ```

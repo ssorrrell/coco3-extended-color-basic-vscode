@@ -1,7 +1,7 @@
 **CHR$(*n*)**
 
-Returns the character corresponding to character code *n</i>.
+Returns the character corresponding to character code *n*.
 
 ```ecb2
-A$=CHR$(65)
+10 A$=CHR$(65)
 ```

@@ -1,7 +1,7 @@
-ON BRK GOTO *line number*
+**ON BRK GOTO *line number***
 
 Jumps to *line number* when the BREAK key is pressed.
 
 ```ecb2
-ON BRK GOTO 120
+10 ON BRK GOTO 120
 ```

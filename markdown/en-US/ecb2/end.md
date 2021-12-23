@@ -3,5 +3,5 @@
 Marks the end of a BASIC program.
 
 ```ecb2
-END
+10 END
 ```

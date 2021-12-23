@@ -3,5 +3,5 @@
 Calls a subroutine beginning at the specified line number
 
 ```ecb2
-GOSUB 330
+10 GOSUB 330
 ```

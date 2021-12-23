@@ -1,10 +1,10 @@
-PRINT #*d*,*data*
+**PRINT #*d*,*data***
 
-  d   - device to write to.  
-        -1 cassette
-        -2 printer
-  data - string to write
+- d - device to write to.  
+  - -1 cassette
+  - -2 printer
+- data - string to write
 
 ```ecb2
-PRINT #-1,A$
+10 PRINT #-1,A$
 ```

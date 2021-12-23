@@ -1,8 +1,9 @@
-LEFT$(*string*,*length*)
+**LEFT$(*string*,*length*)**
 
 Returns the left portion of a string.
-  length  - Specifies number of characters returned.
+
+- length  - Specifies number of characters returned.
 
 ```ecb2
-A$=LEFT$(B$,3)
+10 A$=LEFT$(B$,3)
 ```

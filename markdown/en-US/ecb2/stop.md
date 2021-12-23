@@ -1,4 +1,4 @@
-STOP
+**STOP**
 
 Stops execution of a program
 

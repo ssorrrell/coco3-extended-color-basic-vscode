@@ -1,7 +1,7 @@
-GOTO *line number*
+**GOTO *line number***
 
 Jumps to the specified line number.
 
 ```ecb2
-GOTO 125
+10 GOTO 125
 ```

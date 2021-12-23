@@ -1,4 +1,4 @@
-NEW
+**NEW**
 
 Erases everything in memory
 

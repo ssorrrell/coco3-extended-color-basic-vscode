@@ -1,7 +1,7 @@
-PRINT *message*
+**PRINT *message***
 
 Prints on the text screens.
 
 ```ecb2
-PRINT"HELLO!"
+10 PRINT"HELLO!"
 ```

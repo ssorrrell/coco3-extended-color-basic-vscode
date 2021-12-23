@@ -3,5 +3,5 @@
 Returns the BASIC error number for the error that has occurred.
 
 ```ecb2
-IF ERNO=20 THEN CLOSE
+10 IF ERNO=20 THEN CLOSE
 ```

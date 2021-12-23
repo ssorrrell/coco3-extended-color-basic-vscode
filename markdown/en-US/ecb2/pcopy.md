@@ -1,9 +1,10 @@
-PCOPY *s* to *d*
+**PCOPY *s* to *d***
 
 Copies low-resolution graphics from source page to the destination page.
-  s - Source page number
-  d - Destination page number
+
+- s - Source page number
+- d - Destination page number
 
 ```ecb2
-PCOPY 1 TO 2
+10 PCOPY 1 TO 2
 ```

@@ -1,7 +1,7 @@
-ON ERR GOTO *line number*
+**ON ERR GOTO *line number***
 
 Jumps to *line number* when an error occurs.
 
 ```ecb2
-ON ERR GOTO 120
+10 ON ERR GOTO 120
 ```

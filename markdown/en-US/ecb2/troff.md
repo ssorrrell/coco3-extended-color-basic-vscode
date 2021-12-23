@@ -1,7 +1,7 @@
-TROFF
+**TROFF**
 
 Turns off program tracer
 
 ```ecb2
-TROFF
+10 TROFF
 ```

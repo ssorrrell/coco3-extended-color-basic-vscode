@@ -1,8 +1,9 @@
-RIGHT$(*string*,*length*)
+**RIGHT$(*string*,*length*)**
 
 Returns the right portion of a string.
-  length - Specifies number of characters returned.
+
+- length - Specifies number of characters returned.
 
 ```ecb2
-A$=RIGHT$(B$,4)
+10 A$=RIGHT$(B$,4)
 ```

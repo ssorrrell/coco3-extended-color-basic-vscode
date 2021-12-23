@@ -1,11 +1,12 @@
-HSTAT *v1*,*v2*,*v3*,*v4*
+**HSTAT *v1*,*v2*,*v3*,*v4***
 
 Returns information regarding the high-resolution text screen cursor to variables *v1*, *v2*, *v3*, and *v4*.
-  v1  - Character code
-  v2  - Character attribute
-  v3  - Cursor X coordinate
-  v4  - Cursor Y coordinate
+
+- v1  - Character code
+- v2  - Character attribute
+- v3  - Cursor X coordinate
+- v4  - Cursor Y coordinate
 
 ```ecb2
-HSTAT C, A, X, Y
+10 HSTAT C, A, X, Y
 ```

@@ -1,9 +1,10 @@
 **AUDIO *switch***
 
 Connects or disconnects cassetter output to the display speaker
-  ON  Switches ON sound from cassette player to display speaker
-  OFF Switches OFF sound from cassette player to display speaker
+
+- ON  Switches ON sound from cassette player to display speaker
+- OFF Switches OFF sound from cassette player to display speaker
 
 ```ecb2
-AUDIO OFF
+10 AUDIO OFF
 ```
