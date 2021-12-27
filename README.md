@@ -2,18 +2,22 @@
 
 This extension implements basic language features of Color Computer 3 Super Extended Color Basic for [Visual Studio Code](https://code.visualstudio.com/).
 
+This extension is still under development, the the 0 major version.  Currently, the Hover Provider is implmented as are the basic language definition using regex.  It seems to color and identify most things correctly.  Hover text documentation is being polished and expanded.  I think it is basically useable.  I'd like it to do much more; autonumbering, running VCC, crunch, better accuracy for tokens...
+
+There a lot of new technologies here for me; markdown, language parsing, vscode extensions, github, typescript only project, prettier for markdown,..
+
 ## Languages
 
 The file naming convention leaves open the possibility of working for all versions of Color Basic.  To use set the filename extension to match the version of BASIC.
 
 At the moment only files ending in .ecb2 will be properly enabled.
 
-Language Name | Device | Extension
------------- | ------------- | -------------
-Disk Extended Color Basic 2 | Color Computer 3 with Disk Drive | .decb2
-Super Extended Color Basic 2 | Color Computer 3 | .ecb2
-Disk Extended Color Basic 1 | Color Computer 2 with Disk Drive | .decb or .decb1
-Extended Color Basic 1 | Color Computer 2 | .ecb or .ecb1
+| Language Name                | Device                           | Extension       |
+| ---------------------------- | -------------------------------- | --------------- |
+| Disk Extended Color Basic 2  | Color Computer 3 with Disk Drive | .decb2          |
+| Super Extended Color Basic 2 | Color Computer 3                 | .ecb2           |
+| Disk Extended Color Basic 1  | Color Computer 2 with Disk Drive | .decb or .decb1 |
+| Extended Color Basic 1       | Color Computer 2                 | .ecb or .ecb1   |
 
 ## Features
 
@@ -47,16 +51,16 @@ RGB colors are a lot more knowable at design time.
 Pretty much everything is organized as a keyword, because everything is part of the base language.  This will make typical VS Code Themes less optimal.  You would really want a Theme targed at this kind of all-in-one classic interpreted language.
 
 Types of keywords are sorted as follow:
-Token Categories | Purpose
------------- | -------------
-keyword.memory.xxx | Memory functions like Poke and Peek
-keyword.display.xxx | Video functions like PSet and HCls
-keyword.io.xxx | Input/Output like JOYSTK, EOF, and CLOAD
-keyword.audio.xxx | Audio functions Play and Sound
-keyword.control.xxx | Control statments like For, If, Goto
-keyword.operator.xxx | Operators like =, <>, AND
-keyword.string.xxx | String functions like CHR$ and MID$
-keyword.math.xxx | Math functions like ATN, COS, and ABS
+| Token Categories     | Purpose                                  |
+| -------------------- | ---------------------------------------- |
+| keyword.memory.xxx   | Memory functions like Poke and Peek      |
+| keyword.display.xxx  | Video functions like PSet and HCls       |
+| keyword.io.xxx       | Input/Output like JOYSTK, EOF, and CLOAD |
+| keyword.audio.xxx    | Audio functions Play and Sound           |
+| keyword.control.xxx  | Control statments like For, If, Goto     |
+| keyword.operator.xxx | Operators like =, <>, AND                |
+| keyword.string.xxx   | String functions like CHR$ and MID$      |
+| keyword.math.xxx     | Math functions like ATN, COS, and ABS    |
 
 
 ## Contribute
