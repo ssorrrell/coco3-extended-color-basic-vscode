@@ -1,11 +1,11 @@
-**OPEN *m*,*#dev*,*f***
+**OPEN <span style="color:#FFFF00;">*m*</span>,<span style="color:#AAFFAA;">*#dev*</span>,*f***
 
 Opens specified file for data transmission
 
-- m   - Transmission mode
+- <span style="color:#FFFF00;">m</span>   - Transmission mode
   - I - Input
   - O - Output
-- #dev - Device
+- <span style="color:#AAFFAA;">#dev</span> - Device
   - #-2 - Printer
   - #-1 - Cassette
   - #0  - Keyboard or screen

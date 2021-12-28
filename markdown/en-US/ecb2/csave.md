@@ -1,9 +1,9 @@
-**CSAVE *"filename"*,*A***
+**CSAVE <span style="color:#FFFF00;">*"filename"*</span>,<span style="color:#AAFF00;">*A*</span>**
 
-Saves program *filename* on cassette
+Saves program <span style="color:#FFFF00;">*filename*</span> on cassette
 
-- filename  - Name of program to save.  Name can have as many as 8 characters.
-- A         - Selects ASCII format
+- <span style="color:#FFFF00;">*filename*</span> - Name of program to save.  Name can have as many as 8 characters.
+- <span style="color:#AAFF00;">*A*</span> - Selects ASCII format
 
 ```ecb2
 10 CSAVE "NEWFILE",A

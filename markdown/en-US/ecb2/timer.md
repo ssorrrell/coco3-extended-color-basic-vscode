@@ -1,7 +1,7 @@
-**TIMER = *n***
+**TIMER = <span style="color:#AAFF00;">*n*</span> **
 **A = TIMER/18**
 
-Sets or returns timer
+Sets or returns timer.  Timer is a roughly 18 minute counter that recycles automatically and is always running.  Can be used as a seed for RND().
 
 ```ecb2
 TIMER=120

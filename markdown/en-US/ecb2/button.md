@@ -1,11 +1,11 @@
-**BUTTON(*n*)**
+**BUTTON(<span style="color:#AAFF00;">*n*</span> )**
 
 Returns:
 
-- 1 if Joystick Button *n* is being pressed.
-- 0 if Joystick Button *n* is not being pressed.
+- 1 if Joystick Button <span style="color:#AAFF00;">*n*</span>  is being pressed.
+- 0 if Joystick Button <span style="color:#AAFF00;">*n*</span>  is not being pressed.
 
-*n* can be:
+<span style="color:#AAFF00;">*n*</span>  can be:
 
 - 0 - Right joystick. Button 1 (old joystick)
 - 1 - Right joystick. Button 2

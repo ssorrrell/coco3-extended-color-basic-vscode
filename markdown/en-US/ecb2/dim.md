@@ -1,4 +1,4 @@
-**DIM *array(size)*,*array(size)*,...**
+**DIM <span style="color:#AAFFAA;">*array(size)*</span>,<span style="color:#AAFF00;">*array(size)*</span>,<span style="color:#AAFF55;">*...*</span>**
 
 Dimensions one or more arrays
 

@@ -1,9 +1,9 @@
-**HPRINT (*x*,*y*),*message***
+**HPRINT (<span style="color:#00FFFF;">*x*,*y*</span>),<span style="color:#AAFF00;">*message*</span>**
 
-Prints *message* on high-resolution graphics screen.
+Prints <span style="color:#AAFF00;">*message*</span> on high-resolution graphics screen.
 
-- x,y     - Starting character position
-- message - String to print
+- <span style="color:#00FFFF;">x,y</span> - Starting character position
+- <span style="color:#AAFF00;">message</span> - String to print
 
 ```ecb2
 10 HPRINT (20,12),"HELLO!"

@@ -1,9 +1,9 @@
-**PRINT #*d*,*data***
+**PRINT #<span style="color:#AAFFAA;">*d*</span>,<span style="color:#00FFFF;">*data*</span>**
 
-- d - device to write to.  
+- <span style="color:#AAFFAA;">*d*</span> - device to write to.  
   - -1 cassette
   - -2 printer
-- data - string to write
+- <span style="color:#00FFFF;">data</span> - string to write
 
 ```ecb2
 10 PRINT #-1,A$

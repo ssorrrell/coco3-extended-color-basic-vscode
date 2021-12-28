@@ -1,8 +1,8 @@
-**EOF(*d*)**
+**EOF(<span style="color:#AAFFAA;">*d*</span>)**
 
 Returns FALSE(0) if there is more data; TRUE(-1) if end of file has been read.
 
-- d - Device number:
+- <span style="color:#AAFFAA;">*d*</span> - Device number:
   - -1 Cassette
 
 ```ecb2

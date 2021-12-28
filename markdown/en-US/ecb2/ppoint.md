@@ -1,6 +1,6 @@
-**PPOINT(*x*,*y*)**
+**PPOINT(<span style="color:#00FFFF;">*x*,*y*</span>)**
 
-Returns the information on point *x*, *y* from the low-resolution graphics screen:
+Returns the information on point <span style="color:#00FFFF;">*x*,*y*</span> from the low-resolution graphics screen:
 
 - 0     - Point is reset
 - Code  - Point is set

@@ -1,8 +1,8 @@
-**HSCREEN *mode***
+**HSCREEN <span style="color:#00FFFF;">*mode*</span>**
 
 Selects a high-resolution graphics screen mode.  Modes 1-4 also clear the high-resolution graphics screen.
 
-- mode    - Mode number.  Mode numbers are:
+- <span style="color:#00FFFF;">mode</span> - Mode number.  Mode numbers are:
   - 0 - Low resolution
   - 1 - 320 x 192, 4-color
   - 2 - 320 x 192, 16-color

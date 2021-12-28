@@ -1,8 +1,8 @@
-**POS(*dev*)**
+**POS(<span style="color:#AAFFAA;">*dev*</span>)**
 
 Returns the current print position.
 
-- dev - Print device number:
+- <span style="color:#AAFFAA;">*dev*</span> - Print device number:
   - 0 - Screen
   - -2 - Printer
 

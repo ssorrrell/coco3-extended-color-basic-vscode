@@ -1,6 +1,6 @@
-**JOYSTK(*j*)**
+**JOYSTK(<span style="color:#AAFFAA;">*j*</span>)**
 
-Returns the horizontal or vertical cooridinate (*j*) of the left or right joystick:
+Returns the horizontal or vertical cooridinate (<span style="color:#AAFFAA;">*j*</span>) of the left or right joystick:
 
 - 0 - Horizontal right joystick
 - 1 - Vertical, right joystick
