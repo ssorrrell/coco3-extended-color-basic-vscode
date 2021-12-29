@@ -6,9 +6,9 @@ This extension is still under development, thus the 0 major version.  Currently,
 
 There a lot of new technologies here for me; markdown, language parsing, vscode extensions, github, typescript only project, prettier for markdown,.
 
-![screenshot-1](../assets/screenshot-1.png)
+![screenshot-1](coco3-extended-color-basic-vscode/assets/screenshot-1.png)
 
-![screencapture-1](../assets/screencap-1.png)
+![screencapture-1](coco3-extended-color-basic-vscode/assets/screencap-1.png)
 
 ## Languages
 
