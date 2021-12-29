@@ -8,7 +8,7 @@ There a lot of new technologies here for me; markdown, language parsing, vscode 
 
 ![screenshot-1](https://github.com/ssorrrell/coco3-extended-color-basic-vscode/blob/master/assets/screenshot-1.png)
 
-![screencapture-1](https://github.com/ssorrrell/coco3-extended-color-basic-vscode/blob/master/assets/screencap-1.png)
+![screencapture-1](https://github.com/ssorrrell/coco3-extended-color-basic-vscode/blob/master/assets/screencap-1.gif)
 
 ## Languages
 
