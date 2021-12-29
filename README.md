@@ -2,9 +2,13 @@
 
 This extension implements basic language features of Color Computer 3 Super Extended Color Basic for [Visual Studio Code](https://code.visualstudio.com/).
 
-This extension is still under development, the the 0 major version.  Currently, the Hover Provider is implmented as are the basic language definition using regex.  It seems to color and identify most things correctly.  Hover text documentation is being polished and expanded.  I think it is basically useable.  I'd like it to do much more; autonumbering, running VCC, crunch, better accuracy for tokens...
+This extension is still under development, thus the 0 major version.  Currently, the Hover Provider is implmented as are the basic language definition using regex.  It seems to color and identify most things correctly.  Hover text documentation is being polished and expanded.  I think it is basically useable.  I'd like it to do much more; autonumbering, running VCC, crunch, find references, better accuracy for tokens...
 
-There a lot of new technologies here for me; markdown, language parsing, vscode extensions, github, typescript only project, prettier for markdown,..
+There a lot of new technologies here for me; markdown, language parsing, vscode extensions, github, typescript only project, prettier for markdown,.
+
+![screenshot-1](../assets/screenshot-1.png)
+
+![screencapture-1](../assets/screencap-1.png)
 
 ## Languages
 
@@ -21,13 +25,22 @@ At the moment only files ending in .ecb2 will be properly enabled.
 
 ## Features
 
+In Progress
 
-- Add extra VBS Source (libraries) files for extra completion
-```
-{ // settings.json
-    "ecb2.includes": ["c:\\mylibrary.vbs"]
-}
-```
+- Basic language syntax
+- Hover Provider Documentation
+
+To Do
+
+- Crunch
+- Autonumber
+- Renumber
+- Find Uses
+- Pick Colors
+- Additional languages
+- Highlighting
+- Better Accuracy
+- Localization
 
 ## Issues Related to Coloring Tokens
 
@@ -46,7 +59,7 @@ Modern Language Differences from Color BASIC
 A hex number is basically a color code.
 RGB colors are a lot more knowable at design time.
 
-### What's this mean?
+### What this mean?
 
 Pretty much everything is organized as a keyword, because everything is part of the base language.  This will make typical VS Code Themes less optimal.  You would really want a Theme targed at this kind of all-in-one classic interpreted language.
 
@@ -97,7 +110,7 @@ Color Computer Language References
 
 ## Purpose
 
-This extension was founded to help develop for the Color Computer 3 with a modern toolset.
+This extension was constructed to help develop for the Color Computer 3 with a modern toolset.
 
 ## Future
 
