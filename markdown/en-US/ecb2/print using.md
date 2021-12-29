@@ -8,7 +8,7 @@ Prints numbers in the specified format on the text screen.  The *format* command
 - \*\*        - Fills leading spaces with asterisks
 - \$         - Prints leading dollar sign
 - \$$        - Floating dollar sign
-- \+         - Leading or trailing sign 
+- \+         - Leading or trailing sign
 - ^^^^      - Exponential format
 - \-         - Minus sign after negative numbers
 - \!         - Prints first string character

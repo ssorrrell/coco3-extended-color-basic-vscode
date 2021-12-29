@@ -1,4 +1,4 @@
-**WIDTH <span style="color:#AAFF00;">*n*</span> **
+**WIDTH <span style="color:#AAFF00;">*n*</span>**
 
 Sets the text screen to resolution <span style="color:#AAFF00;">*n*</span>
 
