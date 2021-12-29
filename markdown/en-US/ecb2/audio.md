@@ -1,4 +1,4 @@
-**AUDIO *switch***
+**AUDIO <span style="color:#AAFFAA;">*switch*</span>**
 
 Connects or disconnects cassetter output to the display speaker
 

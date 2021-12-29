@@ -6,6 +6,5 @@ Jumps to <span style="color:#AAFFAA;">*line number*</span> when the BREAK key is
 
 ```ecb2
 10 ON BRK GOTO 120
-
 120 PRINT "Break Key Pressed"
 ```

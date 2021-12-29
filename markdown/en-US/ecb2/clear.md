@@ -1,4 +1,4 @@
-**CLEAR <span style="color:#AAFF00;">*n*</span> ,<span style="color:#FFFF00;">*h*</span>**
+**CLEAR <span style="color:#AAFF00;">*n*</span>,<span style="color:#FFFF00;">*h*</span>**
 
 Erases variables, reserves string workspace, and reserves high memory for machine language programs.
 

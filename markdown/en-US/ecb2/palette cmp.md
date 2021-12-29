@@ -5,3 +5,5 @@ Resets the palette registers to the standard colors for a composite monitor or a
 ```ecb2
 10 PALETTE CMP
 ```
+
+<https://exstructus.com/tags/coco/australia-colour-palette/>

@@ -8,3 +8,5 @@ Stores Color Code <span style="color:#FFFFAA;">*cc*</span> (0-63) into Palette R
 ```ecb2
 10 PALETTE 1,13
 ```
+
+<https://exstructus.com/tags/coco/australia-colour-palette/>

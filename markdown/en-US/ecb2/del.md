@@ -1,4 +1,4 @@
-**DEL *l1*-*l2***
+**DEL <span style="color:#AAFFAA;">*l1*</span>-<span style="color:#AAFFFF;">*l2*</span>**
 
 Deletes the program lines
 

@@ -1,6 +1,6 @@
-**DRAW *string***
+**DRAW <span style="color:#AAFFAA;">*string*</span>**
 
-Draws a line on the current low resolution graphics screen as specified by *string*.  The *string* commands are:
+Draws a line on the current low resolution graphics screen as specified by <span style="color:#AAFFAA;">*string*</span>.  The <span style="color:#AAFFAA;">*string*</span> commands are:
 
 - A   Angle
 - BM  Blank move

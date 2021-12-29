@@ -6,6 +6,5 @@ Jumps to <span style="color:#AAFFAA;">*line number*</span> when an error occurs.
 
 ```ecb2
 10 ON ERR GOTO 120
-
 120 PRINT "Error Occurred"
 ```

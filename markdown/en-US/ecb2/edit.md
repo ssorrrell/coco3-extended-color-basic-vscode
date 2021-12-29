@@ -1,4 +1,4 @@
-**EDIT *line number***
+**EDIT <span style="color:#AAFFAA;">*line number*</span>**
 
 Edits a program line.  After fetching specified line number.  EDIT recognizes several commands:
 
