@@ -2,7 +2,7 @@
   "name": "ecb2vscode",
   "displayName": "coco3-extended-color-basic",
   "description": "Extended Color Basic 2 Language Support",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "ssorrrell",
   "icon": "assets/logo.png",
   "galleryBanner": {

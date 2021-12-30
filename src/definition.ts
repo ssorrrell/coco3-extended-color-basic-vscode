@@ -4,14 +4,14 @@ import * as PATTERNS from './patterns'
 
 function findExtDef(docText: string, lookup: string, docuri: Uri): Location[] {
   const posloc: Location[] = []
-  let match = PATTERNS.DEF(docText, lookup)
-  if (match) {
-    const pos = match.index + match[1].length
-    const line = docText.slice(0, pos).match(/\n/g).length
-    posloc.push(new Location(docuri, new Position(line, 0)))
-  }
+  // let match = PATTERNS.DEF(docText, lookup)
+  // if (match) {
+  //   const pos = match.index + match[1].length
+  //   const line = docText.slice(0, pos).match(/\n/g).length
+  //   posloc.push(new Location(docuri, new Position(line, 0)))
+  // }
 
-  match = PATTERNS.DEFVAR(docText, lookup)
+  const match = PATTERNS.DEFVAR(docText, lookup)
   if (match) {
     const line = docText.slice(0, match.index).match(/\n/g).length
     posloc.push(new Location(docuri, new Position(line, 0)))
@@ -46,10 +46,10 @@ function provideDefinition(doc: TextDocument, position: Position): Location[] {
 
   const posLoc: Location[] = []
 
-  let match = PATTERNS.DEF(docText, lookup)
-  if (match) posLoc.push(new Location(doc.uri, doc.positionAt(match.index)))
+  // let match = PATTERNS.DEF(docText, lookup)
+  // if (match) posLoc.push(new Location(doc.uri, doc.positionAt(match.index)))
 
-  match = PATTERNS.DEFVAR(docText, lookup)
+  const match = PATTERNS.DEFVAR(docText, lookup)
   if (match) posLoc.push(new Location(doc.uri, doc.positionAt(match.index)))
 
   for (const item of getImportsWithLocal(doc))
