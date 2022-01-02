@@ -1,14 +1,20 @@
 # Color Computer 3 Extended Color Basic 2.0 Extension for Visual Studio Code
 
+![installs](https://img.shields.io/visual-studio-marketplace/i/ssorrrell.ecb2vscode)
+
+[Visual Studio Marketplace link](https://marketplace.visualstudio.com/items?itemName=ssorrrell.ecb2vscode)
+
 This extension implements basic language features of Color Computer 3 Super Extended Color Basic for [Visual Studio Code](https://code.visualstudio.com/).
+
+A Language Server using ANTR4 for improved accuracy is under development at [ECB2_Lib](https://github.com/ssorrrell/ECB2_Lib).
 
 This extension is still under development, thus the 0 major version.  Currently, the Hover Provider is implmented as are the basic language definition using regex.  It seems to color and identify most things correctly.  Hover text documentation is being polished and expanded.  I think it is basically useable.  I'd like it to do much more; autonumbering, running VCC, crunch, find references, better accuracy for tokens...
 
 There a lot of new technologies here for me; markdown, language parsing, vscode extensions, github, typescript only project, prettier for markdown,.
 
-![screenshot-1](https://github.com/ssorrrell/coco3-extended-color-basic-vscode/blob/master/assets/screenshot-1.png)
+![screenshot-1](https://github.com/ssorrrell/coco3-extended-color-basic-vscode/raw/master/assets/screenshot-1.png)
 
-![screencapture-1](https://github.com/ssorrrell/coco3-extended-color-basic-vscode/blob/master/assets/screencap-1.gif)
+![screencapture-1](https://github.com/ssorrrell/coco3-extended-color-basic-vscode/raw/master/assets/screencap-1.gif)
 
 ## Languages
 
