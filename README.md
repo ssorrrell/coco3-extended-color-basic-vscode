@@ -4,7 +4,9 @@
 
 This extension implements basic language features of Color Computer 3 Super Extended Color Basic for [Visual Studio Code](https://code.visualstudio.com/).
 
-A Language Server using ANTLR4 for improved accuracy is under development at [ECB2_Lib](https://github.com/ssorrrell/ECB2_Lib).
+## Status
+
+A Language Server using an ANTLR4 generated parser for improved accuracy is under development at [BASICLanguageParser](https://github.com/ssorrrell/BASICLanguageParser).  The status of the parser is that the first grammar, for Color BASIC 1.3 has initially been created and the lexer/parser generated.  The extension has been temporarily modified to load [CXuesong's](https://github.com/CXuesong/LanguageServer.NET) DemoLanguageServer.NET as an example of how to load a language server from a vs code extension.  The next step is to create Language Server for communicating between the IDE and the parser based on the Demo.  And then to pass the editing document to the parser and return results.  This should result in a maximally reusable structure.  The grammars are a useful starting point for other languages like AppleSoft BASIC, Atari, and Commodore.  The parser can be used to create a crunch program or virtual machine.  The language server could be use to make an extension for another IDE besides VSCode.  And the separation is an example of each aspect without them all being in one project solution.
 
 This extension is still under development, thus the 0 major version.  Currently, the Hover Provider is implemented as are the basic language definition using regex.  It seems to color and identify most things correctly.  Hover text documentation is being polished and expanded.  I think it is basically useable.  I'd like it to do much more; autonumbering, running VCC, crunch, find references, better accuracy for tokens...
 
@@ -97,11 +99,11 @@ Next difficulty up is to use the VS Code API to implement specific aspects like 
 
 The most complicated setup is a Language Server Protocol.  Where a lexer and parser are in a separate code space, possibly different language, perform the difficult analysis of the code, and return answers to the editor.  Language Servers use a protocol that is implemented by multiple editors like Eclipse and VS Code.  For example, this is how VS Code provides CSharp support via the Omnisharp Extension.
 
-It's possible to use Language Server Protocol AND VS Code API together for the extension.  And either way you have to right a TextMate grammar file to get colorization of the words, which is heavy on Regular Expressions.
+It's possible to use Language Server Protocol AND VS Code API together for the extension.  And either way you have to write a TextMate grammar file to get colorization of the words, which is heavy on Regular Expressions.  Semantic Tokens from the Language Server can be used to improve the accuracy of the regex grammar.
 
 ## References
 
-This extension is forked and heavily modified from the extension by Serpen for VBScript.
+This extension is cloned and heavily modified from the extension by Serpen for VBScript.
 
 The xxx.tmLanguage.json uses a different parser than the standard MS engine.  This reg ex engine can help.
 <https://rubular.com/>
@@ -138,6 +140,20 @@ Other 8-bit BASICS
 <http://www.dragondata.co.uk/Publications/BASIC-MAN/DRAGON_32_BASIC_MANUAL_rel-v2.pdf>
 
 <https://www.c64-wiki.com/wiki/C64-Commands>
+
+How To Build a Parser
+
+<https://stackoverflow.com/questions/19327831/antlr4-c-sharp-application-tutorial-example>
+
+["The Definitive ANTLR 4 Reference"](https://rads.stackoverflow.com/amzn/click/com/1934356999)
+
+How To Build a .Net Language Server
+
+<https://blog.lextudio.com/how-to-write-your-language-server-in-c-d9302a44f694>
+
+<https://github.com/CXuesong/LanguageServer.NET>
+
+<https://github.com/donaldpipowitch/how-to-create-a-language-server-and-vscode-extension>
 
 ## Purpose
 

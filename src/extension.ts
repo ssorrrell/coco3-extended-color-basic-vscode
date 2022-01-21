@@ -29,14 +29,12 @@ async function activateLanguageServer(context: ExtensionContext) {
   let serverModule: string | undefined
   for (let p of languageServerPaths) {
     p = context.asAbsolutePath(p)
-    console.log(p)
     try {
-      console.log(`Try ${p}`)
       await fs.promises.access(p)
       serverModule = p
       break
     } catch (err) {
-      console.log(`Path Failed`)
+      console.log(`Path Failed ${p}`)
       // Skip this path.
     }
   }
