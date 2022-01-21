@@ -47,7 +47,8 @@
         "extensions": [
           ".bas",
           ".ecb",
-          ".ecb2"
+          ".ecb2",
+          ".demo"
         ],
         "configuration": "./syntaxes/language-configuration.json"
       }
@@ -79,6 +80,22 @@
       "type": "object",
       "title": "ecb2vscode",
       "properties": {
+        "ecb2.maxNumberOfProblems": {
+          "type": "number",
+          "default": 100,
+          "description": "Controls the maximum number of problems produced by the server."
+        },
+        "ecb2.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces the communication between VSCode and the demoLanguageServer service."
+        },
         "ecb2.interpreter": {
           "type": "string",
           "default": "C:\\WINDOWS\\system32\\cscript.exe",
@@ -155,7 +172,8 @@
   },
   "dependencies": {
     "@vscode/test-electron": "^1.6.2",
-    "vscode-debugadapter": "^1.50.0"
+    "vscode-debugadapter": "^1.50.0",
+    "vscode-languageclient": "^7.0.0"
   },
   "configurationDefaults": {
     "[ecb2]": {

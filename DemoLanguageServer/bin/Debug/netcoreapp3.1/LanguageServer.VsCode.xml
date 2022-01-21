@@ -1,0 +1,2345 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LanguageServer.VsCode</name>
+    </assembly>
+    <members>
+        <member name="T:LanguageServer.VsCode.Contracts.Client.ClientProxy">
+            <summary>
+            A class that puts all the Language Protocol client-side proxy methods together.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.ClientProxy.#ctor(JsonRpc.DynamicProxy.Client.JsonRpcProxyBuilder,JsonRpc.Client.JsonRpcClient)">
+            <summary>
+            Initializes a client-side proxy method aggregator instance with specified
+            <see cref="T:JsonRpc.DynamicProxy.Client.JsonRpcProxyBuilder"/> and <see cref="T:JsonRpc.Client.JsonRpcClient"/>.
+            </summary>
+            <param name="proxyBuilder">The builder used to build implementations for the stub interfaces.</param>
+            <param name="rpcClient">The client used to send JSON RPC requests.</param>
+            <exception cref="T:System.ArgumentNullException">Either <paramref name="proxyBuilder"/> or <paramref name="rpcClient"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Client.ClientProxy.ProxyBuilder">
+            <summary>
+            The builder used to build implementations for the stub interfaces.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Client.ClientProxy.RpcClient">
+            <summary>
+            The client used to send JSON RPC requests.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.IClient.RegisterCapability(System.Collections.Generic.IEnumerable{LanguageServer.VsCode.Contracts.Registration})">
+            <summary>
+            Registers for a new capability on the client side.
+            Not all clients need to support dynamic capability registration.
+            A client opts in via the ClientCapabilities.dynamicRegistration property.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.IClient.UnregisterCapability(System.Collections.Generic.IEnumerable{LanguageServer.VsCode.Contracts.Unregistration})">
+            <summary>
+            Unregisters a previously registered capability.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.IDocument.PublishDiagnostics(System.Uri,System.Collections.Generic.IEnumerable{LanguageServer.VsCode.Contracts.Diagnostic})">
+            <summary>
+            Diagnostics notification are sent from the server to the client to signal results of validation runs.
+            </summary>
+            <param name="uri">The URI for which diagnostic information is reported.</param>
+            <param name="diagnostics">An array of diagnostic information items.
+            To clear the existing diagnostics, pass <see cref="F:LanguageServer.VsCode.Contracts.Diagnostic.EmptyDiagnostics"/> instead of <c>null</c>.</param>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.Client.ITelemetry">
+            <summary>
+            The telemetry notification is sent from the server to the client to ask the client to log a telemetry event.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.ITelemetry.Event(System.Object[])">
+            <summary>
+            The telemetry notification is sent from the server to the client to ask
+            the client to log a telemetry event.
+            </summary>
+            <param name="data">Any number of data to be sent.</param>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.ITextDocument.PublishDiagnostics(System.Uri,System.Collections.Generic.IEnumerable{LanguageServer.VsCode.Contracts.Diagnostic})">
+            <summary>
+            Diagnostics notification are sent from the server to the client to signal results of validation runs.
+            </summary>
+            <param name="uri">The URI for which diagnostic information is reported.</param>
+            <param name="diagnostics">An array of diagnostic information items.</param>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.IWindow.ShowMessage(LanguageServer.VsCode.Contracts.MessageType,System.String)">
+            <summary>
+            The show message notification is sent from a server to a client to ask the client to display
+            a particular message in the user interface.
+            </summary>
+            <param name="type">The message type.</param>
+            <param name="message">The actual message.</param>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.IWindow.ShowMessage(LanguageServer.VsCode.Contracts.MessageType,System.String,System.Collections.Generic.IEnumerable{LanguageServer.VsCode.Contracts.IMessageActionItem})">
+            <summary>
+            The show message request is sent from a server to a client to ask the client to
+            display a particular message in the user interface. In addition to the show
+            message notification the request allows to pass actions and to wait for an answer from the client.
+            </summary>
+            <param name="type">The message type.</param>
+            <param name="message">The actual message.</param>
+            <param name="actions">The message action items to present.</param>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.IWindow.ShowMessage(LanguageServer.VsCode.Contracts.MessageType,System.String,LanguageServer.VsCode.Contracts.MessageActionItem[])">
+            <summary>
+            The show message request is sent from a server to a client to ask the client to
+            display a particular message in the user interface. In addition to the show
+            message notification the request allows to pass actions and to wait for an answer from the client.
+            </summary>
+            <param name="type">The message type.</param>
+            <param name="message">The actual message.</param>
+            <param name="actions">The message action items to present.</param>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.IWindow.LogMessage(LanguageServer.VsCode.Contracts.MessageType,System.String)">
+            <summary>
+            The log message notification is sent from the server to the client to ask the client to log a particular message.
+            </summary>
+            <param name="type">The message type.</param>
+            <param name="message">The actual message.</param>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.IWindow.ReportWorkDoneProgress(LanguageServer.VsCode.Contracts.ProgressToken,LanguageServer.VsCode.Contracts.WorkDoneProgress)">
+            <summary>
+            Report any kind of progress including work done progress (usually used to report progress in the user interface using a progress bar)
+            and partial result progress to support streaming of results. (LSP 3.15, <c>$/progress</c>)
+            </summary>
+            <param name="token">The progress token provided by the client or server.</param>
+            <param name="value">The progress data.</param>
+            <remarks>
+            Progress is reported against a token. The token is different than the request ID which allows to report progress
+            out of band and also for notification.
+            </remarks>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.IWorkspace.ApplyEdit(LanguageServer.VsCode.Contracts.WorkspaceEdit)">
+            <summary>
+            Modifies resource on the client side.
+            </summary>
+            <param name="edit">The edits to apply.</param>
+            <returns>Indicates whether the edit was applied or not.</returns>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Client.IWorkspace.Configuration(System.Collections.Generic.IEnumerable{LanguageServer.VsCode.Contracts.ConfigurationItem})">
+            <summary>
+            Fetch configuration settings from the client. The request can fetch several configuration settings in one roundtrip. (LSP 3.6)
+            </summary>
+            <param name="items"></param>
+            <returns>
+            The order of the returned configuration settings correspond to the order of the passed <see cref="T:LanguageServer.VsCode.Contracts.ConfigurationItem"/> (e.g. the first item in the response is the result for the first configuration item in the params).
+            If a scope URI is provided the client should return the setting scoped to the provided resource.
+            If the client for example uses EditorConfig to manage its settings the configuration should be returned for the passed resource URI.
+            If the client can’t provide a configuration setting for a given scope then null need to be present in the returned array.
+            </returns>
+            <remarks>
+            The configuration section ask for is defined by the server and doesn’t necessarily need to correspond to the configuration store used be the client.
+            So a server might ask for a configuration <c>cpp.formatterOptions</c> but the client stores the configuration in a XML store layout differently.
+            It is up to the client to do the necessary conversion.
+            </remarks>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.CodeActionKind">
+            <summary>
+            The kind of a code action. Kinds are a hierarchical list of identifiers separated by <c>.</c>, e.g. <c>"refactor.extract.function"</c>.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.CodeActionKind.Empty">
+            <summary>
+            Empty kind.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.CodeActionKind.QuickFix">
+            <summary>
+            Base kind for quickfix actions: "quickfix".
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.CodeActionKind.Refactor">
+            <summary>
+            Base kind for refactoring actions: "refactor".
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.CodeActionKind.RefactorExtract">
+             <summary>
+             Base kind for refactoring extraction actions: "refactor.extract".
+            
+             Example extract actions:
+            
+             - Extract method
+             - Extract function
+             - Extract variable
+             - Extract interface from class
+             - ...
+             </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.CodeActionKind.RefactorInline">
+             <summary>
+             Base kind for refactoring inline actions: "refactor.inline".
+            
+             Example inline actions:
+            
+             - Inline function
+             - Inline variable
+             - Inline constant
+             - ...
+             </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.CodeActionKind.RefactorRewrite">
+             <summary>
+             Base kind for refactoring rewrite actions: "refactor.rewrite".
+            
+             Example rewrite actions:
+            
+             - Convert JavaScript function to class
+             - Add or remove parameter
+             - Encapsulate field
+             - Make method static
+             - Move method to base class
+             - ...
+             </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.CodeActionKind.Source">
+             <summary>
+             Base kind for source actions: `source`.
+            
+             Source code actions apply to the entire file.
+             </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.CodeActionKind.SourceOrganizeImports">
+            <summary>
+            Base kind for an organize imports source action: `source.organizeImports`.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.CodeActionContext">
+            <summary>
+            Contains additional diagnostic information about the context in which
+            a code action is run.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CodeActionContext.Diagnostics">
+            <summary>
+            An array of diagnostics.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.CodeLens">
+            <summary>
+            A code lens represents a command that should be shown along with
+            source text, like the number of references, a way to run tests, etc.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CodeLens.Range">
+            <summary>
+            The range in which this code lens is valid. Should only span a single line.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CodeLens.Command">
+            <summary>
+            The command this code lens represents.
+            </summary>
+            <remarks>
+            A code lens is "unresolved" when no command is associated to it. For performance
+            reasons the creation of a code lens and resolving should be done in two stages.
+            </remarks>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CodeLens.Data">
+            <summary>
+            A data entry field that is preserved on a code lens item between
+            a code lens and a code lens resolve request.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.CodeLensRegistrationOptions">
+            <summary>
+            Describe options to be used when registered for code lens events.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CodeLensRegistrationOptions.ResolveProvider">
+            <summary>
+            Code lens has a resolve provider as well.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.Command">
+            <summary>
+            Use <see cref="T:LanguageServer.VsCode.Contracts.EditorCommand"/> instead of this class.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.EditorCommand">
+            <summary>
+            Represents a reference to a VS Code command. (<c>Command</c> in language protocol.)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.EditorCommand.Arguments">
+            <summary>
+            Arguments that the command handler should be invoked with.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.EditorCommand.Command">
+            <summary>
+            The identifier of the actual command handler.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.EditorCommand.Title">
+            <summary>
+            Title of the command, like `save`.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.ExecuteCommandRegistrationOptions">
+            <summary>
+            Execute command registration options.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ExecuteCommandRegistrationOptions.Commands">
+            <summary>
+            The commands to be executed on the server.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.CompletionItemKind">
+            <summary>
+            The kind of a completion entry.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.InsertTextFormat">
+            <summary>
+            Defines whether the insert text in a completion item should be interpreted as
+            plain text or a snippet.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.InsertTextFormat.PlainText">
+            <summary>
+            The primary text to be inserted is treated as a plain string.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.InsertTextFormat.Snippet">
+            <summary>
+             The primary text to be inserted is treated as a snippet.
+            </summary>
+            <remarks>
+            <para>A snippet can define tab stops and placeholders with <c>$1</c>, <c>$2</c>
+            and <c>${3:foo}</c>. <c>$0</c> defines the final tab stop, it defaults to
+            the end of the snippet.Placeholders with equal identifiers are linked,
+            that is typing in one will update others too.</para>
+            <para>
+            See also: https://github.com/Microsoft/vscode/blob/master/src/vs/editor/contrib/snippet/common/snippet.md
+            </para>
+            </remarks>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.CompletionList">
+            <summary>
+            Represents a collection of <see cref="T:LanguageServer.VsCode.Contracts.CompletionItem"/> to be presented in the editor。
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionList.IsIncomplete">
+            <summary>
+            This list it not complete. Further typing should result in recomputing this list.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionList.Items">
+            <summary>
+            The completion items.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.CompletionItem">
+            <summary>
+            A completion item.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.Label">
+            <summary>
+            The label of this completion item. By default
+            also the text that is inserted when selecting
+            this completion.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.Kind">
+            <summary>
+            The kind of this completion item. Based of the kind
+            an icon is chosen by the editor.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.Detail">
+            <summary>
+            A human-readable (short) string with additional information
+            about this item, like type or symbol information.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.Documentation">
+            <summary>
+            A human-readable string that represents a doc-comment.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.SortText">
+            <summary>
+            A string that should be used when comparing this item
+            with other items. When `falsy` the label is used.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.FilterText">
+            <summary>
+            A string that should be used when filtering a set of
+            completion items. When `falsy` the label is used.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.InsertText">
+            <summary>
+            A string that should be inserted a document when selecting
+            this completion. When `falsy` the label is used.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.InsertTextFormat">
+            <summary>
+            The format of the insert text. The format applies to both the `insertText` property
+            and the `newText` property of a provided `textEdit`.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.TextEdit">
+             <summary>
+             An edit which is applied to a document when selecting this completion. When an edit is provided the value of
+             `insertText` is ignored.
+            
+             *Note:* The range of the edit must be a single line range and it must contain the position at which completion
+             has been requested.
+             </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.AdditionalTextEdits">
+            <summary>
+            An optional array of additional text edits that are applied when
+            selecting this completion. Edits must not overlap with the main edit
+            nor with themselves.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.CommitCharacters">
+            <summary>
+            An optional set of characters that when pressed while this completion is active will accept it first and
+            then type that character.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.Command">
+            <summary>
+            An optional command that is executed *after* inserting this completion. *Note* that
+            additional modifications to the current document should be described with the
+            <see cref="P:LanguageServer.VsCode.Contracts.CompletionItem.AdditionalTextEdits"/> property.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionItem.Data">
+            <summary>
+            An data entry field that is preserved on a completion item between
+            a completion and a completion resolve request.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.CompletionRegistrationOptions">
+            <summary>
+            Descibe options to be used when registered for code completion events.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionRegistrationOptions.ResolveProvider">
+            <summary>
+            The server provides support to resolve additional
+            information for a completion item. (i.e. supports <c>completionItem/resolve</c>.)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionRegistrationOptions.TriggerCharacters">
+            <summary>
+            The characters that trigger completion automatically.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.CompletionContext">
+            <summary>
+            Contains additional information about the context in which a completion request is triggered.
+            </summary>
+            <remarks>
+            When used to implement <c>textDocument/completion</c>, this instance
+            is only available if the client specifies to send this using
+            <c>ClientCapabilities.TextDocument.Completion.ContextSupport == true</c>.
+            </remarks>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.CompletionContext.#ctor">
+            <summary>
+            Initializes a new <see cref="T:LanguageServer.VsCode.Contracts.CompletionContext"/>
+            with <see cref="P:LanguageServer.VsCode.Contracts.CompletionContext.TriggerKind"/> set to <see cref="F:LanguageServer.VsCode.Contracts.CompletionTriggerKind.Invoked"/>.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.CompletionContext.#ctor(System.Char)">
+            <summary>
+            Initializes a new <see cref="T:LanguageServer.VsCode.Contracts.CompletionContext"/>
+            with <see cref="P:LanguageServer.VsCode.Contracts.CompletionContext.TriggerKind"/> set to <see cref="F:LanguageServer.VsCode.Contracts.CompletionTriggerKind.TriggerCharacter"/>.
+            </summary>
+            <param name="triggerCharacter">The character that triggers the completion.</param>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionContext.TriggerKind">
+            <summary>How the completion was triggered.</summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionContext.TriggerCharacter">
+            <summary>
+            The trigger character (a single character) that has trigger code complete.
+            Is undefined if <see cref="P:LanguageServer.VsCode.Contracts.CompletionContext.TriggerKind"/> is not <see cref="F:LanguageServer.VsCode.Contracts.CompletionTriggerKind.TriggerCharacter"/>.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.CompletionTriggerKind">
+            <summary>How a completion was triggered.</summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.CompletionTriggerKind.Invoked">
+            <summary>
+            Completion was triggered by typing an identifier (24x7 code complete),
+            manual invocation (e.g Ctrl+Space) or via API.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.CompletionTriggerKind.TriggerCharacter">
+            <summary>
+            Completion was triggered by a trigger character specified by
+            the <see cref="P:LanguageServer.VsCode.Contracts.CompletionRegistrationOptions.TriggerCharacters"/> property
+            of the <see cref="T:LanguageServer.VsCode.Contracts.CompletionRegistrationOptions"/>.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.CompletionTriggerKind.TriggerForIncompleteCompletions">
+            <summary>
+            Completion was re-triggered as the current completion list is incomplete.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.ConfigurationItem">
+            <summary>
+            A ConfigurationItem consists of the configuration section to ask for and an additional scope URI.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ConfigurationItem.ScopeUri">
+            <summary>
+            The scope to get the configuration section for.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ConfigurationItem.Section">
+            <summary>
+            The configuration section asked for.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.DiagnosticSeverity">
+            <summary>
+            A value assigned to a <see cref="T:LanguageServer.VsCode.Contracts.Diagnostic" /> determining its severity.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.DiagnosticSeverity.Error">
+            <summary>
+            Reports an error.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.DiagnosticSeverity.Warning">
+            <summary>
+            Reports a warning.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.DiagnosticSeverity.Information">
+            <summary>
+            Reports an information.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.DiagnosticSeverity.Hint">
+            <summary>
+            Reports a hint.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.Diagnostic">
+            <summary>
+            Represents a diagnostic, such as a compiler error or warning.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.Diagnostic.EmptyDiagnostics">
+            <summary>
+            Represents an empty array of <see cref="T:LanguageServer.VsCode.Contracts.Diagnostic"/>
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Diagnostic.Code">
+            <summary>
+            The diagnostic's code.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Diagnostic.Message">
+            <summary>
+            The diagnostic's message.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Diagnostic.Range">
+            <summary>
+            The range to which the message applies.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Diagnostic.Severity">
+            <summary>
+            The diagnostic's severity.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Diagnostic.Source">
+            <summary>
+            A human-readable string describing the source of this diagnostic, e.g. 'typescript' or 'super lint'.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Diagnostic.ExtensionData">
+            <summary>
+            Signature for further properties.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Diagnostic.ToString">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ColorInformation.Range">
+            <summary>
+            The range in the document where this color appears.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ColorInformation.Color">
+            <summary>
+            The actual color value for this color range.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.Color">
+            <summary>
+            Represents a color in RGBA space.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ColorPresentation.Label">
+            <summary>
+            The label of this color presentation. It will be shown on the color
+            picker header. By default this is also the text that is inserted when selecting
+            this color presentation.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ColorPresentation.TextEdit">
+            <summary>
+            An <see cref="P:LanguageServer.VsCode.Contracts.ColorPresentation.TextEdit"/> which is applied to a document when selecting
+            this presentation for the color.  When falsy(<c>null</c>) the <see cref="P:LanguageServer.VsCode.Contracts.ColorPresentation.Label"/>
+            is used.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ColorPresentation.AdditionalTextEdits">
+            <summary>
+            An optional array of additional <see cref="P:LanguageServer.VsCode.Contracts.ColorPresentation.TextEdit"/>s that are applied when
+            selecting this color presentation.
+            Edits must not overlap with the main <see cref="P:LanguageServer.VsCode.Contracts.ColorPresentation.TextEdit"/> nor with themselves.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.DocumentFilter">
+            <summary>
+            A document filter denotes a document through properties like language, schema or pattern.
+            </summary>
+            <remarks>
+            <para>Examples are a filter that applies to TypeScript files on disk or a filter the applies to
+            JSON files with name package.json:
+            <code>
+            { language: 'typescript', scheme: 'file' }
+            { language: 'json', pattern: '**/package.json' }
+            </code>
+            </para>
+            <para>
+            A <c>document selector</c> is the combination of one or many document filters.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentFilter.Language">
+            <summary>
+            A language id, like `typescript`.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentFilter.Scheme">
+            <summary>
+            A Uri scheme, like `file` in `file:///C:/abc.txt` or `untitled` in `untitled:`.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentFilter.Pattern">
+            <summary>
+            A glob pattern, like `*.{ts,js}`.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.DocumentHighlight">
+            <summary>
+            A document highlight is a range inside a text document which deserves
+            special attention. Usually a document highlight is visualized by changing
+            the background color of its range.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentHighlight.Range">
+            <summary>
+            The range this highlight applies to.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentHighlight.Kind">
+            <summary>
+            The highlight kind, default is <see cref="F:LanguageServer.VsCode.Contracts.DocumentHighlightKind.Text"/>.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.DocumentHighlightKind">
+            <summary>
+            Write-access of a symbol, like writing to a variable.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.DocumentHighlightKind.Text">
+            <summary>
+            A textual occurrence.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.DocumentHighlightKind.Read">
+            <summary>
+            Read-access of a symbol, like reading a variable.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.DocumentHighlightKind.Write">
+            <summary>
+            Write-access of a symbol, like writing to a variable.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.DocumentLink">
+            <summary>
+            A document link is a range in a text document that links to an internal or external resource, like another
+            text document or a web site.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentLink.Range">
+            <summary>
+            The range this link applies to.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentLink.Uri">
+            <summary>
+            The range this link applies to. If missing a resolve request is sent later.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.DocumentLinkRegistrationOptions">
+            <summary>
+            Descibe options to be used when registered for document link events.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentLinkRegistrationOptions.ResolveProvider">
+            <summary>
+            Document links have a resolve provider as well.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.DocumentOnTypeFormattingRegistrationOptions">
+            <summary>
+            Descibe options to be used when registered for document link events.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentOnTypeFormattingRegistrationOptions.FirstTriggerCharacter">
+            <summary>
+            A character on which formatting should be triggered.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentOnTypeFormattingRegistrationOptions.MoreTriggerCharacter">
+            <summary>
+            More trigger characters.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.FileEvent">
+            <summary>
+            An event describing a file change.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.FileEvent.Uri">
+            <summary>
+            The file's URI.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.FileEvent.Type">
+            <summary>
+            The change type.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.FileChangeType">
+            <summary>
+            The file event type.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.FileChangeType.Created">
+            <summary>
+            The file got created.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.FileChangeType.Changed">
+            <summary>
+            The file got changed.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.FileChangeType.Deleted">
+            <summary>
+            The file got deleted.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.FormattingOptions">
+            <summary>
+            Value-object describing what options formatting should use.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.FormattingOptions.TabSize">
+            <summary>
+            Size of a tab in spaces.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.FormattingOptions.InsertSpaces">
+            <summary>
+            Prefer spaces over tabs.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.FormattingOptions.ExtensionData">
+            <summary>
+            Signature for further properties.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.Hover">
+            <summary>
+            Represents the result of a hover request - a formatted tooltip.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Hover.Contents">
+            <summary>
+            A Markdown string to display in the Hover.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Hover.Range">
+            <summary>
+            An optional range that is a range inside a text document.
+            that is used to visualize a hover, e.g. by changing the background color.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.ClientCapability">
+            <summary>
+            Base class for client capabilities.
+            This class provides some basic operations, such as implicit <see cref="T:System.Boolean"/> conversion.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.ClientCapability.op_Implicit(LanguageServer.VsCode.Contracts.ClientCapability)~System.Boolean">
+            <summary>
+            Returns <c>true</c> only when the current <see cref="T:LanguageServer.VsCode.Contracts.ClientCapability"/> is not <c>null</c>.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DynamicClientCapability.DynamicRegistration">
+            <summary>
+            Whether this capability supports dynamic registration.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.DynamicClientCapability.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.ClientCapabilities">
+            <summary>
+            Defines the capabilities provided by the client.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ClientCapabilities.Workspace">
+            <summary>
+            Workspace specific client capabilities.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ClientCapabilities.TextDocument">
+            <summary>
+            Text document specific client capabilities.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ClientCapabilities.Window">
+            <summary>
+            Window specific client capabilities.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ClientCapabilities.Experimental">
+            <summary>
+            Experimental client capabilities.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.WorkspaceClientCapability">
+            <summary>
+            Defines capabilities the editor / tool provides on the workspace.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceClientCapability.ApplyEdit">
+            <summary>
+            The client supports applying batch edits to the workspace by supporting
+            the request 'workspace/applyEdit'.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceClientCapability.WorkspaceEdit">
+            <summary>
+            Capabilities specific to <see cref="P:LanguageServer.VsCode.Contracts.WorkspaceClientCapability.WorkspaceEdit"/>s.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceClientCapability.DidChangeConfiguration">
+            <summary>
+            specific to the `workspace/didChangeConfiguration` notification.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceClientCapability.DidChangeWatchedFiles">
+            <summary>
+            Capabilities specific to the `workspace/didChangeWatchedFiles` notification.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceClientCapability.Symbol">
+            <summary>
+            Capabilities specific to the `workspace/symbol` request.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceClientCapability.ExecuteCommand">
+            <summary>
+            Capabilities specific to the `workspace/executeCommand` request.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.WorkspaceEditCapability">
+            <summary>
+            Capabilities specific to <see cref="T:LanguageServer.VsCode.Contracts.WorkspaceEdit"/>s.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceEditCapability.DocumentChanges">
+            <summary>
+            The client supports versioned document changes in <see cref="T:LanguageServer.VsCode.Contracts.WorkspaceEdit"/>s.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities">
+            <summary>
+            Defines capabilities the editor / tool provides on text documents.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.Synchronization">
+            <summary>
+            Synchronization supports.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.Completion">
+            <summary>
+            Capabilities specific to the `textDocument/completion`
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.Hover">
+            <summary>
+            The server provides hover support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.SignatureHelp">
+            <summary>
+            The server provides signature help support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.Declaration">
+            <summary>
+            Capabilities specific to the `textDocument/declaration` request. (LSP 3.14)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.Definition">
+            <summary>
+            The server provides goto definition support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.Implementation">
+            <summary>
+            Capabilities specific to the `textDocument/implementation` request. (LSP 3.6)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.TypeDefinition">
+            <summary>
+            Capabilities specific to the `textDocument/typeDefinition` request. (LSP 3.6)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.References">
+            <summary>
+            The server provides find references support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.DocumentHighlight">
+            <summary>
+            The server provides document highlight support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.DocumentSymbol">
+            <summary>
+            The server provides document symbol support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.WorkspaceSymbol">
+            <summary>
+            The server provides workspace symbol support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.CodeAction">
+            <summary>
+            The server provides code actions.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.CodeLens">
+            <summary>
+            The server provides code lens.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.DocumentLink">
+            <summary>
+            Capabilities specific to the `textDocument/documentLink` request.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.ColorProvider">
+            <summary>
+            Capabilities specific to the `textDocument/documentColor` and the `textDocument/colorPresentation` request.
+            (LSP 3.6)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.Formatting">
+            <summary>
+            The server provides document formatting.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.RangeFormatting">
+            <summary>
+            The server provides document range formatting.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.OnTypeFormatting">
+            <summary>
+            The server provides document formatting on typing.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.Rename">
+            <summary>
+            The server provides rename support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.PublishDiagnostics">
+            <summary>
+            Capabilities specific to the `textDocument/publishDiagnostics` notification.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.FoldingRange">
+            <summary>
+            Capabilities specific to the `textDocument/foldingRange` notification. (LSP 3.10)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentClientCapabilities.SelectionRange">
+            <summary>
+            Capabilities specific to the `textDocument/selectionRange` notification. (LSP 3.15)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentSynchronizationCapability.WillSave">
+            <summary>
+            The client supports sending will save notifications.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentSynchronizationCapability.WillSaveWaitUntil">
+            <summary>
+            The client supports sending a will save request and
+            waits for a response providing text edits which will
+            be applied to the document before it is saved.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentSynchronizationCapability.DidSave">
+            <summary>
+            The client supports did save notifications.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentCompletionCapability.CompletionItem">
+            <summary>
+            The client supports the following <see cref="T:LanguageServer.VsCode.Contracts.CompletionItem"/> specific capabilities.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentCompletionCapability.ContextSupport">
+            <summary>
+            The client supports to send additional context information for a
+            <c>textDocument/completion</c> request.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentCompletionItemCapability.SnippetSupport">
+            <summary>
+            Client supports snippets as insert text.
+            </summary>
+            <remarks>
+            A snippet can define tab stops and placeholders with `$1`, `$2`
+            and `${3:foo}`. `$0` defines the final tab stop, it defaults to
+            the end of the snippet. Placeholders with equal identifiers are linked,
+            that is typing in one will update others too.
+            </remarks>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentCompletionItemCapability.CommitCharactersSupport">
+            <summary>Client supports commit <see cref="P:LanguageServer.VsCode.Contracts.CompletionItem.CommitCharacters"/> on a completion item.</summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentCompletionItemCapability.DocumentationFormat">
+            <summary>
+            Client supports the follow content formats for the documentation
+            property.The order describes the preferred format of the client.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentCompletionItemKindCapability.ValueSet">
+            <summary>
+            The completion item kind values the client supports. When this
+            property exists the client also guarantees that it will
+            handle values outside its set gracefully and falls back
+            to a default value when unknown.
+            </summary>
+            <remarks>
+            If this property is not present, the client only supports
+            the completion items kinds from `Text` to `Reference` as defined in
+            the initial version of the protocol.
+            </remarks>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextDocumentHoverCapability">
+            <summary>
+            Capabilities specific to the `textDocument/hover`.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentHoverCapability.ContentFormat">
+            <summary>
+            Client supports the follow content formats for the content property.
+            The order describes the preferred format of the client.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextDocumentSignatureHelpCapability">
+            <summary>
+            Capabilities specific to the `textDocument/signatureHelp`.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentSignatureHelpCapability.SignatureInformation">
+            <summary>
+            The client supports the following <see cref="P:LanguageServer.VsCode.Contracts.TextDocumentSignatureHelpCapability.SignatureInformation"/> specific properties.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentSignatureInformationCapability.DocumentationFormat">
+            <summary>
+            Client supports the follow content formats for the documentation
+            property. The order describes the preferred format of the client.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentLinkClientCapabilities.TooltipSupport">
+            <summary>
+            Whether the client supports the `tooltip` property on `DocumentLink`. (LSP 3.15)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.FoldingRangeClientCapabilities.RangeLimit">
+            <summary>
+            The maximum number of folding ranges that the client prefers to receive per document.
+            The value serves as a hint, servers are free to follow the limit.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.FoldingRangeClientCapabilities.LineFoldingOnly">
+            <summary>
+            If set, the client signals that it only supports folding complete lines. If set, client will
+            ignore specified `startCharacter` and `endCharacter` properties in a FoldingRange.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WindowClientCapability.WorkDoneProgress">
+            <summary>
+            Whether client supports handling progress notifications.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.InitializeResult">
+            <summary>
+            The response for <c>initialize</c> request.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.InitializeResult.Capabilities">
+            <summary>
+            The capabilities the language server provides.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.InitializeError">
+            <summary>
+            The error response for <c>initialize</c> request. (Set this object to <see cref="P:JsonRpc.Messages.ResponseError.Data"/>.)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.InitializeError.Retry">
+            <summary>
+            Indicates whether the client execute the retry logic as described in the "remarks" section.
+            </summary>
+            <remarks>
+            The retry logic is as follows:
+            <list type="number">
+            <item><description>show the message provided by the ResponseError to the user</description></item>
+            <item><description>user selects retry or cancel</description></item>
+            <item><description>if user selected retry the initialize method is sent again.</description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.ServerCapabilities">
+            <summary>
+            Defines capabilities provided by the language server.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.TextDocumentSync">
+            <summary>
+            Defines how text documents are synced. Is either a detailed structure defining each notification or
+            for backwards compatibility the <see cref="T:LanguageServer.VsCode.Contracts.TextDocumentSyncKind" /> number.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.HoverProvider">
+            <summary>
+            The server provides hover support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.CompletionProvider">
+            <summary>
+            The server provides completion support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.SignatureHelpProvider">
+            <summary>
+            The server provides signature help support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.DeclarationProvider">
+            <summary>
+            The server provides go to declaration support. (LSP 3.14)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.DefinitionProvider">
+            <summary>
+            The server provides goto definition support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.TypeDefinitionProvider">
+            <summary>
+            The server provides goto type definition support. (LSP 3.6)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.ImplementationProvider">
+            <summary>
+            The server provides goto implementation support. (LSP 3.6)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.ReferencesProvider">
+            <summary>
+            The server provides find references support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.DocumentHighlightProvider">
+            <summary>
+            The server provides document highlight support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.DocumentSymbolProvider">
+            <summary>
+            The server provides document symbol support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.WorkspaceSymbolProvider">
+            <summary>
+            The server provides workspace symbol support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.CodeActionProvider">
+            <summary>
+            The server provides code actions.
+            </summary>
+            <remarks>
+            The <see cref="T:LanguageServer.VsCode.Contracts.CodeActionOptions"/> return type is only
+            valid if the client signals code action literal support via the property
+            <c>textDocument.codeAction.codeActionLiteralSupport</c>.
+            </remarks>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.CodeLensProvider">
+            <summary>
+            The server provides code lens.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.DocumentLinkProvider">
+            <summary>
+            The server provides document link support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.ColorProvider">
+            <summary>
+            The server provides color provider support. (LSP 3.6)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.DocumentFormattingProvider">
+            <summary>
+            The server provides document formatting.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.DocumentRangeFormattingProvider">
+            <summary>
+            The server provides document range formatting.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.DocumentOnTypeFormattingProvider">
+            <summary>
+            The server provides document formatting on typing.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.RenameProvider">
+            <summary>
+            The server provides rename support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.FoldingRangeProvider">
+            <summary>
+            The server provides folding provider support. (LSP 3.10)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.ExecuteCommandProvider">
+            <summary>
+            The server provides execute command support.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.SelectionRangeProvider">
+            <summary>
+            The server provides selection range support. (LSP 3.15)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.Workspace">
+            <summary>
+            Workspace specific server capabilities.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ServerCapabilities.Experimental">
+            <summary>
+            Experimental server capabilities.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.IWorkDoneProgressOptions">
+            <summary>
+            Options to signal work done progress support in server capabilities. (LSP 3.15)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.IWorkDoneProgressOptions.WorkDoneProgress">
+            <summary>
+            Signals work done progress support in server capabilities. (LSP 3.15)
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.SignatureHelpOptions">
+            <summary>
+            Signature help options.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureHelpOptions.TriggerCharacters">
+            <summary>
+            The characters that trigger signature help automatically.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureHelpOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentSymbolOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CodeActionOptions.CodeActionKinds">
+            <summary>
+            <see cref="T:LanguageServer.VsCode.Contracts.CodeActionKind"/>s that this server may return.
+            </summary>
+            <remarks>
+            The list of kinds may be generic, such as <see cref="F:LanguageServer.VsCode.Contracts.CodeActionKind.Refactor"/>, or the server
+            may list out every specific kind they provide.
+            </remarks>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CodeActionOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.CodeLensOptions">
+            <summary>
+            Code Lens options.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CodeLensOptions.ResolveProvider">
+            <summary>
+            Code lens has a resolve provider as well.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceSymbolOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.DocumentOnTypeFormattingOptions">
+            <summary>
+            Format document on type options.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentOnTypeFormattingOptions.FirstTriggerCharacter">
+            <summary>
+            A character on which formatting should be triggered.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentOnTypeFormattingOptions.MoreTriggerCharacter">
+            <summary>
+            More trigger characters.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.DocumentLinkOptions">
+            <summary>
+            Signature help options.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentLinkOptions.ResolveProvider">
+            <summary>
+            Document links have a resolve provider as well.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentColorOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentFormattingOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentRangeFormattingOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.RenameOptions.PrepareProvider">
+            <summary>
+            Renames should be checked and tested before being executed.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.RenameOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.FoldingRangeOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.ExecuteCommandOptions">
+            <summary>
+            Signature help options.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ExecuteCommandOptions.Commands">
+            <summary>
+            Document links have a resolve provider as well.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ExecuteCommandOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SelectionRangeOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextDocumentSyncKind">
+            <summary>
+            Defines how the host (editor) should sync document changes to the language server.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.TextDocumentSyncKind.None">
+            <summary>
+            Documents should not be synced at all.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.TextDocumentSyncKind.Full">
+            <summary>
+            Documents are synced by always sending the full content
+            of the document.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.TextDocumentSyncKind.Incremental">
+            <summary>
+            Documents are synced by sending the full content on open.
+            After that only incremental updates to the document are send.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentSyncOptions.OpenClose">
+            <summary>
+            Open and close notifications are sent to the server.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentSyncOptions.Change">
+            <summary>
+            Change notifications are sent to the server. See TextDocumentSyncKind.None, TextDocumentSyncKind.Full
+            and TextDocumentSyncKind.Incremental.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentSyncOptions.WillSave">
+            <summary>
+            Will save notifications are sent to the server.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentSyncOptions.WillSaveWaitUntil">
+            <summary>
+            Will save wait until requests are sent to the server.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentSyncOptions.Save">
+            <summary>
+            Save notifications are sent to the server.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.HoverOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.SaveOptions">
+            <summary>
+            Save options.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SaveOptions.IncludeText">
+            <summary>
+            The client is supposed to include the content on save.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.CompletionOptions">
+            <summary>
+            Completion options.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionOptions.ResolveProvider">
+            <summary>
+            The server provides support to resolve additional
+            information for a completion item. (i.e. supports <c>completionItem/resolve</c>.)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionOptions.TriggerCharacters">
+            <summary>
+            The characters that trigger completion automatically.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.CompletionOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DeclarationOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DefinitionOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TypeDefinitionOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ImplementationOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ReferenceOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.DocumentHighlightOptions.WorkDoneProgress">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.WorkspaceOptions">
+            <summary>
+            Workspace specific server capabilities.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceOptions.WorkspaceFolders">
+            <summary>
+            The server supports workspace folder. (LSP 3.6)
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.WorkspaceFoldersServerCapabilities">
+            <summary>
+            The server supports workspace folder. (LSP 3.6)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceFoldersServerCapabilities.Supported">
+            <summary>
+            Whether the server has support for workspace folders.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceFoldersServerCapabilities.ChangeNotificationId">
+            <summary>
+            (<c>changeNotifications</c>) When specified, indicates the server wants to receive workspace folder change notifications.
+            </summary>
+            <value>
+            <c>null</c> to indicate the server does not want to receive workspace folder change notifications.
+            Or a string containing an ID under which the notification is registered on the client side.
+            The ID can be used to unregister for these events using the <c>client/unregisterCapability</c> request (<see cref="M:LanguageServer.VsCode.Contracts.Client.IClient.UnregisterCapability(System.Collections.Generic.IEnumerable{LanguageServer.VsCode.Contracts.Unregistration})"/>).
+            </value>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.LanguageServiceParameterValueConverter">
+            <summary>
+            A <see cref="T:JsonRpc.Contracts.IJsonValueConverter"/> implementation that is supposed to be used with
+            LSP over JSON-RPC.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.Location">
+            <summary>
+            Represents a location inside a resource, such as a line inside a text file.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Location.Equals(LanguageServer.VsCode.Contracts.Location)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Location.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Location.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.Range">
+            <summary>
+            A range in a text document expressed as (zero-based) start and end positions.
+            A range is comparable to a selection in an editor.
+            Therefore the end position is exclusive.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Range.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Range.Equals(LanguageServer.VsCode.Contracts.Range)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Range.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Range.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.Position">
+            <summary>
+            Position in a text document expressed as zero-based line and character offset.
+            A position is between two characters like an 'insert' cursor in a editor.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Position.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Position.Equals(LanguageServer.VsCode.Contracts.Position)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Position.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Position.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Position.CompareTo(LanguageServer.VsCode.Contracts.Position)">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.MarkupContent">
+            <summary>
+             A `MarkupContent` literal represents a string value which content is interpreted base on its
+             kind flag. Currently the protocol supports <c>plaintext</c> and <c>markdown</c> as markup kinds.
+             If the kind is `markdown` then the value can contain fenced code blocks like in GitHub issues.
+             See <a href="https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting">https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting</a>.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupContent.PlainText(System.String)">
+            <summary>
+            Creates a <see cref="T:LanguageServer.VsCode.Contracts.MarkupContent"/> with plaintext content.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupContent.Markdown(System.String)">
+            <summary>
+            Creates a <see cref="T:LanguageServer.VsCode.Contracts.MarkupContent"/> with markdown content.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupContent.MarkedString(System.String,System.String)">
+            <summary>
+            Creates a <see cref="T:LanguageServer.VsCode.Contracts.MarkupContent"/> with a code snippet in the given language.
+            This is equivalent to the deprecated <c>MarkedString</c>.
+            </summary>
+            <param name="language">the code language.</param>
+            <param name="value">the code.</param>
+            <remarks>
+            <para><c>MarkedString</c> can be used to render human readable text. It is either a markdown string
+            or a code-block that provides a language and a code snippet. The language identifier
+            is semantically equal to the optional language identifier in fenced code blocks in GitHub
+            issues. See https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting</para>
+            <para>We still keep this overload in LanguageServer.NET in order to facilitate the code snippet construction.</para>
+            </remarks>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupContent.MarkedString(System.String,System.ReadOnlySpan{System.Char})">
+            <inheritdoc cref="M:LanguageServer.VsCode.Contracts.MarkupContent.MarkedString(System.String,System.String)"/>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupContent.#ctor(LanguageServer.VsCode.Contracts.MarkupKind,System.String)">
+            <exception cref="T:System.ArgumentNullException"><paramref name="kind"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.MarkupContent.Kind">
+            <summary>The type of the Markup.</summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.MarkupContent.Value">
+            <summary>The content itself.</summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupContent.op_Implicit(System.String)~LanguageServer.VsCode.Contracts.MarkupContent">
+            <summary>
+            Implicitly converts string into <see cref="T:LanguageServer.VsCode.Contracts.MarkupContent"/> with <see cref="M:LanguageServer.VsCode.Contracts.MarkupContent.PlainText(System.String)"/>.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.MarkupKind">
+            <summary>
+            Describes the content type that a client supports in various
+            result literals like <see cref="T:LanguageServer.VsCode.Contracts.Hover"/>, <see cref="T:LanguageServer.VsCode.Contracts.ParameterInformation"/> or <see cref="T:LanguageServer.VsCode.Contracts.CompletionItem"/>.
+            </summary>
+            <remarks>
+            Please note that <see cref="T:LanguageServer.VsCode.Contracts.MarkupKind"/> must not start with a <c>$</c>. This kinds
+            are reserved for internal usage.
+            </remarks>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.MarkupKind.PlainText">
+            <summary>
+            Plain text is supported as a content format.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.MarkupKind.Markdown">
+            <summary>
+            Markdown is supported as a content format.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.MarkupKind.Value">
+            <summary>
+            Gets the string representation of the markup kind.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupKind.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupKind.Equals(LanguageServer.VsCode.Contracts.MarkupKind)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupKind.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupKind.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.MarkupKindJsonConverter">
+            <summary>
+            Used to convert <see cref="T:LanguageServer.VsCode.Contracts.MarkupKind"/> into JSON.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupKindJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupKindJsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MarkupKindJsonConverter.CanConvert(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.MessageType.Error">
+            <summary>
+            An error message.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.MessageType.Warning">
+            <summary>
+            A warning message.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.MessageType.Info">
+            <summary>
+            An information message.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.MessageType.Log">
+            <summary>
+            A log message.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.IMessageActionItem">
+            <summary>
+            Represents an action button shown in the message box (or popup bar).
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.IMessageActionItem.Title">
+            <summary>
+            A short title like 'Retry', 'Open Log' etc.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.MessageActionItem">
+            <summary>
+            Provides a handy structure for covnersion between string and <see cref="T:LanguageServer.VsCode.Contracts.IMessageActionItem"/>.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.MessageActionItem.Title">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MessageActionItem.Equals(LanguageServer.VsCode.Contracts.MessageActionItem)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MessageActionItem.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MessageActionItem.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.MessageActionItem.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.ReferenceContext">
+            <summary>
+            Used with <c>textDocument/references</c>.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ReferenceContext.IncludeDeclaration">
+            <summary>
+            Include the declaration of the current symbol.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.Registration">
+            <summary>
+            General paramters to register for a capability.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Registration.#ctor">
+            <summary>
+            Initialize an empty registration entry.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Registration.#ctor(System.String,LanguageServer.VsCode.Contracts.RegistrationOptions)">
+            <summary>
+            Initialize with automatic generated <see cref="P:LanguageServer.VsCode.Contracts.Registration.Id"/> and other given parameters.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Registration.#ctor(System.String,System.String,LanguageServer.VsCode.Contracts.RegistrationOptions)">
+            <summary>
+            Initialize with given parameters.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Registration.Id">
+            <summary>
+            The id used to register the request. The id can be used to deregister
+            the request again.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Registration.Method">
+            <summary>
+            The method / capability to register for.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Registration.RegisterOptions">
+            <summary>
+            Options necessary for the registration.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.RegistrationOptions">
+            <summary>
+            Registration options for <see cref="T:LanguageServer.VsCode.Contracts.Registration"/> in <c>client/registerCapability</c>.
+            You may derive your own options class from here, if necessary.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextDocumentRegistrationOptions">
+            <summary>
+            Since most of the registration options require to specify a document selector,
+            there is a base interface that can be used.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentRegistrationOptions.DocumentSelector">
+            <summary>
+            A document selector to identify the scope of the registration. If set to null
+            the document selector provided on the client side will be used.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.Unregistration">
+            <summary>
+            General parameters to unregister a capability.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Unregistration.#ctor">
+            <summary>
+            Initialize an empty class.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.Unregistration.#ctor(System.String,System.String)">
+            <summary>
+            Initialize with given parameters.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Unregistration.Id">
+            <summary>
+            The id used to unregister the request or notification. Usually an id
+            provided during the register request.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.Unregistration.Method">
+            <summary>
+            The method / capability to unregister for.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.SignatureHelp">
+            <summary>
+            Signature help represents the signature of something
+            callable.There can be multiple signature but only one
+            active and only one active parameter.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureHelp.Signatures">
+            <summary>
+            One or more signatures.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureHelp.ActiveSignature">
+            <summary>
+            The active signature. If omitted or the value lies outside the
+            range of `signatures` the value defaults to zero or is ignored if
+            `signatures.length === 0`. Whenever possible implementors should 
+            make an active decision about the active signature and shouldn't 
+            rely on a default value.
+            In future version of the protocol this property might become
+            mandatory to better express this.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureHelp.ActiveParameter">
+            <summary>
+            The active parameter of the active signature. If omitted or the value
+            lies outside the range of `signatures[activeSignature].parameters` 
+            defaults to 0 if the active signature has parameters. If 
+            the active signature has no parameters it is ignored. 
+            In future version of the protocol this property might become
+            mandatory to better express the active parameter if the
+            active signature does have any.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.SignatureInformation">
+            <summary>
+            Represents the signature of something callable.A signature
+            can have a label, like a function-name, a doc-comment, and
+            a set of parameters.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureInformation.Label">
+            <summary>
+            The label of this signature. Will be shown in
+            the UI.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureInformation.Documentation">
+            <summary>
+            The human-readable doc-comment of this signature. Will be shown
+            in the UI but can be omitted.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureInformation.Parameters">
+            <summary>
+            The parameters of this signature.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.ParameterInformation">
+            <summary>
+            Represents a parameter of a callable-signature.A parameter can
+            have a label and a doc-comment.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ParameterInformation.Label">
+            <summary>
+            The label of this parameter. Will be shown in
+            the UI.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.ParameterInformation.Documentation">
+            <summary>
+            The human-readable doc-comment of this parameter. Will be shown
+            in the UI but can be omitted.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.SignatureHelpRegistrationOptions">
+            <summary>
+            Describe options to be used when registered for signature help events.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureHelpRegistrationOptions.TriggerCharacters">
+            <summary>
+            The characters that trigger signature help automatically.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.SignatureHelpContext">
+            <summary>
+            Additional information about the context in which a signature help request was triggered. (LSP 3.15)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureHelpContext.TriggerKind">
+            <summary>
+            Action that caused signature help to be triggered.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureHelpContext.TriggerCharacter">
+            <summary>
+            Character that caused signature help to be triggered.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureHelpContext.IsRetrigger">
+            <summary>
+            `true` if signature help was already showing when it was triggered.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SignatureHelpContext.ActiveSignatureHelp">
+            <summary>
+            The currently active `SignatureHelp`.
+            </summary>
+            <remarks>
+            The `activeSignatureHelp` has its `SignatureHelp.activeSignature` field updated based on
+            the user navigating through available signatures.
+            </remarks>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.SignatureHelpTriggerKind.Invoked">
+            <summary>
+            Signature help was invoked manually by the user or by a command.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.SignatureHelpTriggerKind.TriggerCharacter">
+            <summary>
+            Signature help was triggered by a trigger character.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.SignatureHelpTriggerKind.ContentChange">
+            <summary>
+            Signature help was triggered by the cursor moving or by the document content changing.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.SymbolInformation">
+            <summary>
+            Represents information about programming constructs like variables, classes,
+            interfaces etc.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SymbolInformation.Name">
+            <summary>
+            The name of this symbol.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SymbolInformation.Kind">
+            <summary>
+            The kind of this symbol.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SymbolInformation.Location">
+            <summary>
+            The location of this symbol.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.SymbolInformation.ContainerName">
+            <summary>
+            The name of the symbol containing this symbol.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.SymbolKind">
+            <summary>
+            A symbol kind.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextDocumentItem">
+            <summary>
+            An item to transfer a text document from the client to the server.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentItem.LanguageId">
+            <summary>
+            The text document's language identifier.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentItem.Text">
+            <summary>
+            The content of the opened text document.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentItem.Uri">
+            <summary>
+            The text document's URI.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentItem.Version">
+            <summary>
+            The version number of this document (it will strictly increase after each change, including undo/redo).
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextDocumentIdentifier">
+            <summary>
+            Text documents are identified using a URI. 
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.TextDocumentIdentifier.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.TextDocumentIdentifier.Equals(LanguageServer.VsCode.Contracts.TextDocumentIdentifier)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.TextDocumentIdentifier.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.TextDocumentIdentifier.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.VersionedTextDocumentIdentifier">
+            <summary>
+            An identifier to denote a specific version of a text document.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.VersionedTextDocumentIdentifier.Equals(LanguageServer.VsCode.Contracts.VersionedTextDocumentIdentifier)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.VersionedTextDocumentIdentifier.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.VersionedTextDocumentIdentifier.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextDocumentContentChangeEvent">
+            <summary>
+            An event describing a change to a text document.
+            If range and rangeLength are omitted, the new text is considered to be the full content of the document.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentContentChangeEvent.Range">
+            <summary>
+            The range of the document that changed.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentContentChangeEvent.RangeLength">
+            <summary>
+            The length of the range (text length) that got replaced.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentContentChangeEvent.HasRange">
+            <summary>
+            Gets/sets whether both <see cref="P:LanguageServer.VsCode.Contracts.TextDocumentContentChangeEvent.Range"/> and <see cref="P:LanguageServer.VsCode.Contracts.TextDocumentContentChangeEvent.RangeLength"/> are available.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentContentChangeEvent.Text">
+            <summary>
+            The new text of the range/document.
+            </summary>
+            <remarks>
+            If <see cref="P:LanguageServer.VsCode.Contracts.TextDocumentContentChangeEvent.Range"/> and <see cref="P:LanguageServer.VsCode.Contracts.TextDocumentContentChangeEvent.RangeLength"/> are omitted,
+            the new text is considered to be the full content of the document.
+            </remarks>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextDocumentChangeRegistrationOptions">
+            <summary>
+            Descibe options to be used when registered for text document change events.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextDocumentSaveReason">
+            <summary>
+            Represents reasons why a text document is saved. (In <c>textDocument/willSave</c>.)
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.TextDocumentSaveReason.Manual">
+            <summary>
+            Manually triggered, e.g. by the user pressing save, by starting debugging,
+            or by an API call.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.TextDocumentSaveReason.AfterDelay">
+            <summary>
+            Automatic after a delay.
+            </summary>
+        </member>
+        <member name="F:LanguageServer.VsCode.Contracts.TextDocumentSaveReason.FocusOut">
+            <summary>
+            When the editor lost focus.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextDocumentSaveRegistrationOptions">
+            <summary>
+            Descibe options to be used when registered for text document save events.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextEdit">
+            <summary>
+            A textual edit operation applicable to a text document.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextEdit.Range">
+            <summary>
+            The range of the text document to be manipulated. To insert
+            text into a document create a range where start === end.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextEdit.NewText">
+            <summary>
+            The string to be inserted.For delete operations use an empty string.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.TextDocumentEdit">
+            <summary>
+            Describes textual changes on a single text document.
+            The text document is referred to as a <see cref="T:LanguageServer.VsCode.Contracts.VersionedTextDocumentIdentifier"/> to allow clients
+            to check the text document version before an edit is applied.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentEdit.TextDocument">
+            <summary>
+            The text document to change.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.TextDocumentEdit.Edits">
+            <summary>
+            The edits to be applied.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.WorkspaceEdit">
+            <summary>
+            A workspace edit represents changes to many resources managed in the workspace.
+            The edit should either provide changes or documentChanges.
+            If <see cref="P:LanguageServer.VsCode.Contracts.WorkspaceEdit.DocumentChanges"/> are present they are preferred over <see cref="P:LanguageServer.VsCode.Contracts.WorkspaceEdit.Changes"/>
+            if the client can handle versioned document edits.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceEdit.Changes">
+            <summary>
+            Holds changes to existing resources.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkspaceEdit.DocumentChanges">
+            <summary>
+            An array of `TextDocumentEdit`s to express changes to specific a specific
+            version of a text document. Whether a client supports versioned document
+            edits is expressed via `WorkspaceClientCapabilities.versionedWorkspaceEdit`.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkDoneProgress.Message">
+            <summary>
+            Optional, more detailed associated progress message. Contains complementary information to the `title`.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkDoneProgressBegin.Title">
+            <summary>
+            Mandatory title of the progress operation. Used to briefly inform about
+            the kind of operation being performed. (Examples: "Indexing" or "Linking dependencies".)
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkDoneProgressBegin.Cancellable">
+            <summary>
+            Controls enablement state of a cancel button. This property is only valid if a cancel
+            button got requested in the `WorkDoneProgressStart` payload.
+            </summary>
+            <remarks>Clients that don't support cancellation or don't support control the button's
+            enablement state are allowed to ignore the setting.</remarks>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkDoneProgressBegin.Percentage">
+            <summary>
+            Optional progress percentage to display (value 100 is considered 100%).
+            If not provided infinite progress is assumed and clients are allowed
+            to ignore the <see cref="P:LanguageServer.VsCode.Contracts.WorkDoneProgressReport.Percentage"/> value in subsequent in report notifications.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkDoneProgressReport.Cancellable">
+            <summary>
+            Controls enablement state of a cancel button. This property is only valid if a cancel
+            button got requested in the `WorkDoneProgressStart` payload.
+            </summary>
+            <remarks>Clients that don't support cancellation or don't support control the button's
+            enablement state are allowed to ignore the setting.</remarks>
+        </member>
+        <member name="P:LanguageServer.VsCode.Contracts.WorkDoneProgressReport.Percentage">
+            <summary>
+            Optional progress percentage to display (value 100 is considered 100%).
+            If not provided infinite progress is assumed and clients are allowed
+            to ignore the <see cref="P:LanguageServer.VsCode.Contracts.WorkDoneProgressReport.Percentage"/> value in subsequent in report notifications.
+            </summary>
+            <remarks>
+            he value should be steadily rising. Clients are free to ignore values hat are not following this rule.
+            </remarks>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.WorkDoneProgressJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.WorkDoneProgressJsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.WorkDoneProgressJsonConverter.CanConvert(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.Contracts.ProgressToken">
+            <summary>
+            Represents a <see cref="T:System.String"/>, <see cref="T:System.Int32"/> or <see cref="T:System.Int64"/> value indicating
+            a token used to report progress.
+            </summary>
+            <seealso cref="T:LanguageServer.VsCode.Contracts.WorkDoneProgress"/>
+            <seealso cref="M:LanguageServer.VsCode.Contracts.Client.IWindow.CreateWorkDoneProgress(LanguageServer.VsCode.Contracts.ProgressToken)"/>
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.ProgressToken.Equals(LanguageServer.VsCode.Contracts.ProgressToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.ProgressToken.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Contracts.ProgressToken.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="T:LanguageServer.VsCode.LanguageServerExtensions">
+            <summary>
+            Provides extension methods for implementing a Language Server.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.LanguageServerExtensions.UseCancellationHandling(JsonRpc.Server.JsonRpcServiceHostBuilder)">
+            <summary>
+            Interprets any <see cref="T:System.OperationCanceledException" /> thrown by the service
+            as <c>RequestCancelled</c> error per definition in Language Server Protocol.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.LanguageServerExtensions.IsUntitled(System.Uri)">
+            <summary>
+            Determines whether the specified document URI indeicates an "untitled" document.
+            </summary>
+            <remarks>
+            The URI of an untitled document has the following structure: <c>untitled:xxxxx</c>.
+            </remarks>
+        </member>
+        <member name="T:LanguageServer.VsCode.Server.TextDocument">
+            <summary>
+            Represents the basic traits of an immutable plain-text document.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.TextDocument.Load``1(LanguageServer.VsCode.Contracts.TextDocumentItem)">
+            <summary>
+            Creates a new instance derived from <see cref="T:LanguageServer.VsCode.Server.TextDocument"/>, and
+            fills it with the specified <see cref="T:LanguageServer.VsCode.Contracts.TextDocumentItem"/>.
+            </summary>
+            <typeparam name="T">A derived class of <see cref="T:LanguageServer.VsCode.Server.TextDocument"/>.</typeparam>
+            <param name="doc">The document source to load information from.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="doc"/> is <c>null</c>.</exception>
+        </member>
+        <member name="P:LanguageServer.VsCode.Server.TextDocument.Uri">
+            <summary>
+            URI of the document.
+            </summary>
+            <remarks>
+            You may use <see cref="M:LanguageServer.VsCode.LanguageServerExtensions.IsUntitled(System.Uri)"/> to determine whether
+            this document is untitled.
+            </remarks>
+        </member>
+        <member name="P:LanguageServer.VsCode.Server.TextDocument.LanguageId">
+            <summary>
+            Document's language identifier.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Server.TextDocument.Version">
+            <summary>
+            Revision number of the document.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Server.TextDocument.Content">
+            <summary>
+            The full content of the document.
+            </summary>
+        </member>
+        <member name="P:LanguageServer.VsCode.Server.TextDocument.LinesCount">
+            <summary>
+            Total lines count of the document.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.TextDocument.OnLoad(LanguageServer.VsCode.Contracts.TextDocumentItem)">
+            <summary>
+            Fills this instance with the given <see cref="T:LanguageServer.VsCode.Contracts.TextDocumentItem"/>.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.TextDocument.ApplyChanges(System.Collections.Generic.IList{LanguageServer.VsCode.Contracts.TextDocumentContentChangeEvent})">
+            <summary>
+            Applies a series of <see cref="T:LanguageServer.VsCode.Contracts.TextDocumentContentChangeEvent"/>s to the current document.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.TextDocument.GetRange(LanguageServer.VsCode.Contracts.Range)">
+            <summary>
+            Gets a part of the content by the specified line/column-based range.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.TextDocument.GetRange(System.Int32,System.Int32)">
+            <summary>
+            Gets a part of the content by the specified offset range.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.TextDocument.PositionAt(System.Int32)">
+            <summary>
+            Converts the specified 0-based document offset into <see cref="T:LanguageServer.VsCode.Contracts.Position"/>.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.TextDocument.OffsetAt(LanguageServer.VsCode.Contracts.Position)">
+            <summary>
+            Converts the specified <see cref="T:LanguageServer.VsCode.Contracts.Position"/> into 0-based document offset.
+            </summary>
+        </member>
+        <member name="T:LanguageServer.VsCode.Server.FullTextDocument">
+            <summary>
+            A plain-text document object that always store the full content in it.
+            </summary>
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.FullTextDocument.GetRange(System.Int32,System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="P:LanguageServer.VsCode.Server.FullTextDocument.LinesCount">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.FullTextDocument.OnLoad(LanguageServer.VsCode.Contracts.TextDocumentItem)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.FullTextDocument.GetLineStarts(System.String)">
+            <summary>
+            Gets all the offsets that are the starts of new lines.
+            </summary>
+            <exception cref="T:System.ArgumentNullException"><paramref name="expr"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.FullTextDocument.ApplyChanges(System.Collections.Generic.IList{LanguageServer.VsCode.Contracts.TextDocumentContentChangeEvent})">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.FullTextDocument.PositionAt(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:LanguageServer.VsCode.Server.FullTextDocument.OffsetAt(LanguageServer.VsCode.Contracts.Position)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
