@@ -10,7 +10,7 @@
         "dependencies": {
           "CXuesong.JsonRpc.Commons": "0.5.3",
           "CXuesong.JsonRpc.Streams": "0.5.3",
-          "CXuesong.LanguageServer.VsCode": "0.3.6-int.2",
+          "CXuesong.LanguageServer": "0.3.6-int.2",
           "Microsoft.Extensions.Logging": "3.1.2",
           "Microsoft.Extensions.Logging.Debug": "3.1.2",
           "NReco.Logging.File": "1.0.5",
@@ -1014,13 +1014,13 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "CXuesong.LanguageServer.VsCode/0.3.6-int.2": {
+      "CXuesong.LanguageServer/0.3.6-int.2": {
         "dependencies": {
           "CXuesong.JsonRpc.DynamicProxy": "0.5.3",
           "Newtonsoft.Json": "10.0.2"
         },
         "runtime": {
-          "LanguageServer.VsCode.dll": {}
+          "LanguageServer.dll": {}
         }
       }
     }
@@ -1738,7 +1738,7 @@
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },
-    "CXuesong.LanguageServer.VsCode/0.3.6-int.2": {
+    "CXuesong.LanguageServer/0.3.6-int.2": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
