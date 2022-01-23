@@ -94,7 +94,7 @@
             "verbose"
           ],
           "default": "off",
-          "description": "Traces the communication between VSCode and the demoLanguageServer service."
+          "description": "Traces the communication between VSCode and the basicLanguageServer service."
         },
         "ecb2.interpreter": {
           "type": "string",

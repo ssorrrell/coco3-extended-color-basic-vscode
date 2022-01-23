@@ -18,8 +18,8 @@ import {
 
 // Defines the search path of your language server DLL. (.NET Core)
 const languageServerPaths = [
-  'server/DemoLanguageServer.dll',
-  './DemoLanguageServer/bin/Debug/netcoreapp3.1/DemoLanguageServer.dll',
+  'server/BASICLanguageServer.dll',
+  './BASICLanguageServer/bin/Debug/net5.0/BASICLanguageServer.dll',
 ]
 
 let client: LanguageClient | undefined
@@ -61,10 +61,10 @@ async function activateLanguageServer(context: ExtensionContext) {
   // Options to control the language client
   const clientOptions: LanguageClientOptions = {
     // Register the server for plain text documents
-    documentSelector: ['demolang'],
+    documentSelector: ['basiclang'],
     synchronize: {
       // Synchronize the setting section 'languageServerExample' to the server
-      configurationSection: 'demoLanguageServer',
+      configurationSection: 'basicLanguageServer',
       // Notify the server about file changes to '.clientrc files contain in the workspace
       fileEvents: [
         workspace.createFileSystemWatcher('**/.clientrc'),
@@ -75,8 +75,8 @@ async function activateLanguageServer(context: ExtensionContext) {
 
   // Create the language client and start the client.
   client = new LanguageClient(
-    'demoLanguageServer',
-    'Demo Language Server',
+    'basicLanguageServer',
+    'BASIC Language Server',
     serverOptions,
     clientOptions
   )
