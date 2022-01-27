@@ -14,7 +14,8 @@
           "Microsoft.Extensions.Logging": "3.1.2",
           "Microsoft.Extensions.Logging.Debug": "3.1.2",
           "NReco.Logging.File": "1.0.5",
-          "System.Diagnostics.TraceSource": "4.3.0"
+          "System.Diagnostics.TraceSource": "4.3.0",
+          "BASICLanguageParser": "1.0.0.0"
         },
         "runtime": {
           "BASICLanguageServer.dll": {}
@@ -1022,6 +1023,14 @@
         "runtime": {
           "LanguageServer.dll": {}
         }
+      },
+      "BASICLanguageParser/1.0.0.0": {
+        "runtime": {
+          "BASICLanguageParser.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1740,6 +1749,11 @@
     },
     "CXuesong.LanguageServer/0.3.6-int.2": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BASICLanguageParser/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }
