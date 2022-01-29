@@ -6,3 +6,4 @@ dist/
 *.vsix
 testsa
 .vscode-test
+*.log

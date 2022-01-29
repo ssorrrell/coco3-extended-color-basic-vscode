@@ -61,7 +61,7 @@ async function activateLanguageServer(context: ExtensionContext) {
   // Options to control the language client
   const clientOptions: LanguageClientOptions = {
     // Register the server for plain text documents
-    documentSelector: ['basiclang'],
+    documentSelector: [{ scheme: 'file', language: 'ecb2' }],
     synchronize: {
       // Synchronize the setting section 'languageServerExample' to the server
       configurationSection: 'basicLanguageServer',
@@ -78,8 +78,10 @@ async function activateLanguageServer(context: ExtensionContext) {
     'basicLanguageServer',
     'BASIC Language Server',
     serverOptions,
-    clientOptions
+    clientOptions,
+    true
   )
+  console.log('activate/start language server')
   const disposable = client.start()
 
   // Push the disposable to the context's subscriptions so that the
@@ -139,5 +141,6 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
 // this method is called when your extension is deactivated
 export async function deactivate(): Promise<void> {
+  console.log('deactivate/stop language server')
   client?.stop()
 }
