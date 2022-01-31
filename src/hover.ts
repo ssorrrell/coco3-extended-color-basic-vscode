@@ -73,7 +73,7 @@ function GetHoverLineNoText(matches: RegExpExecArray): Hover[] {
 }
 
 function GetHover(lookup: string, range: Range): Hover[] {
-  console.log('GetHover', lookup)
+  //console.log('GetHover', lookup)
   const results: Hover[] = []
 
   const token: string = Tokens.getToken(lookup)
@@ -85,7 +85,7 @@ function GetHover(lookup: string, range: Range): Hover[] {
   const hoverText: MarkdownString = CreateMarkdownString(
     Markdowns.get(token).Content
   )
-  console.log('GetHover token', token, Markdowns.get(token).Content, hoverText)
+  //console.log('GetHover token', token, Markdowns.get(token).Content, hoverText)
   if (hoverText) results.push(new Hover(hoverText, range))
 
   // const matches: RegExpExecArray = PATTERNS.DEF(docText, lookup);
@@ -141,7 +141,7 @@ function GetParamHover(doc: TextDocument, lookup: string): Hover[] {
     //number
     varPattern = PATTERNS.NUMBER_VAR.replace('{0}', lookup)
   }
-  console.log('varPattern', varPattern)
+  //console.log('varPattern', varPattern)
   const regexp = new RegExp(varPattern)
 
   //iterate the doc and find the line number that DIMs the variable
@@ -165,12 +165,12 @@ function GetParamHover(doc: TextDocument, lookup: string): Hover[] {
   // }
 
   // last result should be nearest hit
-  console.log('hovers', hovers)
+  //console.log('hovers', hovers)
   return hovers.length > 0 ? [hovers[hovers.length - 1]] : []
 }
 
 function provideHover(doc: TextDocument, position: Position): Hover {
-  console.log('provideHover')
+  //console.log('provideHover')
   let wordRange = doc.getWordRangeAtPosition(position)
   if (wordRange === undefined) {
     wordRange = doc.getWordRangeAtPosition(position, PATTERNS.SINGLE_LETTER_VAR)
@@ -178,12 +178,12 @@ function provideHover(doc: TextDocument, position: Position): Hover {
   const word: string = wordRange ? doc.getText(wordRange) : ''
   const line = doc.lineAt(position).text
 
-  console.log('provideHover', word, line, position)
+  //console.log('provideHover', word, line, position)
 
   const hoverresults: Hover[] = []
 
   if (word.trim() === '') {
-    console.log('provideHover return', word, line, position, wordRange)
+    //console.log('provideHover return', word, line, position, wordRange)
     return null
   }
   if (!new RegExp("^[^'|REM]*").test(line)) return null //kickout lines that start with REM
@@ -191,10 +191,10 @@ function provideHover(doc: TextDocument, position: Position): Hover {
   let count = 0
   for (let i = 0; i < position.character; i++) {
     if (line[i] === '"') count++
-    console.log('provideHover increment double quote')
+    //console.log('provideHover increment double quote')
   }
   if (count % 2 === 1) {
-    console.log('provideHover return2')
+    //console.log('provideHover return2')
     return null
   }
   const keywordHover = GetHover(word, wordRange)
@@ -209,10 +209,10 @@ function provideHover(doc: TextDocument, position: Position): Hover {
 
   // hoverresult for param must be above
   const variableHover = GetParamHover(doc, word)
-  console.log('docRange', 0, position.line)
+  //console.log('docRange', 0, position.line)
   if (variableHover && variableHover.length > 0)
     hoverresults.push(...variableHover)
-  console.log('hoverresults', hoverresults)
+  //console.log('hoverresults', hoverresults)
 
   return hoverresults.length > 0 ? hoverresults[0] : null
 }

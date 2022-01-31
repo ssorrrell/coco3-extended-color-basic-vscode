@@ -109,7 +109,7 @@ function defFn(lookup: string): string {
 function pCopy(lookup: string): string {
   let token = ''
   const matches = PATTERNS.PCOPY.exec(lookup)
-  console.log('pCopy', matches)
+  //console.log('pCopy', matches)
   if (matches?.length > 0) token = 'pcopy'
 
   return token

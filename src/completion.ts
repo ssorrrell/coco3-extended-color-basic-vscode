@@ -99,7 +99,7 @@ function provideCompletionItems(
   doc: TextDocument,
   position: Position
 ): CompletionItem[] {
-  console.log('provideCompletionItems')
+  //console.log('provideCompletionItems')
   const codeAtPosition = doc
     .lineAt(position)
     .text.substring(0, position.character)

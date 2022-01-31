@@ -1,6 +1,6 @@
 {
   "name": "ecb2vscode",
-  "displayName": "coco3-extended-color-basic",
+  "displayName": "CoCo3 Extended Color BASIC Language",
   "description": "Extended Color Basic 2 Language Support",
   "version": "0.0.4",
   "publisher": "ssorrrell",
@@ -55,12 +55,8 @@
     ],
     "commands": [
       {
-        "command": "ecb2.crunch",
-        "title": "%ecb2.command.ecb2.crunch%"
-      },
-      {
-        "command": "ecb2.renumber",
-        "title": "%ecb2.command.ecb2.renumber%"
+        "command": "ecb2.sayHello",
+        "title": "Hello"
       }
     ],
     "grammars": [
@@ -93,54 +89,8 @@
             "messages",
             "verbose"
           ],
-          "default": "off",
+          "default": "verbose",
           "description": "Traces the communication between VSCode and the basicLanguageServer service."
-        },
-        "ecb2.interpreter": {
-          "type": "string",
-          "default": "C:\\WINDOWS\\system32\\cscript.exe",
-          "description": "%ecb2.config.interpreter.description%"
-        },
-        "ecb2.includes": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string"
-          },
-          "default": [],
-          "description": "%ecb2.config.includes.description%"
-        },
-        "ecb2.showVariableSymbols": {
-          "type": "boolean",
-          "default": true,
-          "description": "%ecb2.config.showVariableSymbols.description%"
-        },
-        "ecb2.showParamSymbols": {
-          "type": "boolean",
-          "default": false,
-          "description": "%ecb2.config.showParamSymbols.description%"
-        },
-        "ecb2.custumIncludePattern": {
-          "type": "string",
-          "description": "%ecb2.config.customIncludePattern.description%",
-          "deprecationMessage": "use customIncludePattern"
-        },
-        "ecb2.customIncludePattern": {
-          "type": "string",
-          "default": "\\binclude\\b[\\t ]*\\(?[\\t ]*\"([^\"]+)\"[\\t ]*\\)?",
-          "description": "%ecb2.config.customIncludePattern.description%"
-        },
-        "ecb2.customIncludeDirs": {
-          "type": "array",
-          "uniqueItems": true,
-          "items": {
-            "type": "string"
-          },
-          "default": [
-            ".",
-            "${workspaceFolder}"
-          ],
-          "description": "%ecb2.config.customIncludeDirs.description%"
         }
       }
     }
