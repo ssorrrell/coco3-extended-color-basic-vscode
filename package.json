@@ -41,16 +41,13 @@
       {
         "id": "ecb2",
         "aliases": [
-          "bas",
-          "ecb2"
+          "Color Basic"
         ],
         "extensions": [
           ".bas",
           ".ecb",
-          ".ecb2",
-          ".demo"
-        ],
-        "configuration": "./syntaxes/language-configuration.json"
+          ".ecb2"
+        ]
       }
     ],
     "commands": [
@@ -74,14 +71,14 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "ecb2vscode",
+      "title": "configuration options",
       "properties": {
-        "ecb2.maxNumberOfProblems": {
+        "basicLanguageServer.maxNumberOfProblems": {
           "type": "number",
           "default": 100,
           "description": "Controls the maximum number of problems produced by the server."
         },
-        "ecb2.trace.server": {
+        "basicLanguageServer.trace.server": {
           "scope": "window",
           "type": "string",
           "enum": [
@@ -95,6 +92,7 @@
       }
     }
   },
+  "extensionDependencies": [],
   "devDependencies": {
     "@types/chai": "^4.2.17",
     "@types/mocha": "^8.2.2",
@@ -121,8 +119,9 @@
     "publish": "vsce publish"
   },
   "dependencies": {
+    "@vscode/debugadapter": "^1.51.1",
+    "@vscode/debugprotocol": "^1.51.0",
     "@vscode/test-electron": "^1.6.2",
-    "vscode-debugadapter": "^1.50.0",
     "vscode-languageclient": "^7.0.0"
   },
   "configurationDefaults": {

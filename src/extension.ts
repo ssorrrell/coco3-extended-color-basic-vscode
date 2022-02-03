@@ -62,12 +62,12 @@ async function activateLanguageServer(context: ExtensionContext) {
   const clientOptions: LanguageClientOptions = {
     // Register the server for plain text documents
     documentSelector: [{ scheme: 'file', language: 'ecb2' }],
-    // synchronize: {
-    //   // Synchronize the setting section 'languageServerExample' to the server
-    //   configurationSection: 'ecb2',
-    //   // Notify the server about file changes to '.clientrc files contain in the workspace
-    //   fileEvents: [workspace.createFileSystemWatcher('**/.clientrc')],
-    // },
+    synchronize: {
+      // Synchronize the setting section 'languageServerExample' to the server
+      configurationSection: 'basicLanguageServer',
+      //   // Notify the server about file changes to '.clientrc files contain in the workspace
+      //fileEvents: [workspace.createFileSystemWatcher('**/.clientrc')],
+    },
   }
 
   // Create the language client and start the client.
