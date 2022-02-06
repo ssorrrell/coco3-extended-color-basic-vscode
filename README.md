@@ -6,7 +6,11 @@ This extension implements basic language features of Color Computer 3 Super Exte
 
 ## Status
 
-A Language Server using an ANTLR4 generated parser for improved accuracy is under development at [BASICLanguageParser](https://github.com/ssorrrell/BASICLanguageParser).  The status of the parser is that the first grammar, for Color BASIC 1.3 has initially been created and the lexer/parser generated.  The extension has been temporarily modified to load [CXuesong's](https://github.com/CXuesong/LanguageServer.NET) DemoLanguageServer.NET as an example of how to load a language server from a vs code extension.  The next step is to create Language Server for communicating between the IDE and the parser based on the Demo.  And then to pass the editing document to the parser and return results.  This should result in a maximally reusable structure.  The grammars are a useful starting point for other languages like AppleSoft BASIC, Atari, and Commodore.  The parser can be used to create a crunch program or virtual machine.  The language server could be use to make an extension for another IDE besides VSCode.  And the separation is an example of each aspect without them all being in one project solution.
+A Language Server using an ANTLR4 generated parser for improved accuracy is under development at [BASICLanguageParser](https://github.com/ssorrrell/BASICLanguageParser).  The status of the parser is that the first grammar, for Color BASIC 1.3 has initially been created and the lexer/parser generated.  The extension has been temporarily modified to load [CXuesong's](https://github.com/CXuesong/LanguageServer.NET) DemoLanguageServer.NET as an example of how to load a language server from a vs code extension.  An extremely basic Language Server that uses the BASIC Language Parser has been created and does occasionally take the document and parse it.  However, most of the time the Extension doesn't execute the next step after activation and pass the document to the language server (I don't know why).
+
+This should result in a maximally reusable structure.  The grammars are a useful starting point for other languages like AppleSoft BASIC, Atari, and Commodore.  The parser can be used to create a crunch program or virtual machine.  The language server could be use to make an extension for another IDE besides VSCode.  And the separation is an example of each aspect without them all being in one project solution.
+
+Most of the features have been temporarily disconnected to debug issues with the language server.
 
 This extension is still under development, thus the 0 major version.  Currently, the Hover Provider is implemented as are the basic language definition using regex.  It seems to color and identify most things correctly.  Hover text documentation is being polished and expanded.  I think it is basically useable.  I'd like it to do much more; autonumbering, running VCC, crunch, find references, better accuracy for tokens...
 
@@ -15,6 +19,12 @@ There a lot of new technologies here for me; markdown, language parsing, ANTLR4,
 ![screenshot-1](https://github.com/ssorrrell/coco3-extended-color-basic-vscode/raw/master/assets/screenshot-1.png)
 
 ![screencapture-1](https://github.com/ssorrrell/coco3-extended-color-basic-vscode/raw/master/assets/screencap-1.gif)
+
+### Why switch to a Language Server based implementation
+
+This extension was closer to complete before getting derailed on the the Language Server.  The problem is the existing implementation was based almost exclusively on regular expressions.  It slowly became evident that I couldn't get the level of accuracy desired without becoming an expert at regular expressions or develop a BASIC interpreter.  Considering the language is ~140 reserved works and ran in around 32k of memory on an 8-bit CPU I opted for the parser solution.  I find typescript painful.  It makes javascript more useable, but is still full of odd things and is an interpreted language.  I'm most familiar with c#, but to do that seemed to challenging.  I'm not familiar with any Angular npm feature written in anything else but type/java-script.  The Language Server, though a pain to learn yet another technology, seemed the best, most reusable technical solution.  This diagram shows the layout of the related repositories and technologies.
+
+![technology stack](https://github.com/ssorrrell/coco3-extended-color-basic-vscode/raw/master/assets/technology_stack.png)
 
 ## Languages
 
